@@ -56,7 +56,7 @@ body{
   display:none;
 }
 
-/* HOME MENU (FIXED) */
+/* MENU */
 .menu{
   display:grid;
   grid-template-columns:1fr 1fr;
@@ -65,23 +65,18 @@ body{
   margin:20px auto;
 }
 
-/* BUTTON (SMALL FIX) */
+/* BUTTON */
 .btn{
   display:flex;
   justify-content:center;
   align-items:center;
-
   padding:12px;
   border-radius:14px;
-
   background:linear-gradient(135deg,#6366f1,#9333ea);
-
   font-size:14px;
   font-weight:600;
-
   cursor:pointer;
   transition:0.2s;
-
   text-align:center;
 }
 
@@ -89,7 +84,6 @@ body{
   transform:scale(1.03);
 }
 
-/* BIG BUTTON */
 .btn.big{
   grid-column:span 2;
   background:linear-gradient(135deg,#22c55e,#16a34a);
@@ -104,16 +98,29 @@ body{
   line-height:1.5;
 }
 
-/* TOP BACK BUTTON ONLY FOR INNER PAGES */
+/* TOPBAR */
 .topbar{
   max-width:480px;
   margin:10px auto;
 }
 
+/* 🔴 BACK BUTTON (RED SMALL BUTTON) */
 .back{
-  font-size:18px;
+  display:inline-block;
+  font-size:13px;
+  padding:6px 10px;
+  background:red;
+  color:white;
+  border-radius:8px;
   cursor:pointer;
-  opacity:0.8;
+  opacity:0.9;
+}
+
+/* INNER BUTTON FIX */
+.inner-btn{
+  padding:10px;
+  font-size:13px;
+  margin:10px 0;
 }
 
 /* TEXT */
@@ -121,7 +128,7 @@ body{
   line-height:1.6;
 }
 
-/* MOBILE FIX */
+/* MOBILE */
 @media(max-width:600px){
   .menu{
     grid-template-columns:1fr;
@@ -161,7 +168,7 @@ body{
 
 <div class="btn" id="btn1" onclick="tg('@OMAD_TOUR9094')">✈️ Aviabilet</div>
 <div class="btn" id="btn2" onclick="openPage('visa')">🛂 Viza javoblari</div>
-<div class="btn" id="btn3" onclick="window.open('https://t.me/+uJn1nFmpzjoxMGEy')">👥Telegram guruppa</div>
+<div class="btn" id="btn3" onclick="window.open('https://t.me/+uJn1nFmpzjoxMGEy')">👥 Telegram guruhimiz</div>
 <div class="btn" id="btn4" onclick="openPage('support')">📞 Yordam</div>
 <div class="btn" id="btn5" onclick="openPage('anketa')">📝 Anketa</div>
 <div class="btn" id="btn6" onclick="openPage('services')">📄 Xizmatlar</div>
@@ -192,8 +199,8 @@ body{
 <span class="back" onclick="goHome()">←</span>
 </div>
 
-<div class="btn" onclick="window.open('https://visa.mfa.uz/ruxsat/view')">🌐 Tekshirish</div>
-<div class="btn" onclick="window.open('https://t.me/+i8I6ByH_CUVhOWQy')">👥 Konsul</div>
+<div class="btn inner-btn" onclick="window.open('https://visa.mfa.uz/ruxsat/view')">🌐 Tekshirish</div>
+<div class="btn inner-btn" onclick="window.open('https://t.me/+i8I6ByH_CUVhOWQy')">👥 Konsul</div>
 
 </section>
 
@@ -204,8 +211,8 @@ body{
 <span class="back" onclick="goHome()">←</span>
 </div>
 
-<div class="btn" onclick="tg('@AVIAKASSA9094')">📩 Telegram</div>
-<div class="btn" onclick="window.open('https://wa.me/79379499094')">📞 WhatsApp</div>
+<div class="btn inner-btn" onclick="tg('@AVIAKASSA9094')">📩 Telegram</div>
+<div class="btn inner-btn" onclick="window.open('https://wa.me/79379499094')">📞 WhatsApp</div>
 
 </section>
 
@@ -270,7 +277,7 @@ function setLang(lang){
   if(lang === "ru"){
     btn1.innerText="✈️ Билеты";
     btn2.innerText="🛂 Виза";
-    btn3.innerText="👥 Группа";
+    btn3.innerText="👥 Группа телеграм";
     btn4.innerText="📞 Поддержка";
     btn5.innerText="📝 Анкета";
     btn6.innerText="📄 Услуги";
@@ -278,7 +285,7 @@ function setLang(lang){
   }else{
     btn1.innerText="✈️ Aviabilet";
     btn2.innerText="🛂 Viza";
-    btn3.innerText="👥 Telegram";
+    btn3.innerText="👥 Telegram gurhimiz";
     btn4.innerText="📞 Yordam";
     btn5.innerText="📝 Anketa";
     btn6.innerText="📄 Xizmatlar";

@@ -1,11 +1,7 @@
+
 function openPage(id){
   document.querySelectorAll('.page').forEach(p=>p.classList.add('hidden'));
   document.getElementById(id).classList.remove('hidden');
-}
-
-function goHome(){
-  document.querySelectorAll('.page').forEach(p=>p.classList.add('hidden'));
-  document.getElementById('home').classList.remove('hidden');
 }
 
 function tg(user){

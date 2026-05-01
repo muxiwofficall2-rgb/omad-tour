@@ -1,12 +1,138 @@
-
 <!DOCTYPE html>
 <html lang="uz">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Omad Tour</title>
+<title>Omad Tour Servis</title>
 
-<link rel="stylesheet" href="style.css">
+<style>
+body{
+  margin:0;
+  font-family:Arial;
+  background:linear-gradient(135deg,#0f172a,#3b0764);
+  color:white;
+}
+
+/* HEADER */
+.header{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:10px;
+}
+
+.logo{
+  width:45px;
+  height:45px;
+  border-radius:50%;
+  object-fit:cover;
+}
+
+.logoBox{
+  display:flex;
+  align-items:center;
+  gap:10px;
+}
+
+.title span{
+  font-size:20px;
+  font-weight:bold;
+}
+
+.lang button{
+  background:#ffffff20;
+  border:none;
+  color:white;
+  padding:6px 12px;
+  border-radius:10px;
+}
+
+/* PAGES */
+.page{
+  padding:20px;
+}
+
+.hidden{
+  display:none;
+}
+
+/* HOME MENU (FIXED) */
+.menu{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:12px;
+  max-width:480px;
+  margin:20px auto;
+}
+
+/* BUTTON (SMALL FIX) */
+.btn{
+  display:flex;
+  justify-content:center;
+  align-items:center;
+
+  padding:12px;
+  border-radius:14px;
+
+  background:linear-gradient(135deg,#6366f1,#9333ea);
+
+  font-size:14px;
+  font-weight:600;
+
+  cursor:pointer;
+  transition:0.2s;
+
+  text-align:center;
+}
+
+.btn:hover{
+  transform:scale(1.03);
+}
+
+/* BIG BUTTON */
+.btn.big{
+  grid-column:span 2;
+  background:linear-gradient(135deg,#22c55e,#16a34a);
+}
+
+/* ADDRESS */
+.address{
+  margin-top:25px;
+  font-size:12px;
+  opacity:0.7;
+  text-align:center;
+  line-height:1.5;
+}
+
+/* TOP BACK BUTTON ONLY FOR INNER PAGES */
+.topbar{
+  max-width:480px;
+  margin:10px auto;
+}
+
+.back{
+  font-size:18px;
+  cursor:pointer;
+  opacity:0.8;
+}
+
+/* TEXT */
+.text{
+  line-height:1.6;
+}
+
+/* MOBILE FIX */
+@media(max-width:600px){
+  .menu{
+    grid-template-columns:1fr;
+  }
+
+  .btn.big{
+    grid-column:span 1;
+  }
+}
+</style>
+
 </head>
 
 <body>
@@ -14,10 +140,9 @@
 <header class="header">
 
   <div class="logoBox">
-    <img src="logo.png" class="logo">
+    <img src="logo.png">
     <div>
-      <span>Omad Tour</span>
-
+      <span>Omad Tour</span><br>
       <small id="subtitle">Servis</small>
     </div>
   </div>
@@ -34,31 +159,28 @@
 
 <div class="menu">
 
-<div class="btn" onclick="tg('@OMAD_TOUR9094')">✈️ Aviabilet</div>
-<div class="btn" onclick="openPage('visa')">🛂 Viza javoblari</div>
-<div class="btn" onclick="window.open('https://t.me/+uJn1nFmpzjoxMGEy')">👥 Telegram</div>
-<div class="btn" onclick="openPage('support')">📞 Yordam</div>
-<div class="btn" onclick="openPage('anketa')">📝 Anketa</div>
-<div class="btn" onclick="openPage('services')">📄 Xizmatlar</div>
+<div class="btn" id="btn1" onclick="tg('@OMAD_TOUR9094')">✈️ Aviabilet</div>
+<div class="btn" id="btn2" onclick="openPage('visa')">🛂 Viza javoblari</div>
+<div class="btn" id="btn3" onclick="window.open('https://t.me/+uJn1nFmpzjoxMGEy')">👥 Telegram</div>
+<div class="btn" id="btn4" onclick="openPage('support')">📞 Yordam</div>
+<div class="btn" id="btn5" onclick="openPage('anketa')">📝 Anketa</div>
+<div class="btn" id="btn6" onclick="openPage('services')">📄 Xizmatlar</div>
 
 </div>
 
 <div class="address">
-<p>ООО «ОмадТур»
+<p>
+ООО «ОмадТур»<br>
+Санкт-Петербург метро Технологический институт<br>
+4-я Красноармейская дом 3<br>
+домофон 22в
+</p>
 
-С
--Петербург, Технологический институт
-
-4
-расноармейская 3 домафон 22 в</p>
-
-<p>ООО «ОмадТур»
-
-С
--Петербург, Дыбенко
-
-п
-ольшевиков 24к1</p>
+<p>
+ООО «ОмадТур»<br>
+Санкт-Петербург, метро Дыбенко<br>
+пр. Большевиков, 24к1
+</p>
 </div>
 
 </section>
@@ -70,10 +192,8 @@
 <span class="back" onclick="goHome()">← Orqaga</span>
 </div>
 
-<div class="content">
 <div class="btn" onclick="window.open('https://visa.mfa.uz/ruxsat/view')">🌐 Tekshirish</div>
 <div class="btn" onclick="window.open('https://t.me/+i8I6ByH_CUVhOWQy')">👥 Konsul</div>
-</div>
 
 </section>
 
@@ -84,10 +204,8 @@
 <span class="back" onclick="goHome()">← Orqaga</span>
 </div>
 
-<div class="content">
 <div class="btn" onclick="tg('@AVIAKASSA9094')">📩 Telegram</div>
 <div class="btn" onclick="window.open('https://wa.me/79379499094')">📞 WhatsApp</div>
-</div>
 
 </section>
 
@@ -98,13 +216,15 @@
 <span class="back" onclick="goHome()">← Orqaga</span>
 </div>
 
-<div class="content text">
-Zagran Pasport — 1000₽
-  Vatanga qaytish 500₽
-tranzit viza 1000₽
+<div class="text">
+Заграничный паспорт анкета — 1.000 ₽<br>
+Ватанга қайтиш бланкаси — 500 ₽<br>
+Транзит виза анкета — 1.000 ₽
 </div>
 
-<div class="btn big" onclick="tg('@AVIAKASSA9094')">📩 Buyurtma</div>
+<div class="btn big" onclick="tg('@AVIAKASSA9094')">
+📩 Buyurtma berish
+</div>
 
 </section>
 
@@ -115,23 +235,57 @@ tranzit viza 1000₽
 <span class="back" onclick="goHome()">← Orqaga</span>
 </div>
 
-<div class="content text">
+<div class="text">
+КСЕРОКОПИЯ<br>
+Чёрно-белый: 35₽ / 50₽<br>
+Цветной: 50₽ / 100₽<br><br>
 
-КСЕРОКОПИЯ
- Чёрно — Беылй 35 Руб Двухстаронная 50 Руб
-Копия Цветная 50 Руб Двухстаронная 100 Руб
-Скан Документов ( лист) 50 Руб
-ФОТО
- Фото 3×4 фомат 400 Руб
-Фото Электронная 250 Руб
-Фото 2×3 формат 400 Руб
+ФОТО<br>
+3×4 — 400₽<br>
+2×3 — 400₽
 </div>
 
-<div class="btn big" onclick="tg('@AVIAKASSA9094')">📩 Buyurtma</div>
+<div class="btn big" onclick="tg('@AVIAKASSA9094')">
+📩 Buyurtma
+</div>
 
 </section>
 
-<script src="script.js"></script>
+<script>
+function openPage(id){
+  document.querySelectorAll('.page').forEach(p=>p.classList.add('hidden'));
+  document.getElementById(id).classList.remove('hidden');
+}
+
+function goHome(){
+  document.querySelectorAll('.page').forEach(p=>p.classList.add('hidden'));
+  document.getElementById('home').classList.remove('hidden');
+}
+
+function tg(user){
+  window.open("https://t.me/" + user.replace("@",""));
+}
+
+function setLang(lang){
+  if(lang === "ru"){
+    btn1.innerText="✈️ Билеты";
+    btn2.innerText="🛂 Виза";
+    btn3.innerText="👥 Группа";
+    btn4.innerText="📞 Поддержка";
+    btn5.innerText="📝 Анкета";
+    btn6.innerText="📄 Услуги";
+    subtitle.innerText="Сервис";
+  }else{
+    btn1.innerText="✈️ Aviabilet";
+    btn2.innerText="🛂 Viza";
+    btn3.innerText="👥 Telegram";
+    btn4.innerText="📞 Yordam";
+    btn5.innerText="📝 Anketa";
+    btn6.innerText="📄 Xizmatlar";
+    subtitle.innerText="Servis";
+  }
+}
+</script>
 
 </body>
 </html>

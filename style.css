@@ -40,15 +40,16 @@ body{
   border-radius:10px;
 }
 
-/* 🔥 MENU 2 USTUN */
+/* MENU 2 USTUN */
 .menu{
   display:grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap:15px;
+  grid-template-columns:repeat(2,1fr);
+  gap:18px;
 
   max-width:520px;
   margin:20px auto;
-  padding:10px;
+
+  margin-bottom:30px; /* ADDRESS bilan masofa */
 }
 
 /* BUTTON */
@@ -62,6 +63,7 @@ body{
   padding:15px;
 
   border-radius:18px;
+
   background:linear-gradient(135deg,#6366f1,#9333ea);
 
   font-size:16px;
@@ -74,17 +76,33 @@ body{
 }
 
 .btn:hover{
-  transform:scale(1.05);
+  transform:scale(1.04);
 }
 
 .btn::after{
   content:"➜";
 }
 
-/* FULL WIDTH BUTTON */
+/* BIG BUTTON */
 .btn.big{
-  grid-column: span 2;
+  grid-column:span 2;
   background:linear-gradient(135deg,#22c55e,#16a34a);
+}
+
+/* ADDRESS */
+.address{
+  max-width:520px;
+  margin:40px auto 20px auto;
+
+  padding:15px;
+
+  font-size:13px;
+  line-height:1.6;
+  opacity:0.8;
+
+  text-align:center;
+
+  border-top:1px solid rgba(255,255,255,0.15);
 }
 
 /* PAGE */
@@ -98,18 +116,18 @@ body{
 
 /* TEXT */
 .text{
-  max-width:500px;
+  max-width:520px;
   margin:auto;
   line-height:1.6;
 }
 
 /* 📱 MOBILE */
-max-width:600px{
+@media(max-width:600px){
   .menu{
     grid-template-columns:1fr;
   }
 
   .btn.big{
-    grid-column: span 1;
+    grid-column:span 1;
   }
 }

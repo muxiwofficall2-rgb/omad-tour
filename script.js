@@ -1,4 +1,3 @@
-
 function openPage(id){
   document.querySelectorAll('.page').forEach(p=>p.classList.add('hidden'));
   document.getElementById(id).classList.remove('hidden');
@@ -15,8 +14,8 @@ function tg(user){
 
 function setLang(lang){
   if(lang === "ru"){
-    btn1.innerText="✈️ Бронирование";
-    btn2.innerText="🛂 Виза ответы";
+    btn1.innerText="✈️ Билеты";
+    btn2.innerText="🛂 Виза";
     btn3.innerText="👥 Группа";
     btn4.innerText="📞 Поддержка";
     btn5.innerText="📝 Анкета";
@@ -28,7 +27,7 @@ function setLang(lang){
     btn3.innerText="👥 Telegram";
     btn4.innerText="📞 Yordam";
     btn5.innerText="📝 Anketa";
-    btn6.innerText="📄 Uslugalar";
+    btn6.innerText="📄 Xizmatlar";
     subtitle.innerText="Servis";
   }
 }

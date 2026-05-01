@@ -15,7 +15,10 @@ body{
 }
 
 .logo{
-  width:45px;
+  width:55px;
+  height:55px;
+  border-radius:50%;
+  object-fit:cover;
 }
 
 .logoBox{
@@ -37,13 +40,15 @@ body{
   border-radius:10px;
 }
 
-/* MENU */
+/* 🔥 MENU 2 USTUN */
 .menu{
-  display:flex;
-  flex-direction:column;
+  display:grid;
+  grid-template-columns: repeat(2, 1fr);
   gap:15px;
-  max-width:420px;
+
+  max-width:520px;
   margin:20px auto;
+  padding:10px;
 }
 
 /* BUTTON */
@@ -53,34 +58,33 @@ body{
   align-items:center;
 
   width:100%;
-  min-height:65px;
-  padding:18px;
+  min-height:70px;
+  padding:15px;
 
   border-radius:18px;
-
   background:linear-gradient(135deg,#6366f1,#9333ea);
 
-  font-size:18px;
+  font-size:16px;
   font-weight:700;
 
-  box-shadow:0 12px 25px rgba(0,0,0,0.35);
+  box-shadow:0 10px 20px rgba(0,0,0,0.35);
 
   cursor:pointer;
   transition:0.2s;
 }
 
 .btn:hover{
-  transform:scale(1.03);
+  transform:scale(1.05);
 }
 
 .btn::after{
   content:"➜";
 }
 
-/* BIG BUTTON */
+/* FULL WIDTH BUTTON */
 .btn.big{
+  grid-column: span 2;
   background:linear-gradient(135deg,#22c55e,#16a34a);
-  margin-top:20px;
 }
 
 /* PAGE */
@@ -94,7 +98,18 @@ body{
 
 /* TEXT */
 .text{
-  line-height:1.8;
-  max-width:420px;
+  max-width:500px;
   margin:auto;
+  line-height:1.6;
+}
+
+/* 📱 MOBILE */
+max-width:600px{
+  .menu{
+    grid-template-columns:1fr;
+  }
+
+  .btn.big{
+    grid-column: span 1;
+  }
 }

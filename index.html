@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Omad Tour Servis</title>
+
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<header class="header">
+  <div class="back" onclick="goHome()">←</div>
+
+  <div class="logoBox">
+    <img src="logo.png" class="logo">
+    <div class="title">
+      <span>Omad Tour</span>
+      <small id="subtitle">Servis</small>
+    </div>
+  </div>
+
+  <div class="lang">
+    <button onclick="setLang('uz')">UZ</button>
+    <button onclick="setLang('ru')">RU</button>
+  </div>
+</header>
+
+<section id="home" class="page">
+
+<div class="menu">
+
+<div class="btn" id="btn1" onclick="tg('@OMAD_TOUR9094')">
+✈️ Aviabilet bron qilish
+</div>
+
+<div class="btn" id="btn2" onclick="openPage('visa')">
+🛂 Viza javoblari
+</div>
+
+<div class="btn" id="btn3" onclick="window.open('https://t.me/+uJn1nFmpzjoxMGEy')">
+👥 Telegram guruh
+</div>
+
+<div class="btn" id="btn4" onclick="openPage('support')">
+📞 Yordam / Поддержка
+</div>
+
+<div class="btn" id="btn5" onclick="openPage('anketa')">
+📝 Anketa
+</div>
+
+<div class="btn" id="btn6" onclick="openPage('services')">
+📄 Uslugyalarimiz
+</div>
+
+</div>
+
+</section>
+
+<section id="visa" class="page hidden">
+<div class="btn" onclick="window.open('https://visa.mfa.uz/ruxsat/view')">🌐 Tekshirish</div>
+<div class="btn" onclick="window.open('https://t.me/+i8I6ByH_CUVhOWQy')">👥 Konsul guruhi</div>
+</section>
+
+<section id="support" class="page hidden">
+<div class="btn" onclick="tg('@AVIAKASSA9094')">📩 Telegram</div>
+<div class="btn" onclick="window.open('https://wa.me/79379499094')">📞 WhatsApp</div>
+</section>
+
+<section id="anketa" class="page hidden">
+<div class="text">
+Pasport — 1000₽
+
+Viza 
+0₽
+</div>
+
+<div class="btn big" onclick="tg('@AVIAKASSA9094')">
+📩 Buyurtma
+</div>
+</section>
+
+<section id="services" class="page hidden">
+<div class="text">
+Xizmatlar: kserokopiya, foto, scan
+</div>
+
+<div class="btn big" onclick="tg('@AVIAKASSA9094')">
+📩 Buyurtma
+</div>
+</section>
+
+<script src="script.js"></script>
+
+</body>
+</html>

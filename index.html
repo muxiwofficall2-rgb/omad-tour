@@ -4,7 +4,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Omad Tour Servis</title>
+<title>Omad Tour</title>
 
 <link rel="stylesheet" href="style.css">
 </head>
@@ -15,8 +15,9 @@
 
   <div class="logoBox">
     <img src="logo.png" class="logo">
-    <div class="title">
+    <div>
       <span>Omad Tour</span>
+
       <small id="subtitle">Servis</small>
     </div>
   </div>
@@ -33,96 +34,101 @@
 
 <div class="menu">
 
-<div class="btn" id="btn1" onclick="tg('@OMAD_TOUR9094')">
-✈️ Aviabilet bron qilish
-</div>
-
-<div class="btn" id="btn2" onclick="openPage('visa')">
-🛂 Viza javoblari
-</div>
-
-<div class="btn" id="btn3" onclick="window.open('https://t.me/+uJn1nFmpzjoxMGEy')">
-👥 Telegram guruh
-</div>
-
-<div class="btn" id="btn4" onclick="openPage('support')">
-📞 Yordam / Поддержка
-</div>
-
-<div class="btn" id="btn5" onclick="openPage('anketa')">
-📝 Anketa
-</div>
-
-<div class="btn" id="btn6" onclick="openPage('services')">
-📄 Xizmatlar
-</div>
+<div class="btn" onclick="tg('@OMAD_TOUR9094')">✈️ Aviabilet</div>
+<div class="btn" onclick="openPage('visa')">🛂 Viza javoblari</div>
+<div class="btn" onclick="window.open('https://t.me/+uJn1nFmpzjoxMGEy')">👥 Telegram</div>
+<div class="btn" onclick="openPage('support')">📞 Yordam</div>
+<div class="btn" onclick="openPage('anketa')">📝 Anketa</div>
+<div class="btn" onclick="openPage('services')">📄 Xizmatlar</div>
 
 </div>
 
-<!-- ADDRESS -->
 <div class="address">
-
-<p>
-ООО «ОмадТур»
+<p>ООО «ОмадТур»
 
 С
--Петербург метро Технологический институт
+-Петербург, Технологический институт
 
 4
-расноармейская дом 3
+расноармейская 3 домафон 22 в</p>
 
-д
-он 22в
-</p>
-
-ООО «ОмадТур»
+<p>ООО «ОмадТур»
 
 С
--Петербург, метро Дыбенко
+-Петербург, Дыбенко
 
 п
-ольшевиков, 24к1
-</p>
-
+ольшевиков 24к1</p>
 </div>
 
 </section>
 
 <!-- VISA -->
 <section id="visa" class="page hidden">
+
+<div class="topbar">
+<span class="back" onclick="goHome()">← Orqaga</span>
+</div>
+
+<div class="content">
 <div class="btn" onclick="window.open('https://visa.mfa.uz/ruxsat/view')">🌐 Tekshirish</div>
-<div class="btn" onclick="window.open('https://t.me/+i8I6ByH_CUVhOWQy')">👥 Konsul guruhi</div>
+<div class="btn" onclick="window.open('https://t.me/+i8I6ByH_CUVhOWQy')">👥 Konsul</div>
+</div>
+
 </section>
 
 <!-- SUPPORT -->
 <section id="support" class="page hidden">
+
+<div class="topbar">
+<span class="back" onclick="goHome()">← Orqaga</span>
+</div>
+
+<div class="content">
 <div class="btn" onclick="tg('@AVIAKASSA9094')">📩 Telegram</div>
 <div class="btn" onclick="window.open('https://wa.me/79379499094')">📞 WhatsApp</div>
+</div>
+
 </section>
 
 <!-- ANKETA -->
 <section id="anketa" class="page hidden">
-<div class="text">
-Pasport — 1000₽
 
-Viza 
-0₽
+<div class="topbar">
+<span class="back" onclick="goHome()">← Orqaga</span>
 </div>
 
-<div class="btn big" onclick="tg('@AVIAKASSA9094')">
-📩 Buyurtma
+<div class="content text">
+Zagran Pasport — 1000₽
+  Vatanga qaytish 500₽
+tranzit viza 1000₽
 </div>
+
+<div class="btn big" onclick="tg('@AVIAKASSA9094')">📩 Buyurtma</div>
+
 </section>
 
 <!-- SERVICES -->
 <section id="services" class="page hidden">
-<div class="text">
-Kserokopiya, foto, scan
+
+<div class="topbar">
+<span class="back" onclick="goHome()">← Orqaga</span>
 </div>
 
-<div class="btn big" onclick="tg('@AVIAKASSA9094')">
-📩 Buyurtma
+<div class="content text">
+
+КСЕРОКОПИЯ
+ Чёрно — Беылй 35 Руб Двухстаронная 50 Руб
+Копия Цветная 50 Руб Двухстаронная 100 Руб
+Скан Документов ( лист) 50 Руб
+ФОТО
+ Фото 3×4 фомат 400 Руб
+Фото Электронная 250 Руб
+Фото 2×3 формат 400 Руб
 </div>
+
+<div class="btn big" onclick="tg('@AVIAKASSA9094')">📩 Buyurtma</div>
+
 </section>
 
 <script src="script.js"></script>

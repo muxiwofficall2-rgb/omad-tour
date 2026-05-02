@@ -376,3 +376,182 @@ avia3.innerText="💰 Whatsapp guruh";
 
 </body>
 </html>
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Omad Tour</title>
+
+<style>
+body{
+margin:0;
+font-family:Arial;
+background:#0f172a;
+color:white;
+}
+
+.header{
+display:flex;
+justify-content:space-between;
+padding:10px;
+background:#111827;
+}
+
+.page{display:none;padding:20px;}
+.active{display:block}
+
+.btn{
+padding:10px;
+background:#6366f1;
+border-radius:10px;
+margin:5px;
+cursor:pointer;
+display:inline-block;
+}
+
+.card{
+background:#1e293b;
+padding:10px;
+margin:10px 0;
+border-radius:10px;
+}
+
+input{
+display:block;
+margin:5px 0;
+padding:8px;
+width:100%;
+}
+
+#bell{
+cursor:pointer;
+font-size:20px;
+}
+
+.badge{
+background:red;
+border-radius:50%;
+padding:2px 6px;
+font-size:12px;
+margin-left:5px;
+}
+</style>
+</head>
+
+<body>
+
+<!-- HEADER -->
+<div class="header">
+<div>вњ€пёЏ Omad Tour</div>
+
+<div onclick="openAdmin()">
+рџ”” <span class="badge" id="count">0</span>
+</div>
+</div>
+
+<!-- HOME -->
+<div id="home" class="page active">
+
+<h3>вњ€пёЏ Buyurtma</h3>
+
+<input id="name" placeholder="Ism">
+<input id="phone" placeholder="Telefon">
+<input id="msg" placeholder="Xabar">
+
+<div class="btn" onclick="send()">Yuborish</div>
+
+</div>
+
+<!-- ADMIN -->
+<div id="admin" class="page">
+
+<h3>рџ”ђ Admin Panel</h3>
+
+<input id="pass" type="password" placeholder="Parol">
+<div class="btn" onclick="login()">Kirish</div>
+
+<div id="panel" style="display:none">
+
+<h3>рџ“Ґ Xabarlar</h3>
+<div id="list"></div>
+
+</div>
+
+</div>
+
+<script>
+
+let notif = JSON.parse(localStorage.getItem("notif")||"[]");
+
+// рџ”Ґ SEND
+function send(){
+
+notif.push({
+name:name.value,
+phone:phone.value,
+msg:msg.value,
+time:new Date().toLocaleString(),
+read:false
+});
+
+localStorage.setItem("notif",JSON.stringify(notif));
+
+update();
+alert("Yuborildi!");
+}
+
+// рџ”” COUNT
+function update(){
+let c = notif.filter(n=>!n.read).length;
+count.innerText = c;
+}
+update();
+
+// рџ”ђ OPEN ADMIN
+function openAdmin(){
+document.querySelectorAll(".page").forEach(p=>p.classList.remove("active"));
+admin.classList.add("active");
+home.classList.remove("active");
+}
+
+// рџ”‘ LOGIN
+function login(){
+if(pass.value==="1234"){
+panel.style.display="block";
+load();
+}else{
+alert("Xato parol");
+}
+}
+
+// рџ“Ґ LOAD
+function load(){
+let html="";
+notif.forEach((n,i)=>{
+html+=`
+<div class="card">
+<b>${n.name}</b><br>
+рџ“ћ ${n.phone}<br>
+рџ’¬ ${n.msg}<br>
+<small>${n.time}</small><br>
+<div class="btn" onclick="del(${i})">вќЊ OвЂchirish</div>
+</div>
+`;
+});
+
+list.innerHTML=html;
+}
+
+// вќЊ DELETE
+function del(i){
+notif.splice(i,1);
+localStorage.setItem("notif",JSON.stringify(notif));
+load();
+update();
+}
+
+</script>
+
+</body>
+</html>

@@ -295,17 +295,44 @@ window.open("https://t.me/" + user.replace("@",""));
 }
 
 function setLang(lang){
+
+// DOM ELEMENTLARNI TO‘G‘RI OLISH
+const btn1 = document.getElementById("btn1");
+const btn2 = document.getElementById("btn2");
+const btn3 = document.getElementById("btn3");
+const btn4 = document.getElementById("btn4");
+const btn5 = document.getElementById("btn5");
+const btn6 = document.getElementById("btn6");
+const subtitle = document.getElementById("subtitle");
+
+const visa1 = document.getElementById("visa1");
+const visa2 = document.getElementById("visa2");
+
+const sup1 = document.getElementById("sup1");
+const sup2 = document.getElementById("sup2");
+
+const call1 = document.getElementById("call1");
+const call2 = document.getElementById("call2");
+
+const avia1 = document.getElementById("avia1");
+const avia2 = document.getElementById("avia2");
+const avia3 = document.getElementById("avia3");
+
+// SAFETY CHECK
+if(!btn1 || !visa1) return;
+
 if(lang==="ru"){
+
 btn1.innerText="✈️ Авиа Билеты";
 btn2.innerText="🛂 Ответ на Визу";
-btn3.innerText="👥 телеграмм Группа";
+btn3.innerText="👥 Телеграмм Группа";
 btn4.innerText="📞 Поддержка";
 btn5.innerText="📝 Анкета";
 btn6.innerText="📄 Услуги";
 subtitle.innerText="Сервис";
 
-visa1.innerText="🌐 Проверить виза";
-visa2.innerText="👥 Группа консула в телеграм";
+visa1.innerText="🌐 Проверить визу";
+visa2.innerText="👥 Группа консула";
 
 sup1.innerText="📩 Telegram";
 sup2.innerText="📞 WhatsApp";
@@ -313,26 +340,34 @@ sup2.innerText="📞 WhatsApp";
 call1.innerText="📞 Связь: +7 981 193 90 94";
 call2.innerText="📞 Связь: +7 937 949 90 94";
 
+// AVIA
+avia1.innerText="🚀 MAX";
+avia2.innerText="📞 WhatsApp";
+avia3.innerText="💰 Цена билета / группа";
+
 }else{
+
 btn1.innerText="✈️ Aviabilet";
 btn2.innerText="🛂 Viza";
 btn3.innerText="👥 Telegram guruh";
 btn4.innerText="📞 Yordam";
 btn5.innerText="📝 Anketa";
 btn6.innerText="📄 Xizmatlar";
-subtitle.innerText="Xizamatlar";
+subtitle.innerText="Servis";
 
 visa1.innerText="🌐 Tekshirish";
-visa2.innerText="👥 Konsul Telegram Guruhi";
+visa2.innerText="👥 Konsul Telegram";
 
 sup1.innerText="📩 Telegram";
 sup2.innerText="📞 WhatsApp";
 
 call1.innerText="📞 Aloqa: +7 981 193 90 94";
 call2.innerText="📞 Aloqa: +7 937 949 90 94";
-}
-}
-</script>
 
-</body>
-</html>
+// AVIA
+avia1.innerText="🚀 MAX";
+avia2.innerText="📞 WhatsApp";
+avia3.innerText="💰 Aviabilet narxi / guruh";
+
+}
+}

@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="uz">
 <head>
@@ -19,13 +20,6 @@ body{
   justify-content:space-between;
   align-items:center;
   padding:10px;
-}
-
-.logo{
-  width:45px;
-  height:45px;
-  border-radius:50%;
-  object-fit:cover;
 }
 
 .logoBox{
@@ -66,20 +60,9 @@ body{
   font-size:14px;
   font-weight:600;
   cursor:pointer;
-  transition:0.2s;
-  text-align:center;
 }
 
-.btn:hover{
-  transform:scale(1.03);
-}
-
-.btn.big{
-  grid-column:span 2;
-  background:linear-gradient(135deg,#22c55e,#16a34a);
-}
-
-/* 📞 CALL BUTTON */
+/* CALL BUTTON */
 .call-btn{
   display:block;
   text-align:center;
@@ -100,21 +83,17 @@ body{
   text-align:center;
 }
 
-/* TOPBAR */
-.topbar{
-  max-width:480px;
-  margin:10px auto;
-}
-
-/* 🔴 BACK BUTTON (ICON ONLY) */
+/* 🔴 BACK BUTTON (TUZATILGAN) */
 .back{
-  display:inline-block;
-  width:30px;
-  height:30px;
+  width:34px;
+  height:34px;
   background:red;
   border-radius:8px;
   cursor:pointer;
-  position:relative;
+  position:fixed;
+  top:20px;
+  left:10px;
+  z-index:999;
 }
 
 .back::before{
@@ -124,7 +103,7 @@ body{
   left:50%;
   transform:translate(-50%,-50%);
   color:white;
-  font-size:14px;
+  font-size:16px;
 }
 
 /* INNER BUTTON */
@@ -134,13 +113,8 @@ body{
   margin:10px 0;
 }
 
-/* bottom spacing (FIX) */
 .bottom-btn{
   margin-top:40px;
-}
-
-.text{
-  line-height:1.6;
 }
 </style>
 
@@ -148,18 +122,19 @@ body{
 
 <body>
 
+<!-- HEADER -->
 <header class="header">
 <div class="logoBox">
-<img src="OneDrive/%D0%A0%D0%B0%D0%B1%D0%BE%D1%87%D0%B8%D0%B9%20%D1%81%D1%82%D0%BE%D0%BB/foto/sss%20png.png">
+<img src="OneDrive/Рабочий стол/foto/sss png.png" width="45">
 <div>
-<span>Omad Tour</span><br>
-<small id="subtitle">Servis</small>
+<span>Omad Tour</span><
+<small>Servis</small>
 </div>
 </div>
 
-<div class="lang">
-<button onclick="setLang('uz')">UZ🇺🇿</button>
-<button onclick="setLang('ru')">RU🇷🇺</button>
+<div>
+<button>UZ🇺🇿</button>
+<button>RU🇷🇺</button>
 </div>
 </header>
 
@@ -167,85 +142,78 @@ body{
 <section id="home" class="page">
 
 <div class="menu">
-<div class="btn" id="btn1" onclick="tg('@OMAD_TOUR9094')">✈️ Avia bilet</div>
-<div class="btn" id="btn2" onclick="openPage('visa')">🛂 Viza javoblari</div>
-<div class="btn" id="btn3" onclick="window.open('https://t.me/+uJn1nFmpzjoxMGEy')">👥 Telegram guruhimiz</div>
-<div class="btn" id="btn4" onclick="openPage('support')">📞 Yordam</div>
-<div class="btn" id="btn5" onclick="openPage('anketa')">📝 Anketa</div>
-<div class="btn" id="btn6" onclick="openPage('services')">📄 Xizmatlar</div>
+<div class="btn" onclick="openPage('avia')">✈️ Avia bilet</div>
+<div class="btn" onclick="openPage('visa')">🛂 Viza javoblari</div>
+<div class="btn" onclick="window.open('https://t.me/+uJn1nFmpzjoxMGEy')">👥 Telegram</div>
+<div class="btn" onclick="openPage('support')">📞 Yordam</div>
+<div class="btn" onclick="openPage('anketa')">📝 Anketa</div>
+<div class="btn" onclick="openPage('services')">📄 Xizmatlar</div>
 </div>
 
-<!-- 📍 ADDRESS (QAYTDI) -->
 <div class="address">
-<p>
-ООО «ОмадТур»<br>
-Санкт-Петербург метро Технологический институт<br>
-4-я Красноармейская дом 3<br>
-домофон 22в
-</p>
-
-<p>
-ООО «ОмадТур»<br>
-Санкт-Петербург, метро Дыбенко<br>
-пр. Большевиков, 24к1
-</p>
+<p>OOO Omad Tour</p>
 </div>
 
-<!-- 📞 PHONE -->
 <div class="bottom-btn">
-<a href="tel:+79811939094" class="call-btn" id="call1">
-📞 Aloqa: +7 981 193 90 94
-</a>
+<a href="tel:+79811939094" class="call-btn">📞 Aloqa</a>
+</div>
 
-<a href="tel:+79379499094" class="call-btn" id="call2">
-📞 Aloqa: +7 937 949 90 94
-</a>
+</section>
+
+<!-- ✈️ AVIA BILET -->
+<section id="avia" class="page hidden">
+
+<span class="back" onclick="goHome()"></span>
+
+<div class="btn inner-btn" onclick="window.open('https://max.ru/u/f9LHodD0cOLLpEmAWC_I3iUUWcn5IO6DFYg0IVz4jEXfm6BJP6OL-L7V0jk')">
+🚀 MAX
+</div>
+
+<div class="btn inner-btn" onclick="window.open('https://wa.me/79811939094')">
+📞 WhatsApp
+</div>
+
+<div class="btn inner-btn" onclick="window.open('https://chat.whatsapp.com/KgnvfhpMYso6lSX3kbNd4l?mode=gi_t')">
+💰 Aviabilet narxi / guruh
 </div>
 
 </section>
 
 <!-- VISA -->
 <section id="visa" class="page hidden">
-<div class="topbar">
 <span class="back" onclick="goHome()"></span>
+
+<div class="btn inner-btn" onclick="window.open('https://visa.mfa.uz/ruxsat/view')">
+🌐 Vizani Tekshirish
 </div>
 
-<div class="btn inner-btn" id="visa1" onclick="window.open('https://visa.mfa.uz/ruxsat/view')">🌐 Vizani Tekshirish</div>
-<div class="btn inner-btn" id="visa2" onclick="window.open('https://t.me/+i8I6ByH_CUVhOWQy')">👥 Konsulstvani telegram guruhi</div>
+<div class="btn inner-btn" onclick="window.open('https://t.me/+i8I6ByH_CUVhOWQy')">
+👥 Telegram
+</div>
 </section>
 
 <!-- SUPPORT -->
 <section id="support" class="page hidden">
-<div class="topbar">
 <span class="back" onclick="goHome()"></span>
+
+<div class="btn inner-btn" onclick="window.open('https://t.me/AVIAKASSA9094')">
+📩 Telegram
 </div>
 
-<div class="btn inner-btn" id="sup1" onclick="tg('@AVIAKASSA9094')">📩 Telegram</div>
-<div class="btn inner-btn" id="sup2" onclick="window.open('https://wa.me/79379499094')">📞 WhatsApp</div>
+<div class="btn inner-btn" onclick="window.open('https://wa.me/79379499094')">
+📞 WhatsApp
+</div>
 </section>
 
 <!-- ANKETA -->
 <section id="anketa" class="page hidden">
-<div class="topbar">
 <span class="back" onclick="goHome()"></span>
-</div>
-
-<div class="text">
-Заграничный паспорт анкета — 1.000 ₽<br>
-Ватанга қайтиш бланкаси — 500 ₽
-Транзитная Анкета 1.000 ₽
-</div>
-
-<div class="btn big bottom-btn" onclick="tg('@AVIAKASSA9094')">
-📩 Buyurtma berish
-</div>
 </section>
 
 <!-- SERVICES -->
 <section id="services" class="page hidden">
-<div class="topbar">
 <span class="back" onclick="goHome()"></span>
-</div>
+</section>
 
 <div class="text">
 <br>КСЕРОКОПИЯ Чёрно — Беылй 35 Руб

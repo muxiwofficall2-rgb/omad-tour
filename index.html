@@ -173,7 +173,6 @@ body{
 <div class="btn" id="btn4" onclick="openPage('support')">📞 Yordam</div>
 <div class="btn" id="btn5" onclick="openPage('anketa')">📝 Anketa</div>
 <div class="btn" id="btn6" onclick="openPage('services')">📄 Xizmatlar</div>
-<DIV class="btn" id="btn7" onclick="openPage('murojat')">murojat uchun</div>
 </div>
 
 <!-- 📍 ADDRESS (QAYTDI) -->
@@ -280,49 +279,6 @@ body{
 </div>
 </section>
 
-<!-- 🔥 YANGI PAGE -->
-
-<section id="murojat" class="page hidden">
-<span class="back" onclick="goHome()"></span>
-<h3>📩 Tez bog‘lanish</h3>
-
-<input id="o_name" placeholder="Ismingiz">
-
-<input id="o_phone" placeholder="Telefon">
-
-<textarea id="o_msg" placeholder="Xabar"></textarea>
-
-<div class="btn big" onclick="sendOrder()">Yuborish</div>
-
-</section>
-
-<script>
-
-function openPage(id){
-
-document.querySelectorAll('.page').forEach(p=>p.classList.add('hidden'));
-
-document.getElementById(id).classList.remove('hidden');
-
-}
-
-function goHome(){
-
-document.querySelectorAll('.page').forEach(p=>p.classList.add('hidden'));
-
-document.getElementById('home').classList.remove('hidden');
-
-}
-
-// 🔥 YANGI FUNKSIYA
-
-function sendmurojat(){
-let name = document.getElementById("o_name").value;
-let phone = document.getElementById("o_phone").value;
-let msg = document.getElementById("o_msg").value;
-
-alert("Yuborildi:\n"+name+"\n"+phone+"\n"+msg);
-
 <script>
 function openPage(id){
 document.querySelectorAll('.page').forEach(p=>p.classList.add('hidden'));
@@ -420,4 +376,3 @@ avia3.innerText="💰 Whatsapp guruh";
 
 </body>
 </html>
-

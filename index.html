@@ -280,6 +280,54 @@ body{
 </div>
 </section>
 
+<!-- 🔥 YANGI PAGE -->
+
+<section id="order" class="page hidden">
+
+<span class="back" onclick="goHome()"></span>
+
+<h3>📩 Tez bog‘lanish</h3>
+
+<input id="o_name" placeholder="Ismingiz">
+
+<input id="o_phone" placeholder="Telefon">
+
+<textarea id="o_msg" placeholder="Xabar"></textarea>
+
+<div class="btn big" onclick="sendOrder()">Yuborish</div>
+
+</section>
+
+<script>
+
+function openPage(id){
+
+document.querySelectorAll('.page').forEach(p=>p.classList.add('hidden'));
+
+document.getElementById(id).classList.remove('hidden');
+
+}
+
+function goHome(){
+
+document.querySelectorAll('.page').forEach(p=>p.classList.add('hidden'));
+
+document.getElementById('home').classList.remove('hidden');
+
+}
+
+// 🔥 YANGI FUNKSIYA
+
+function sendOrder(){
+
+let name = document.getElementById("o_name").value;
+
+let phone = document.getElementById("o_phone").value;
+
+let msg = document.getElementById("o_msg").value;
+
+alert("Yuborildi:\n"+name+"\n"+phone+"\n"+msg);
+
 <script>
 function openPage(id){
 document.querySelectorAll('.page').forEach(p=>p.classList.add('hidden'));

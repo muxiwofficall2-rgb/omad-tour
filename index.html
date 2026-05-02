@@ -28,9 +28,32 @@ body{
   margin-bottom:20px;
 }
 
+.logoBox{
+  display:flex;
+  align-items:center;
+  gap:10px;
+}
+
+.logo{
+  width:40px;
+  height:40px;
+  border-radius:50%;
+  object-fit:cover;
+}
+
 .title{
-  font-size:22px;
-  font-weight:700;
+  font-size:18px;
+  font-weight:600;
+}
+
+/* BACK BUTTON */
+.back-btn{
+  display:inline-block;
+  padding:8px 12px;
+  background:#1f2937;
+  border-radius:10px;
+  cursor:pointer;
+  margin-bottom:10px;
 }
 
 /* CARD */
@@ -40,18 +63,6 @@ body{
   padding:16px;
   margin-bottom:12px;
   border:1px solid #1f2937;
-}
-
-/* TOP PROFILE */
-.profile{
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-}
-
-.balance{
-  font-size:22px;
-  font-weight:bold;
 }
 
 /* BUTTON */
@@ -75,16 +86,24 @@ body{
   margin-top:10px;
 }
 
+/* TEXT */
+.text{
+  line-height:1.6;
+  opacity:0.9;
+  margin-top:10px;
+}
+
+/* ADDRESS */
+.address{
+  margin-top:20px;
+  font-size:13px;
+  opacity:0.8;
+  line-height:1.5;
+}
+
 /* PAGE */
 .page{display:none;}
 .active{display:block;}
-
-.back{
-  margin-bottom:10px;
-  cursor:pointer;
-  color:#9ca3af;
-}
-
 </style>
 </head>
 
@@ -96,50 +115,53 @@ body{
 <div id="home" class="page active">
 
 <div class="header">
-<div class="title">Omad Tour</div>
-<div>
-<button onclick="setLang('uz')">🇺🇿</button>
-<button onclick="setLang('ru')">🇷🇺</button>
-</div>
-</div>
-
-<!-- PROFILE STYLE -->
-<div class="card">
-  <div class="profile">
-    <div>
-      <div class="balance">Xizmatlar</div>
-      <small>Omad Tour servis</small>
-    </div>
+  <div class="logoBox">
+    <!-- LOGO: shu yerga logo.png qo‘y -->
+    <img src="logo.png" class="logo">
+    <div class="title">Omad Tour</div>
   </div>
 
-  <div class="btn" onclick="openPage('avia')">
+  <div>
+    <button onclick="setLang('uz')">🇺🇿</button>
+    <button onclick="setLang('ru')">🇷🇺</button>
+  </div>
+</div>
+
+<div class="card">
+  <div class="btn" onclick="openPage('avia')" id="aviaBtn">
     ✈️ Avia bilet bron qilish
   </div>
 </div>
 
-<!-- TASKS -->
 <div class="card">
-  <h3>Xizmatlar</h3>
 
-  <div class="task" onclick="openPage('visa')">
-    <span>🛂 Viza javoblari</span>
-    <span>→</span>
+  <div class="task" onclick="openPage('visa')" id="visaBtn">
+    <span>🛂 Viza javoblari</span><span>→</span>
   </div>
 
-  <div class="task" onclick="window.open('https://t.me/+uJn1nFmpzjoxMGEy')">
-    <span>👥 Telegram guruh</span>
-    <span>→</span>
+  <div class="task" onclick="window.open('https://t.me/+uJn1nFmpzjoxMGEy')" id="groupBtn">
+    <span>👥 Telegram guruh</span><span>→</span>
   </div>
 
-  <div class="task" onclick="openPage('anketa')">
-    <span>📝 Anketa xizmatlari</span>
-    <span>→</span>
+  <div class="task" onclick="openPage('anketa')" id="anketaBtn">
+    <span>📝 Anketa xizmatlari</span><span>→</span>
   </div>
 
-  <div class="task" onclick="openPage('support')">
-    <span>📞 Call center</span>
-    <span>→</span>
-  </div>
+</div>
+
+<!-- 📍 ADRES (DOIM RUSCHA) -->
+<div class="address">
+
+ООО «ОмадТур»<br>
+Санкт-Петербур метро Технологитскей институт<br>
+4-я Красноармеская дом 3<br>
+домофон 22в
+
+<br><br>
+
+ООО «ОмадТур»<br>
+Санкт-Петербург, метро Дыбенко<br>
+проспект Большевиков, 24к1
 
 </div>
 
@@ -147,67 +169,65 @@ body{
 
 <!-- AVIA -->
 <div id="avia" class="page">
-<div class="back" onclick="goHome()">⬅ Orqaga</div>
+
+<div class="back-btn" onclick="goHome()" id="backBtn">
+⬅ Orqaga
+</div>
 
 <div class="card">
-  <div class="btn" onclick="tg('@OMAD_TOUR9094')">Telegram orqali</div>
-  <div class="btn" onclick="window.open('https://wa.me/79811939094')">WhatsApp</div>
-  <div class="btn" onclick="window.open('https://max.ru/u/f9LHodD0cOLLpEmAWC_I3iUUWcn5IO6DFYg0IVz4jEXfm6BJP6OL-L7V0jk')">MAX</div>
+
+<div class="text" id="aviaText">
+Iltimos sizga qaysi qulay bo‘lsa bemalol aloqaga chiqib,
+bilet narxi bilan tanishib bron qilishingiz mumkin
+</div>
+
+<div class="btn" onclick="tg('@OMAD_TOUR9094')">Telegram</div>
+<div class="btn" onclick="window.open('https://wa.me/79811939094')">WhatsApp</div>
+<div class="btn" onclick="window.open('https://max.ru/u/f9LHodD0cOLLpEmAWC_I3iUUWcn5IO6DFYg0IVz4jEXfm6BJP6OL-L7V0jk')">MAX</div>
+
 </div>
 
 </div>
 
 <!-- VISA -->
 <div id="visa" class="page">
-<div class="back" onclick="goHome()">⬅ Orqaga</div>
+
+<div class="back-btn" onclick="goHome()" id="backBtn2">
+⬅ Orqaga
+</div>
 
 <div class="card">
-  <div class="btn" onclick="window.open('https://visa.mfa.uz/ruxsat/view')">
-    🌐 Vizani tekshirish
-  </div>
+<div class="btn" onclick="window.open('https://visa.mfa.uz/ruxsat/view')" id="visaCheck">
+🌐 Vizani tekshirish
+</div>
 
-  <div class="btn" onclick="window.open('https://t.me/+i8I6ByH_CUVhOWQy')">
-    👥 Konsulxona guruhi
-  </div>
+<div class="btn" onclick="window.open('https://t.me/+i8I6ByH_CUVhOWQy')" id="visaGroup">
+👥 Konsulxona guruhi
+</div>
 </div>
 
 </div>
 
 <!-- ANKETA -->
 <div id="anketa" class="page">
-<div class="back" onclick="goHome()">⬅ Orqaga</div>
 
-<div class="card">
-  <p>
-  Загранпаспортная анкета — 1000₽<br>
-  Возвращение — 500₽<br>
-  Консульский учёт — 500₽<br>
-  Транзит — 1000₽
-  </p>
-
-  <div class="btn" onclick="tg('@AVIAKASSA9094')">
-    📩 Buyurtma berish
-  </div>
+<div class="back-btn" onclick="goHome()" id="backBtn3">
+⬅ Orqaga
 </div>
 
+<div class="card">
+
+<div id="anketaText">
+Загранпаспортная анкета — 1000₽<br>
+Возвращение — 500₽<br>
+Консульский учёт — 500₽<br>
+Транзит — 1000₽
 </div>
 
-<!-- SUPPORT -->
-<div id="support" class="page">
-<div class="back" onclick="goHome()">⬅ Orqaga</div>
+<div class="btn" onclick="tg('@AVIAKASSA9094')" id="orderBtn">
+📩 Buyurtma berish
+</div>
 
-<div class="card">
-  <div class="btn" onclick="window.location.href='tel:+79811939094'">
-    📞 +7 981 193 90 94
-  </div>
-
-  <div class="btn" onclick="window.location.href='tel:+79214027489'">
-    📞 +7 921 402 74 89
-  </div>
-
-  <div class="btn" onclick="window.open('https://wa.me/79811939094')">
-    WhatsApp
-  </div>
 </div>
 
 </div>
@@ -215,6 +235,7 @@ body{
 </div>
 
 <script>
+
 function openPage(id){
   document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
   document.getElementById(id).classList.add('active');
@@ -229,9 +250,51 @@ function tg(user){
   window.open("https://t.me/" + user.replace("@",""));
 }
 
-function setLang(l){
-  alert("Keyingi bosqichda full multi-language qilamiz 🔥");
+/* 🌐 LANGUAGE */
+function setLang(lang){
+
+if(lang==="ru"){
+
+document.getElementById("aviaBtn").innerText="✈️ Бронирование авиабилетов";
+document.getElementById("visaBtn").innerHTML="🛂 Ответы по визе →";
+document.getElementById("groupBtn").innerHTML="👥 Телеграм группа →";
+document.getElementById("anketaBtn").innerHTML="📝 Анкетные услуги →";
+
+document.getElementById("backBtn").innerText="⬅ Назад";
+document.getElementById("backBtn2").innerText="⬅ Назад";
+document.getElementById("backBtn3").innerText="⬅ Назад";
+
+document.getElementById("aviaText").innerText=
+"Пожалуйста, выберите удобный способ связи и узнайте цену перед бронированием";
+
+document.getElementById("visaCheck").innerText="🌐 Проверить визу";
+document.getElementById("visaGroup").innerText="👥 Группа консульства";
+
+document.getElementById("orderBtn").innerText="📩 Заказать";
+
+}else{
+
+document.getElementById("aviaBtn").innerText="✈️ Avia bilet bron qilish";
+document.getElementById("visaBtn").innerHTML="🛂 Viza javoblari →";
+document.getElementById("groupBtn").innerHTML="👥 Telegram guruh →";
+document.getElementById("anketaBtn").innerHTML="📝 Anketa xizmatlari →";
+
+document.getElementById("backBtn").innerText="⬅ Orqaga";
+document.getElementById("backBtn2").innerText="⬅ Orqaga";
+document.getElementById("backBtn3").innerText="⬅ Orqaga";
+
+document.getElementById("aviaText").innerText=
+"Iltimos sizga qulay aloqa orqali bilet narxini bilib bron qilishingiz mumkin";
+
+document.getElementById("visaCheck").innerText="🌐 Vizani tekshirish";
+document.getElementById("visaGroup").innerText="👥 Konsulxona guruhi";
+
+document.getElementById("orderBtn").innerText="📩 Buyurtma berish";
+
 }
+
+}
+
 </script>
 
 </body>

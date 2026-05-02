@@ -299,87 +299,79 @@ window.open("https://t.me/" + user.replace("@",""));
 
 function setLang(lang){
 
-// HOME BUTTONS
-const btn1 = document.getElementById("btn1");
-const btn2 = document.getElementById("btn2");
-const btn3 = document.getElementById("btn3");
-const btn4 = document.getElementById("btn4");
-const btn5 = document.getElementById("btn5");
-const btn6 = document.getElementById("btn6");
-const subtitle = document.getElementById("subtitle");
+const map = {
+btn1: document.getElementById("btn1"),
+btn2: document.getElementById("btn2"),
+btn3: document.getElementById("btn3"),
+btn4: document.getElementById("btn4"),
+btn5: document.getElementById("btn5"),
+btn6: document.getElementById("btn6"),
+subtitle: document.getElementById("subtitle"),
 
-// VISA
-const visa1 = document.getElementById("visa1");
-const visa2 = document.getElementById("visa2");
+visa1: document.getElementById("visa1"),
+visa2: document.getElementById("visa2"),
 
-// SUPPORT
-const sup1 = document.getElementById("sup1");
-const sup2 = document.getElementById("sup2");
+sup1: document.getElementById("sup1"),
+sup2: document.getElementById("sup2"),
 
-// PHONE
-const call1 = document.getElementById("call1");
-const call2 = document.getElementById("call2");
+call1: document.getElementById("call1"),
+call2: document.getElementById("call2"),
 
-// AVIA
-const avia1 = document.getElementById("avia1");
-const avia2 = document.getElementById("avia2");
-const avia3 = document.getElementById("avia3");
+avia1: document.getElementById("avia1"),
+avia2: document.getElementById("avia2"),
+avia3: document.getElementById("avia3")
+};
+
+// agar element topilmasa, xato bermaslik uchun
+for(let k in map){
+if(!map[k]) return;
+}
 
 if(lang==="ru"){
 
-// HOME
-btn1.innerText="✈️ Авиа билеты";
-btn2.innerText="🛂 Ответ визы";
-btn3.innerText="👥 Телеграм группа";
-btn4.innerText="📞 Поддержка";
-btn5.innerText="📝 Анкета";
-btn6.innerText="📄 Услуги";
-subtitle.innerText="Сервис";
+map.btn1.innerText="✈️ Авиа билеты";
+map.btn2.innerText="🛂 Ответ визы";
+map.btn3.innerText="👥 Телеграм группа";
+map.btn4.innerText="📞 Поддержка";
+map.btn5.innerText="📝 Анкета";
+map.btn6.innerText="📄 Услуги";
+map.subtitle.innerText="Сервис";
 
-// VISA
-visa1.innerText="🌐 Проверить визу";
-visa2.innerText="👥 Консульский телеграм";
+map.visa1.innerText="🌐 Проверить визу";
+map.visa2.innerText="👥 Консульский телеграм";
 
-// SUPPORT
-sup1.innerText="📩 Telegram";
-sup2.innerText="📞 WhatsApp";
+map.sup1.innerText="📩 Telegram";
+map.sup2.innerText="📞 WhatsApp";
 
-// PHONE
-call1.innerText="📞 Связь: +7 981 193 90 94";
-call2.innerText="📞 Связь: +7 937 949 90 94";
+map.call1.innerText="📞 Связь: +7 981 193 90 94";
+map.call2.innerText="📞 Связь: +7 937 949 90 94";
 
-// AVIA
-avia1.innerText="🚀 MAX";
-avia2.innerText="📞 WhatsApp";
-avia3.innerText="💰 Цена билета / группа";
+map.avia1.innerText="🚀 MAX";
+map.avia2.innerText="📞 WhatsApp";
+map.avia3.innerText="💰 Цена билета / группа";
 
 }else{
 
-// HOME
-btn1.innerText="✈️ Avia bilet";
-btn2.innerText="🛂 Viza javoblari";
-btn3.innerText="👥 Telegram guruh";
-btn4.innerText="📞 Yordam";
-btn5.innerText="📝 Anketa";
-btn6.innerText="📄 Xizmatlar";
-subtitle.innerText="Servis";
+map.btn1.innerText="✈️ Avia bilet";
+map.btn2.innerText="🛂 Viza javoblari";
+map.btn3.innerText="👥 Telegram guruh";
+map.btn4.innerText="📞 Yordam";
+map.btn5.innerText="📝 Anketa";
+map.btn6.innerText="📄 Xizmatlar";
+map.subtitle.innerText="Servis";
 
-// VISA
-visa1.innerText="🌐 Vizani tekshirish";
-visa2.innerText="👥 Konsul telegram";
+map.visa1.innerText="🌐 Vizani tekshirish";
+map.visa2.innerText="👥 Konsul telegram";
 
-// SUPPORT
-sup1.innerText="📩 Telegram";
-sup2.innerText="📞 WhatsApp";
+map.sup1.innerText="📩 Telegram";
+map.sup2.innerText="📞 WhatsApp";
 
-// PHONE
-call1.innerText="📞 Aloqa: +7 981 193 90 94";
-call2.innerText="📞 Aloqa: +7 937 949 90 94";
+map.call1.innerText="📞 Aloqa: +7 981 193 90 94";
+map.call2.innerText="📞 Aloqa: +7 937 949 90 94";
 
-// AVIA
-avia1.innerText="🚀 MAX";
-avia2.innerText="📞 WhatsApp";
-avia3.innerText="💰 Aviabilet narxi / guruh";
+map.avia1.innerText="🚀 MAX";
+map.avia2.innerText="📞 WhatsApp";
+map.avia3.innerText="💰 Aviabilet narxi / guruh";
 
 }
 }

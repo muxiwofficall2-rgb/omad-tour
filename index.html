@@ -107,26 +107,28 @@ body{
 }
 
 /* 🔴 BACK BUTTON (ICON ONLY) */
-.back{
-  display:inline-block;
-  width:30px;
-  height:30px;
+back{
+  width:34px;
+  height:34px;
   background:red;
   border-radius:8px;
   cursor:pointer;
-  position:relative;
+  position:fixed;
+  top:18px;
+  left:10px;
+  z-index:999;
 }
 
 .back::before{
-  content:"←";
+  content:"в†ђ";
   position:absolute;
   top:50%;
   left:50%;
   transform:translate(-50%,-50%);
   color:white;
-  font-size:14px;
+  font-size:16px;
 }
-
+  
 /* INNER BUTTON */
 .inner-btn{
   padding:10px;
@@ -203,6 +205,22 @@ body{
 </div>
 
 </section>
+  <!-- ✈️ AVIA BILET -->
+<section id="avia" class="page hidden">
+
+<span class="back" onclick="goHome()"></span>
+
+<div class="btn inner-btn" onclick="window.open('https://max.ru/u/f9LHodD0cOLLpEmAWC_I3iUUWcn5IO6DFYg0IVz4jEXfm6BJP6OL-L7V0jk')">
+рџљЂ MAX
+</div>
+
+<div class="btn inner-btn" onclick="window.open('https://wa.me/79811939094')">
+рџ“ћ WhatsApp
+</div>
+
+<div class="btn inner-btn" onclick="window.open('https://chat.whatsapp.com/KgnvfhpMYso6lSX3kbNd4l?mode=gi_t')">
+рџ’° Aviabilet narxi / guruh
+</div> 
 
 <!-- VISA -->
 <section id="visa" class="page hidden">

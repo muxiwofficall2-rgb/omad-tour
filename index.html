@@ -13,37 +13,6 @@ body{
   color:white;
 }
 
-/* 🔥 SPLASH (NACHAT SCREEN) */
-#splash{
-  position:fixed;
-  top:0;left:0;
-  width:100%;
-  height:100%;
-  background:#05070c;
-  display:flex;
-  flex-direction:column;
-  justify-content:center;
-  align-items:center;
-  z-index:9999;
-}
-
-#splash .logo{
-  font-size:32px;
-  font-weight:bold;
-  margin-bottom:20px;
-}
-
-#startBtn{
-  padding:14px 20px;
-  border:none;
-  border-radius:12px;
-  background:linear-gradient(135deg,#22c55e,#16a34a);
-  color:white;
-  font-size:16px;
-  cursor:pointer;
-}
-
-/* 🔻 MAIN */
 .container{
   max-width:480px;
   margin:auto;
@@ -111,6 +80,12 @@ body{
   margin-top:10px;
 }
 
+.text{
+  line-height:1.6;
+  opacity:0.9;
+  margin-top:10px;
+}
+
 .address{
   margin-top:20px;
   font-size:13px;
@@ -120,6 +95,7 @@ body{
 .page{display:none;}
 .active{display:block;}
 
+/* CALL */
 .call-row{
   display:flex;
   gap:10px;
@@ -138,20 +114,33 @@ body{
   font-weight:600;
 }
 
-.hidden{display:none;}
+/* SUPPORT */
+.support{
+  margin-top:15px;
+  text-align:center;
+  padding:14px;
+  border-radius:12px;
+  background:#16a34a;
+  font-weight:600;
+}
+
+/* FORM */
+#formBox{
+  display:none;
+  position:fixed;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  background:#000000cc;
+  justify-content:center;
+  align-items:center;
+  z-index:999;
+}
 </style>
 </head>
 
 <body>
-
-<!-- 🔥 START (NACHAT) SCREEN -->
-<div id="splash">
-  <img src="sss png.png" class="logo">
-  <button id="startBtn" onclick="startApp()">🚀 NACHAT</button>
-</div>
-
-<!-- MAIN -->
-<div id="mainApp" class="hidden">
 
 <div class="container">
 
@@ -190,6 +179,16 @@ body{
     <span>📝 Anketa xizmatlari</span><span>→</span>
   </div>
 
+  <!-- ✅ TEZKOR BOG‘LANISH (QO‘SHILDI, O‘ZGARMADI) -->
+  <div class="task" onclick="openForm()" id="fastBtn">
+    <span>⚡ Tezkor bog‘lanish</span><span>→</span>
+  </div>
+
+</div>
+
+<!-- 🟢 SUPPORT (QO‘SHILDI) -->
+<div class="support" id="supportBtn">
+📞 Связь поддержка: +7 937 949 90 94
 </div>
 
 <div class="address">
@@ -199,24 +198,136 @@ body{
 
 </div>
 
+<!-- AVIA -->
+<div id="avia" class="page">
+
+<div class="back-btn" onclick="goHome()" id="backBtn">
+⬅ Orqaga
 </div>
+
+<div class="card">
+<div class="text" id="aviaText">
+Iltimos sizga qaysi qulay bo‘lsa bemalol aloqaga chiqib,
+bilet narxi bilan tanishib bron qilishingiz mumkin
+</div>
+
+<div class="btn" onclick="tg('@OMAD_TOUR9094')">Telegram</div>
+<div class="btn" onclick="window.open('https://wa.me/79811939094')">WhatsApp</div>
+<div class="btn" onclick="window.open('https://max.ru')">MAX</div>
+
+<div class="call-row">
+  <a href="tel:+79811939094" class="call-btn">📞 981...</a>
+  <a href="tel:+79379499094" class="call-btn">📞 937...</a>
+</div>
+</div>
+
+</div>
+
+<!-- VISA -->
+<div id="visa" class="page">
+
+<div class="back-btn" onclick="goHome()" id="backBtn2">
+⬅ Orqaga
+</div>
+
+<div class="card">
+<div class="btn" onclick="window.open('https://visa.mfa.uz')" id="visaCheck">
+🌐 Vizani tekshirish
+</div>
+
+<div class="btn" onclick="window.open('https://t.me/+i8I6ByH_CUVhOWQy')" id="visaGroup">
+👥 Konsulxona guruhi
+</div>
+</div>
+
+</div>
+
+<!-- ANKETA -->
+<div id="anketa" class="page">
+
+<div class="back-btn" onclick="goHome()" id="backBtn3">
+⬅ Orqaga
+</div>
+
+<div class="card">
+
+<div id="anketaText">
+Загранпаспортная анкета — 1000₽<br>
+Возвращение — 500₽
+</div>
+
+<div class="btn" onclick="openForm()" id="orderBtn">
+📩 Buyurtma berish
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+<!-- FORM -->
+<div id="formBox">
+  <div class="card" style="width:90%;max-width:350px;">
+    <div class="back-btn" onclick="closeForm()">⬅ Orqaga</div>
+
+    <input id="name" placeholder="Ism" style="width:100%;padding:10px;margin:5px 0;">
+    <input id="phone" placeholder="Tel" style="width:100%;padding:10px;margin:5px 0;">
+    <textarea id="msg" placeholder="Savol" style="width:100%;padding:10px;margin:5px 0;"></textarea>
+
+    <div class="btn" onclick="sendToTelegram()">📩 Yuborish</div>
+  </div>
 </div>
 
 <script>
 
-/* 🔥 NACHAT BUTTON */
-function startApp(){
-  document.getElementById("splash").style.display="none";
-  document.getElementById("mainApp").classList.remove("hidden");
-}
-
-/* PAGE */
 function openPage(id){
   document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
   document.getElementById(id).classList.add('active');
 }
 
-/* LANG */
+function goHome(){
+  document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
+  document.getElementById('home').classList.add('active');
+}
+
+function openForm(){
+  document.getElementById("formBox").style.display="flex";
+}
+
+function closeForm(){
+  document.getElementById("formBox").style.display="none";
+}
+
+function tg(user){
+  window.open("https://t.me/" + user.replace("@",""));
+}
+
+/* FIXED BOT SEND */
+function sendToTelegram(){
+
+let token="YOUR_BOT_TOKEN";
+let chat_id="YOUR_CHAT_ID";
+
+let text=`⚡ Yangi murojaat:
+👤 ${document.getElementById("name").value}
+📞 ${document.getElementById("phone").value}
+💬 ${document.getElementById("msg").value}`;
+
+fetch(`https://api.telegram.org/bot${token}/sendMessage`,{
+method:"POST",
+headers:{"Content-Type":"application/json"},
+body:JSON.stringify({
+chat_id:chat_id,
+text:text
+})
+});
+
+alert("Yuborildi!");
+closeForm();
+}
+
+/* LANG FIX */
 function setLang(lang){
 
 if(lang==="ru"){
@@ -224,11 +335,15 @@ document.getElementById("aviaBtn").innerText="✈️ Бронирование";
 document.getElementById("visaBtn").innerHTML="🛂 Виза →";
 document.getElementById("groupBtn").innerHTML="👥 Группа →";
 document.getElementById("anketaBtn").innerHTML="📝 Анкета →";
+document.getElementById("fastBtn").innerHTML="⚡ Быстрая связь →";
+document.getElementById("supportBtn").innerText="📞 Поддержка: +7 937 949 90 94";
 }else{
 document.getElementById("aviaBtn").innerText="✈️ Avia bilet";
 document.getElementById("visaBtn").innerHTML="🛂 Viza →";
 document.getElementById("groupBtn").innerHTML="👥 Guruh →";
 document.getElementById("anketaBtn").innerHTML="📝 Anketa →";
+document.getElementById("fastBtn").innerHTML="⚡ Tezkor bog‘lanish →";
+document.getElementById("supportBtn").innerText="📞 Aloqa: +7 937 949 90 94";
 }
 
 }

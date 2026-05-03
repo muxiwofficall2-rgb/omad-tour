@@ -343,51 +343,59 @@ function setLang(lang){
 
 if(lang==="ru"){
 
+// HOME
 document.querySelector(".title").innerText="Омад Тур сервис";
-
 document.querySelector("#aviaBtn").innerText="✈️ Бронирование авиабилетов";
 
-document.querySelector("#visaBtn").innerHTML="🛂 Визовые ответы";
+// TASKS
+document.querySelector("#visaBtn span").innerText="🛂 Визовые ответы";
+document.querySelector("#groupBtn span").innerText="👥 Телеграм группа";
+document.querySelector("#anketaBtn span").innerText="📝 Анкетные услуги";
+document.querySelector("#FastText span").innerText="⚡ Быстрая связь";
 
-document.querySelector("#groupBtn").innerHTML="👥 Телеграм группа";
-
-document.querySelector("#anketaBtn").innerHTML="📝 Анкетные услуги";
-
-document.querySelector("#fastText").innerHTML="⚡ Быстрая связь →";
-
-document.querySelector("#supportText").innerText="📞 Связь: +7 937 949 90 94";
-
+// AVIA PAGE
 document.querySelector("#aviaText").innerText=
+"Пожалуйста, свяжитесь удобным способом и узнайте цену перед бронированием";
 
-"Пожалуйста, свяжитесь удобным способом";
+document.querySelector("#callA").innerText="📞 Связь +7 981 193 90 94";
+document.querySelector("#callB").innerText="📞 Связь +7 937 949 90 94";
 
+// VISA PAGE
 document.querySelector("#visaCheck").innerText="🌐 Проверить визу";
 
-document.querySelector("#anketaText").innerText="Анкета услуги";
+// ANKETA
+document.querySelector("#anketaText").innerHTML=
+"Загранпаспортная анкета — 1000₽<br>Возвращение — 500₽<br>Консульский учёт — 500₽<br>Транзит — 1000₽";
+
+document.querySelector("#orderBtn").innerText="📩 Заказать";
 
 }else{
 
+// HOME
 document.querySelector(".title").innerText="Omad Tour servis";
-
 document.querySelector("#aviaBtn").innerText="✈️ Avia bilet bron qilish";
 
-document.querySelector("#visaBtn").innerHTML="🛂 Viza javoblari";
+// TASKS
+document.querySelector("#visaBtn span").innerText="🛂 Viza javoblari";
+document.querySelector("#groupBtn span").innerText="👥 Telegram guruh";
+document.querySelector("#anketaBtn span").innerText="📝 Anketa xizmatlari";
+document.querySelector("#FastText span").innerText="⚡Tezkor bog'lanish";
 
-document.querySelector("#groupBtn").innerHTML="👥 Telegram guruh";
-
-document.querySelector("#anketaBtn").innerHTML="📝 Anketa xizmatlari";
-
-document.querySelector("#fastText").innerHTML="⚡ Tezkor bog‘lanish →";
-
-document.querySelector("#supportText").innerText="📞 Aloqa: +7 937 949 90 94";
-
+// AVIA PAGE
 document.querySelector("#aviaText").innerText=
-
 "Iltimos sizga qulay aloqa orqali bilet narxini bilib bron qilishingiz mumkin";
 
+document.querySelector("#callA").innerText="📞 Aloqa +7 981 193 90 94";
+document.querySelector("#callB").innerText="📞 Aloqa +7 937 949 90 94";
+
+// VISA PAGE
 document.querySelector("#visaCheck").innerText="🌐 Vizani tekshirish";
 
-document.querySelector("#anketaText").innerText="Anketa xizmatlari";
+// ANKETA
+document.querySelector("#anketaText").innerHTML=
+"Загранпаспортная анкета — 1000₽<br>Возвращение — 500₽<br>Консульский учёт — 500₽<br>Транзит — 1000₽";
+
+document.querySelector("#orderBtn").innerText="📩 Buyurtma berish";
 
 }
 

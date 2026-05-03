@@ -39,12 +39,12 @@ body{
   font-weight:600;
 }
 .back-btn{
-  display:inline-block;
   padding:8px 12px;
   background:#1f2937;
   border-radius:10px;
   cursor:pointer;
   margin-bottom:10px;
+  display:inline-block;
 }
 .card{
   background:#111827;
@@ -69,16 +69,10 @@ body{
   padding:12px;
   border-radius:12px;
   margin-top:10px;
-}
-.address{
-  margin-top:20px;
-  font-size:13px;
-  opacity:0.8;
+  cursor:pointer;
 }
 .page{display:none;}
 .active{display:block;}
-
-/* 🟢 SUPPORT BUTTON */
 .support{
   margin-top:15px;
   text-align:center;
@@ -86,6 +80,13 @@ body{
   border-radius:12px;
   background:#16a34a;
   font-weight:600;
+}
+input,textarea{
+  width:100%;
+  padding:10px;
+  margin:5px 0;
+  border-radius:8px;
+  border:none;
 }
 </style>
 </head>
@@ -109,61 +110,87 @@ body{
   </div>
 </div>
 
-<!-- AVIA -->
 <div class="card">
   <div class="btn" onclick="openPage('avia')" id="aviaBtn">
     ✈️ Avia bilet bron qilish
   </div>
 </div>
 
-<!-- SERVICES -->
 <div class="card">
 
-  <div class="task" onclick="openPage('visa')" id="visaBtn">
-    <span>🛂 Viza javoblari</span><span>→</span>
+  <div class="task" onclick="openPage('visa')">
+    <span id="visaText">🛂 Viza javoblari</span><span>→</span>
   </div>
 
-  <div class="task" onclick="window.open('https://t.me/+uJn1nFmpzjoxMGEy')" id="groupBtn">
-    <span>👥 Telegram guruh</span><span>→</span>
+  <div class="task" onclick="window.open('https://t.me/+uJn1nFmpzjoxMGEy')">
+    <span id="groupText">👥 Telegram guruh</span><span>→</span>
   </div>
 
-  <div class="task" onclick="openPage('anketa')" id="anketaBtn">
-    <span>📝 Anketa xizmatlari</span><span>→</span>
+  <div class="task" onclick="openPage('anketa')">
+    <span id="anketaText">📝 Anketa xizmatlari</span><span>→</span>
   </div>
 
-  <!-- ✅ TEZKOR BOG‘LANISH (TO‘G‘RI JOY) -->
-  <div class="task" onclick="openForm()" id="fastBtn">
-    <span>⚡ Tezkor bog‘lanish</span><span>→</span>
+  <div class="task" onclick="openForm()">
+    <span id="fastText">⚡ Tezkor bog‘lanish</span><span>→</span>
   </div>
 
 </div>
 
-<!-- 🟢 SUPPORT -->
 <div class="support" id="supportBtn">
-📞 Связь поддержка: +7 937 949 90 94
+📞 Aloqa uchun: +7 937 949 90 94
 </div>
 
-<div class="address">
-ООО «ОмадТур»<br>
-Санкт-Петербур метро Технологитскей институт<br>
-4-я Красноармеская дом 3<br>
-домофон 22в
-<br><br>
-ООО «ОмадТур»<br>
-Санкт-Петербург, метро Дыбенко<br>
-проспект Большевиков, 24к1
 </div>
 
+<!-- AVIA -->
+<div id="avia" class="page">
+<div class="back-btn" onclick="goHome()" id="back1">⬅ Orqaga</div>
+
+<div class="card">
+<div id="aviaText">
+Iltimos sizga qulay aloqa orqali bog‘laning
+</div>
+
+<div class="btn" onclick="tg('@OMAD_TOUR9094')">Telegram</div>
+<div class="btn" onclick="window.open('https://wa.me/79811939094')">WhatsApp</div>
+</div>
+</div>
+
+<!-- VISA -->
+<div id="visa" class="page">
+<div class="back-btn" onclick="goHome()" id="back2">⬅ Orqaga</div>
+
+<div class="card">
+<div class="btn" onclick="window.open('https://visa.mfa.uz/ruxsat/view')" id="visaCheck">
+🌐 Vizani tekshirish
+</div>
+</div>
+</div>
+
+<!-- ANKETA -->
+<div id="anketa" class="page">
+<div class="back-btn" onclick="goHome()" id="back3">⬅ Orqaga</div>
+
+<div class="card">
+<div id="anketaInfo">
+Анкета — 1000₽
+</div>
+<div class="btn" onclick="tg('@AVIAKASSA9094')" id="orderBtn">
+📩 Buyurtma
+</div>
+</div>
 </div>
 
 <!-- FORM -->
-<div id="formBox" style="display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:#000000cc;justify-content:center;align-items:center;z-index:999;">
+<div id="formBox" style="display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:#000000cc;justify-content:center;align-items:center;">
   <div style="background:#111827;padding:20px;border-radius:15px;width:90%;max-width:350px;">
     <div class="back-btn" onclick="closeForm()" id="formBack">⬅ Orqaga</div>
     <h3 id="formTitle">Tezkor bog‘lanish</h3>
-    <input id="name" placeholder="Ismingiz" style="width:100%;padding:10px;margin:5px 0;border-radius:8px;border:none;">
-    <input id="phone" placeholder="Telefon raqam" style="width:100%;padding:10px;margin:5px 0;border-radius:8px;border:none;">
-    <textarea id="msg" placeholder="Savolingiz" style="width:100%;padding:10px;margin:5px 0;border-radius:8px;border:none;"></textarea>
+
+    <input id="name" placeholder="Ismingiz">
+    <input id="phone" placeholder="Telefon">
+    <textarea id="msg" placeholder="Savol"></textarea>
+
     <div class="btn" onclick="sendToTelegram()" id="sendBtn">📩 Yuborish</div>
   </div>
 </div>
@@ -172,53 +199,85 @@ body{
 
 <script>
 function openPage(id){
-  document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
-  document.getElementById(id).classList.add('active');
+document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
+document.getElementById(id).classList.add('active');
 }
 function goHome(){
-  document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
-  document.getElementById('home').classList.add('active');
+document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
+document.getElementById('home').classList.add('active');
 }
 function openForm(){document.getElementById("formBox").style.display="flex";}
 function closeForm(){document.getElementById("formBox").style.display="none";}
+function tg(u){window.open("https://t.me/"+u.replace("@",""));}
 
+// 🔥 TELEGRAM
 function sendToTelegram(){
+
 let name=document.getElementById("name").value;
 let phone=document.getElementById("phone").value;
 let msg=document.getElementById("msg").value;
 
-let token="8201550018:AAGKSJDIaTGh4G3pH8ePGKn_DqKupCV15H0";
-let chat_id="@AVIAKASSA9094";
+if(!name || !phone){
+alert("Ism va telefon kerak!");
+return;
+}
 
-let text=`⚡ Yangi murojaat:
-👤 Ism: ${name}
-📞 Tel: ${phone}
-💬 Savol: ${msg}`;
+let token="YOUR_BOT_TOKEN";
+let chat_id="YOUR_CHAT_ID";
+
+let text=`⚡ Murojaat:
+👤 ${name}
+📞 ${phone}
+💬 ${msg}`;
 
 fetch(`https://api.telegram.org/bot${token}/sendMessage`,{
 method:"POST",
 headers:{"Content-Type":"application/json"},
 body:JSON.stringify({chat_id:chat_id,text:text})
-});
+})
+.then(()=>alert("Yuborildi ✅"))
+.catch(()=>alert("Xatolik ❌"));
 
-alert("Yuborildi!");
 closeForm();
 }
 
+// 🌍 LANG
 function setLang(lang){
+
 if(lang==="ru"){
-document.getElementById("fastBtn").innerHTML="⚡ Быстрая связь →";
+document.getElementById("aviaBtn").innerText="✈️ Бронирование авиабилетов";
+document.getElementById("visaText").innerText="🛂 Ответы по визе";
+document.getElementById("groupText").innerText="👥 Телеграм группа";
+document.getElementById("anketaText").innerText="📝 Анкетные услуги";
+document.getElementById("fastText").innerText="⚡ Быстрая связь";
+
+document.getElementById("supportBtn").innerText="📞 Связь: +7 937 949 90 94";
+
+document.getElementById("back1").innerText="⬅ Назад";
+document.getElementById("back2").innerText="⬅ Назад";
+document.getElementById("back3").innerText="⬅ Назад";
+
 document.getElementById("formTitle").innerText="Быстрая связь";
 document.getElementById("sendBtn").innerText="📩 Отправить";
-document.getElementById("formBack").innerText="⬅ Назад";
-document.getElementById("supportBtn").innerText="📞 Связь поддержка: +7 937 949 90 94";
+
 }else{
-document.getElementById("fastBtn").innerHTML="⚡ Tezkor bog‘lanish →";
+
+document.getElementById("aviaBtn").innerText="✈️ Avia bilet bron qilish";
+document.getElementById("visaText").innerText="🛂 Viza javoblari";
+document.getElementById("groupText").innerText="👥 Telegram guruh";
+document.getElementById("anketaText").innerText="📝 Anketa xizmatlari";
+document.getElementById("fastText").innerText="⚡ Tezkor bog‘lanish";
+
+document.getElementById("supportBtn").innerText="📞 Aloqa: +7 937 949 90 94";
+
+document.getElementById("back1").innerText="⬅ Orqaga";
+document.getElementById("back2").innerText="⬅ Orqaga";
+document.getElementById("back3").innerText="⬅ Orqaga";
+
 document.getElementById("formTitle").innerText="Tezkor bog‘lanish";
 document.getElementById("sendBtn").innerText="📩 Yuborish";
-document.getElementById("formBack").innerText="⬅ Orqaga";
-document.getElementById("supportBtn").innerText="📞 Aloqa uchun: +7 937 949 90 94";
 }
+
 }
 </script>
 

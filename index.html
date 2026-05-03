@@ -167,10 +167,10 @@ body{
 
 <div class="card">
 
- <div class="card">
-<div class="btn" onclick="window.open(https://visa.mfa.uz/ruxsat/view)" id="visaCheck">
-🌐 Vizani tekshirish
-</div>
+ <div class="task" onclick="openPage('visa')" id="visaBtn">
+    <span>🛂 Viza javoblari</span><span>→</span>
+  </div>
+
 
 
   <div class="task" onclick="window.open('https://t.me/+uJn1nFmpzjoxMGEy')" id="groupBtn">
@@ -242,7 +242,7 @@ bilet narxi bilan tanishib bron qilishingiz mumkin
 </div>
 
 <div class="card">
-<div class="btn" onclick="window.open('https://visa.mfa.uz')" id="visaCheck">
+<div class="btn" onclick="window.open('https://visa.mfa.uz/ruxsat/view')" id="visaCheck">
 🌐 Vizani tekshirish
 </div>
 
@@ -364,7 +364,7 @@ document.querySelector("#callB").innerText="📞 Связь +7 937 949 90 94";
 
 // VISA PAGE
 document.getElementById("visaCheck").innerText="🌐 Проверить визу";
-document.getElementById("visaCheck").innerText="👥 Группа консульства";
+document.getElementById("visaGroup").innerText="👥 Группа консульства";
 
 // ANKETA
 document.querySelector("#anketaText").innerHTML=

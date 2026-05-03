@@ -343,52 +343,58 @@ function setLang(lang){
 
 if(lang==="ru"){
 
-document.getElementById("aviaBtn").innerText="✈️ Бронирование авиабилетов";
-document.getElementById("visaBtn").innerHTML="🛂 Ответы по визе →";
-document.getElementById("groupBtn").innerHTML="👥 Телеграм группа →";
-document.getElementById("anketaBtn").innerHTML="📝 Анкетные услуги →";
+// HOME
+document.querySelector(".title").innerText="Омад Тур сервис";
+document.querySelector("#aviaBtn").innerText="✈️ Бронирование авиабилетов";
 
-document.getElementById("backBtn").innerText="⬅ Назад";
-document.getElementById("backBtn2").innerText="⬅ Назад";
-document.getElementById("backBtn3").innerText="⬅ Назад";
+// TASKS
+document.querySelector("#visaBtn span").innerText="🛂 Визовые ответы";
+document.querySelector("#groupBtn span").innerText="👥 Телеграм группа";
+document.querySelector("#anketaBtn span").innerText="📝 Анкетные услуги";
 
-document.getElementById("aviaText").innerText=
-"Пожалуйста, выберите удобный способ связи и узнайте цену перед бронированием";
+// AVIA PAGE
+document.querySelector("#aviaText").innerText=
+"Пожалуйста, свяжитесь удобным способом и узнайте цену перед бронированием";
 
-document.getElementById("visaCheck").innerText="🌐 Проверить визу";
-document.getElementById("visaGroup").innerText="👥 Группа консульства";
+document.querySelector("#callA").innerText="📞 Связь +7 981 193 90 94";
+document.querySelector("#callB").innerText="📞 Связь +7 937 949 90 94";
 
-document.getElementById("orderBtn").innerText="📩 Заказать";
+// VISA PAGE
+document.querySelector("#visaCheck").innerText="🌐 Проверить визу";
 
-document.getElementById("callA").innerText="📞 Связь +7 981 193 90 94";
-document.getElementById("callB").innerText="📞 Связь +7 937 949 90 94";
+// ANKETA
+document.querySelector("#anketaText").innerHTML=
+"Загранпаспортная анкета — 1000₽<br>Возвращение — 500₽<br>Консульский учёт — 500₽<br>Транзит — 1000₽";
+
+document.querySelector("#orderBtn").innerText="📩 Заказать";
 
 }else{
 
-document.getElementById("aviaBtn").innerText="✈️ Avia bilet bron qilish";
-document.getElementById("visaBtn").innerHTML="🛂 Viza javoblari →";
-document.getElementById("groupBtn").innerHTML="👥 Telegram guruh →";
-document.getElementById("anketaBtn").innerHTML="📝 Anketa xizmatlari →";
+// HOME
+document.querySelector(".title").innerText="Omad Tour servis";
+document.querySelector("#aviaBtn").innerText="✈️ Avia bilet bron qilish";
 
-document.getElementById("backBtn").innerText="⬅ Orqaga";
-document.getElementById("backBtn2").innerText="⬅ Orqaga";
-document.getElementById("backBtn3").innerText="⬅ Orqaga";
+// TASKS
+document.querySelector("#visaBtn span").innerText="🛂 Viza javoblari";
+document.querySelector("#groupBtn span").innerText="👥 Telegram guruh";
+document.querySelector("#anketaBtn span").innerText="📝 Anketa xizmatlari";
 
-document.getElementById("aviaText").innerText=
+// AVIA PAGE
+document.querySelector("#aviaText").innerText=
 "Iltimos sizga qulay aloqa orqali bilet narxini bilib bron qilishingiz mumkin";
 
-document.getElementById("visaCheck").innerText="🌐 Vizani tekshirish";
-document.getElementById("visaGroup").innerText="👥 Konsulxona guruhi";
+document.querySelector("#callA").innerText="📞 Aloqa +7 981 193 90 94";
+document.querySelector("#callB").innerText="📞 Aloqa +7 937 949 90 94";
 
-document.getElementById("orderBtn").innerText="📩 Buyurtma berish";
+// VISA PAGE
+document.querySelector("#visaCheck").innerText="🌐 Vizani tekshirish";
 
-document.getElementById("callA").innerText="📞 Aloqa +7 981 193 90 94";
-document.getElementById("callB").innerText="📞 Aloqa +7 937 949 90 94";
+// ANKETA
+document.querySelector("#anketaText").innerHTML=
+"Загранпаспортная анкета — 1000₽<br>Возвращение — 500₽<br>Консульский учёт — 500₽<br>Транзит — 1000₽";
+
+document.querySelector("#orderBtn").innerText="📩 Buyurtma berish";
 
 }
 
 }
-</script>
-
-</body>
-</html>

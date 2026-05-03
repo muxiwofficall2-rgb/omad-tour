@@ -13,9 +13,10 @@ body{
   color:white;
 }
 
-/* SPLASH */
+/* 🔥 SPLASH (NACHAT SCREEN) */
 #splash{
   position:fixed;
+  top:0;left:0;
   width:100%;
   height:100%;
   background:#05070c;
@@ -25,17 +26,24 @@ body{
   align-items:center;
   z-index:9999;
 }
+
+#splash .logo{
+  font-size:32px;
+  font-weight:bold;
+  margin-bottom:20px;
+}
+
 #startBtn{
-  padding:14px 30px;
+  padding:14px 20px;
   border:none;
   border-radius:12px;
-  background:#6366f1;
+  background:linear-gradient(135deg,#22c55e,#16a34a);
   color:white;
   font-size:16px;
-  margin-top:20px;
+  cursor:pointer;
 }
-.hidden{display:none;}
 
+/* 🔻 MAIN */
 .container{
   max-width:480px;
   margin:auto;
@@ -126,29 +134,24 @@ body{
   background:linear-gradient(135deg,#22c55e,#16a34a);
   color:white;
   text-decoration:none;
-}
-
-/* SUPPORT */
-.support{
-  margin-top:15px;
-  text-align:center;
-  padding:14px;
-  border-radius:12px;
-  background:#16a34a;
+  font-size:13px;
   font-weight:600;
 }
+
+.hidden{display:none;}
 </style>
 </head>
 
 <body>
 
-<!-- SPLASH -->
+<!-- 🔥 START (NACHAT) SCREEN -->
 <div id="splash">
-  <img src="sss png.png" style="width:80px;border-radius:50%;">
-  <button id="startBtn" onclick="startApp()">🚀 Начать</button>
+  <div class="logo">OMAD TOUR</div>
+  <button id="startBtn" onclick="startApp()">🚀 NACHAT</button>
 </div>
 
-<div id="app" class="hidden">
+<!-- MAIN -->
+<div id="mainApp" class="hidden">
 
 <div class="container">
 
@@ -187,44 +190,13 @@ body{
     <span>📝 Anketa xizmatlari</span><span>→</span>
   </div>
 
-  <!-- TEZKOR -->
-  <div class="task" onclick="openForm()" id="fastBtn">
-    <span>⚡ Tezkor bog‘lanish</span><span>→</span>
-  </div>
-
-</div>
-
-<div class="support" id="supportBtn">
-📞 Aloqa uchun: +7 937 949 90 94
 </div>
 
 <div class="address">
 ООО «ОмадТур»<br>
-Санкт-Петербур метро Технологитскей институт<br>
-4-я Красноармеская дом 3<br>
-домофон 22в
-
-<br><br>
-
-ООО «ОмадТур»<br>
-Санкт-Петербург, метро Дыбенко<br>
-проспект Большевиков, 24к1
+Санкт-Петербург
 </div>
 
-</div>
-
-<!-- FORM -->
-<div id="formBox" style="display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:#000000cc;justify-content:center;align-items:center;">
-  <div style="background:#111827;padding:20px;border-radius:15px;width:90%;max-width:350px;">
-    <div class="back-btn" onclick="closeForm()" id="formBack">⬅ Orqaga</div>
-    <h3 id="formTitle">Tezkor bog‘lanish</h3>
-
-    <input id="name" placeholder="Ismingiz" style="width:100%;padding:10px;margin:5px 0;">
-    <input id="phone" placeholder="Telefon raqam" style="width:100%;padding:10px;margin:5px 0;">
-    <textarea id="msg" placeholder="Savolingiz" style="width:100%;padding:10px;margin:5px 0;"></textarea>
-
-    <div class="btn" onclick="sendToTelegram()" id="sendBtn">📩 Yuborish</div>
-  </div>
 </div>
 
 </div>
@@ -232,61 +204,31 @@ body{
 
 <script>
 
+/* 🔥 NACHAT BUTTON */
 function startApp(){
-document.getElementById("splash").style.display="none";
-document.getElementById("app").classList.remove("hidden");
+  document.getElementById("splash").style.display="none";
+  document.getElementById("mainApp").classList.remove("hidden");
 }
 
+/* PAGE */
 function openPage(id){
-document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
-document.getElementById(id).classList.add('active');
+  document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
 }
 
-function openForm(){document.getElementById("formBox").style.display="flex";}
-function closeForm(){document.getElementById("formBox").style.display="none";}
-
-function sendToTelegram(){
-
-let token="8201550018:AAGKSJDIaTGh4G3pH8ePGKn_DqKupCV15H0";
-let chat_id="7359558983";
-
-let text=`⚡ Yangi murojaat:
-👤 ${name.value}
-📞 ${phone.value}
-💬 ${msg.value}`;
-
-fetch(`https://api.telegram.org/bot${token}/sendMessage`,{
-method:"POST",
-headers:{"Content-Type":"application/json"},
-body:JSON.stringify({chat_id,text})
-});
-
-alert("Yuborildi!");
-closeForm();
-}
-
+/* LANG */
 function setLang(lang){
 
 if(lang==="ru"){
-aviaBtn.innerText="✈️ Бронирование авиабилетов";
-visaBtn.innerHTML="🛂 Ответы по визе →";
-groupBtn.innerHTML="👥 Телеграм группа →";
-anketaBtn.innerHTML="📝 Анкетные услуги →";
-fastBtn.innerHTML="⚡ Быстрая связь →";
-formTitle.innerText="Быстрая связь";
-sendBtn.innerText="📩 Отправить";
-formBack.innerText="⬅ Назад";
-supportBtn.innerText="📞 Связь поддержка: +7 937 949 90 94";
+document.getElementById("aviaBtn").innerText="✈️ Бронирование";
+document.getElementById("visaBtn").innerHTML="🛂 Виза →";
+document.getElementById("groupBtn").innerHTML="👥 Группа →";
+document.getElementById("anketaBtn").innerHTML="📝 Анкета →";
 }else{
-aviaBtn.innerText="✈️ Avia bilet bron qilish";
-visaBtn.innerHTML="🛂 Viza javoblari →";
-groupBtn.innerHTML="👥 Telegram guruh →";
-anketaBtn.innerHTML="📝 Anketa xizmatlari →";
-fastBtn.innerHTML="⚡ Tezkor bog‘lanish →";
-formTitle.innerText="Tezkor bog‘lanish";
-sendBtn.innerText="📩 Yuborish";
-formBack.innerText="⬅ Orqaga";
-supportBtn.innerText="📞 Aloqa uchun: +7 937 949 90 94";
+document.getElementById("aviaBtn").innerText="✈️ Avia bilet";
+document.getElementById("visaBtn").innerHTML="🛂 Viza →";
+document.getElementById("groupBtn").innerHTML="👥 Guruh →";
+document.getElementById("anketaBtn").innerHTML="📝 Anketa →";
 }
 
 }

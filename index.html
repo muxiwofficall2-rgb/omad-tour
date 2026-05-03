@@ -193,7 +193,16 @@ body{
 
 <div class="address">
 ООО «ОмадТур»<br>
-Санкт-Петербург
+Санкт-Петербур метро Технологитскей институт<br>
+4-я Красноармеская дом 3<br>
+домофон 22в
+
+<br><br>
+
+ООО «ОмадТур»<br>
+Санкт-Петербург, метро Дыбенко<br>
+проспект Большевиков, 24к1
+
 </div>
 
 </div>
@@ -253,7 +262,9 @@ bilet narxi bilan tanishib bron qilishingiz mumkin
 
 <div id="anketaText">
 Загранпаспортная анкета — 1000₽<br>
-Возвращение — 500₽
+Возвращение — 500₽<br>
+Консульский учёт — 500₽<br>
+Транзит — 1000₽
 </div>
 
 <div class="btn" onclick="openForm()" id="orderBtn">
@@ -306,8 +317,8 @@ function tg(user){
 /* FIXED BOT SEND */
 function sendToTelegram(){
 
-let token="YOUR_BOT_TOKEN";
-let chat_id="YOUR_CHAT_ID";
+let token="8201550018:AAGKSJDIaTGh4G3pH8ePGKn_DqKupCV15H0";
+let chat_id="7359558983";
 
 let text=`⚡ Yangi murojaat:
 👤 ${document.getElementById("name").value}
@@ -331,17 +342,17 @@ closeForm();
 function setLang(lang){
 
 if(lang==="ru"){
-document.getElementById("aviaBtn").innerText="✈️ Бронирование";
-document.getElementById("visaBtn").innerHTML="🛂 Виза →";
-document.getElementById("groupBtn").innerHTML="👥 Группа →";
-document.getElementById("anketaBtn").innerHTML="📝 Анкета →";
+document.getElementById("aviaBtn").innerText="✈️ Бронирование авиабилетов";
+document.getElementById("visaBtn").innerHTML="🛂 Ответы по визе →";
+document.getElementById("groupBtn").innerHTML="👥 Телеграм группа →";
+document.getElementById("anketaBtn").innerHTML="📝 Анкетные услуги →";
 document.getElementById("fastBtn").innerHTML="⚡ Быстрая связь →";
 document.getElementById("supportBtn").innerText="📞 Поддержка: +7 937 949 90 94";
 }else{
 document.getElementById("aviaBtn").innerText="✈️ Avia bilet";
-document.getElementById("visaBtn").innerHTML="🛂 Viza →";
-document.getElementById("groupBtn").innerHTML="👥 Guruh →";
-document.getElementById("anketaBtn").innerHTML="📝 Anketa →";
+document.getElementById("visaBtn").innerHTML="🛂 Viza javoblari →";
+document.getElementById("groupBtn").innerHTML="👥 telegram guruhGuruh →";
+document.getElementById("anketaBtn").innerHTML="📝 Anketa xizmatlari →";
 document.getElementById("fastBtn").innerHTML="⚡ Tezkor bog‘lanish →";
 document.getElementById("supportBtn").innerText="📞 Aloqa: +7 937 949 90 94";
 }

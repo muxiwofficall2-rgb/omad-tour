@@ -1153,54 +1153,54 @@ document.getElementById("bonusBack").innerHTML=
 
 /* ================= BARABAN ================= */
 
-let wheel=document.getElementById("wheel");
+const wheel = document.getElementById("wheel");
+
+for(let i=1;i<=20;i++){
+
+let label=document.createElement("div");
+
+label.className="label";
+
+let angle=(360/20)*i-9;
+
+label.style.transform=
+`rotate(${angle}deg) translate(0,-132px) rotate(90deg)`;
+
+label.innerHTML=i+"%";
+
+wheel.appendChild(label);
+
+}
+
+let currentDeg=0;
 
 function spinWheel(){
 
-/* 1 MARTA */
+if(localStorage.getItem("wheelPlayed")){
 
-if(localStorage.getItem("wheelPlayed")==="true"){
-
-document.getElementById("result").innerHTML=
-currentLang==="ru"
-? "❌ Вы уже крутили барабан"
-: "❌ Siz allaqachon aylantirgansiz";
-
+result.innerHTML="❌ Siz faqat 1 marta aylantira olasiz";
 return;
 
 }
 
-/* SAQLASH */
-
 localStorage.setItem("wheelPlayed","true");
-
-/* FAQAT SHULAR */
 
 let prizes=[0,1,2,4,5];
 
-let prize=
-prizes[Math.floor(Math.random()*prizes.length)];
-
-/* AYLANTIRISH */
+let prize=prizes[Math.floor(Math.random()*prizes.length)];
 
 let segment=360/20;
 
-let rotate=
-(360*8)-
-(prize*segment)-
-(segment/2);
+let target=(prize*segment)+(segment/2);
 
-wheel.style.transform=
-rotate(${rotate}deg);
+currentDeg=3600-target;
 
-/* RESULT */
+wheel.style.transform=`rotate(${currentDeg}deg)`;
 
 setTimeout(()=>{
 
-document.getElementById("result").innerHTML=
-currentLang==="ru"
-? 🎉 Вам выпало ${prize}%
-: 🎉 Sizga ${prize}% tushdi;
+result.innerHTML=
+"🎉 Siz yutdingiz: "+prize+"%";
 
 },6000);
 

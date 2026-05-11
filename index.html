@@ -16,12 +16,45 @@ font-family:Arial,sans-serif;
 }
 
 body{
-background:#081120;
+background:
+linear-gradient(160deg,#020617,#0f172a,#111827);
 color:white;
 overflow-x:hidden;
+min-height:100vh;
 }
 
-/* ================= WELCOME ================= */
+/* ===== ANIMATION ===== */
+
+@keyframes fade{
+from{
+opacity:0;
+transform:translateY(20px);
+}
+to{
+opacity:1;
+transform:translateY(0);
+}
+}
+
+@keyframes glow{
+0%{box-shadow:0 0 10px #3b82f6;}
+50%{box-shadow:0 0 25px #8b5cf6;}
+100%{box-shadow:0 0 10px #3b82f6;}
+}
+
+/* ===== PAGE ===== */
+
+.page{
+display:none;
+padding:18px;
+animation:fade .4s;
+}
+
+.active{
+display:block;
+}
+
+/* ===== WELCOME ===== */
 
 #welcome{
 height:100vh;
@@ -31,11 +64,6 @@ justify-content:center;
 align-items:center;
 text-align:center;
 padding:20px;
-background:
-linear-gradient(rgba(0,0,0,.7),rgba(0,0,0,.8)),
-url('https://images.unsplash.com/photo-1521295121783-8a321d551ad2?q=80&w=1200');
-background-size:cover;
-background-position:center;
 }
 
 .logo{
@@ -43,186 +71,170 @@ width:130px;
 height:130px;
 border-radius:50%;
 object-fit:cover;
-border:4px solid #00d4ff;
-box-shadow:0 0 40px #00d4ff;
+border:4px solid #60a5fa;
+box-shadow:0 0 30px rgba(96,165,250,.7);
+margin-bottom:25px;
+animation:glow 3s infinite;
+}
+
+.welcomeTitle{
+font-size:31px;
+font-weight:bold;
+line-height:1.5;
 margin-bottom:25px;
 }
 
-#welcome h1{
-font-size:32px;
-margin-bottom:15px;
-}
-
-#welcome p{
-font-size:18px;
-opacity:.9;
-line-height:1.6;
-max-width:400px;
-}
-
 .startBtn{
-margin-top:35px;
-padding:16px 50px;
+padding:16px 45px;
 border:none;
-border-radius:40px;
+border-radius:18px;
 font-size:20px;
 font-weight:bold;
 cursor:pointer;
 color:white;
-background:linear-gradient(45deg,#00d4ff,#7c3aed);
-animation:pulse 1.5s infinite;
-box-shadow:0 0 30px rgba(0,212,255,.6);
+background:linear-gradient(135deg,#2563eb,#7c3aed);
+transition:.3s;
+box-shadow:0 0 20px rgba(99,102,241,.5);
 }
 
-@keyframes pulse{
-0%{transform:scale(1);}
-50%{transform:scale(1.06);}
-100%{transform:scale(1);}
+.startBtn:hover{
+transform:scale(1.05);
 }
 
-/* ================= HEADER ================= */
+/* ===== HEADER ===== */
 
 .header{
-position:sticky;
-top:0;
-z-index:999;
 display:flex;
 justify-content:space-between;
 align-items:center;
-padding:15px;
-background:#0f172a;
-border-bottom:1px solid rgba(255,255,255,.1);
+margin-bottom:20px;
+padding:14px;
+background:rgba(255,255,255,.05);
+border:1px solid rgba(255,255,255,.1);
+backdrop-filter:blur(12px);
+border-radius:20px;
 }
 
-.headerTitle{
+.logoBox{
+display:flex;
+align-items:center;
+gap:12px;
+}
+
+.smallLogo{
+width:58px;
+height:58px;
+border-radius:50%;
+object-fit:cover;
+border:2px solid #60a5fa;
+}
+
+.title{
 font-size:22px;
 font-weight:bold;
 }
 
 .langBox{
 display:flex;
-gap:10px;
+gap:8px;
 }
 
 .langBtn{
-padding:10px 15px;
+padding:10px 14px;
 border:none;
 border-radius:12px;
+cursor:pointer;
+font-weight:bold;
 background:#1e293b;
 color:white;
-cursor:pointer;
-font-weight:bold;
 }
 
-/* ================= PAGE ================= */
-
-.page{
-display:none;
-padding:20px;
-animation:fade .4s;
-}
-
-.active{
-display:block;
-}
-
-@keyframes fade{
-from{
-opacity:0;
-transform:translateY(15px);
-}
-to{
-opacity:1;
-transform:translateY(0);
-}
-}
-
-/* ================= MENU ================= */
+/* ===== HOME BUTTONS ===== */
 
 .menu{
-display:flex;
-flex-direction:column;
-gap:18px;
-margin-top:25px;
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:14px;
+margin-top:18px;
 }
 
-.menuBtn{
-padding:20px;
-border-radius:22px;
-background:linear-gradient(135deg,#111827,#1e293b);
-border:1px solid rgba(255,255,255,.08);
-cursor:pointer;
-font-size:18px;
+.homeBtn{
+background:
+linear-gradient(145deg,#111827,#1e293b);
+padding:22px 15px;
+border-radius:24px;
+text-align:center;
+font-size:16px;
 font-weight:bold;
+cursor:pointer;
 transition:.3s;
-box-shadow:0 10px 30px rgba(0,0,0,.3);
+border:1px solid rgba(255,255,255,.08);
+box-shadow:0 10px 20px rgba(0,0,0,.35);
 }
 
-.menuBtn:hover{
-transform:translateY(-3px);
+.homeBtn:hover{
+transform:translateY(-4px) scale(1.02);
+background:
+linear-gradient(145deg,#1e293b,#334155);
 }
+
+/* ===== CARDS ===== */
 
 .card{
-background:#111827;
-padding:22px;
-border-radius:24px;
-line-height:1.8;
 margin-top:20px;
+padding:22px;
+background:rgba(255,255,255,.05);
+border-radius:24px;
+line-height:1.9;
+font-size:15px;
 border:1px solid rgba(255,255,255,.08);
+backdrop-filter:blur(12px);
+}
+
+/* ===== INNER BUTTONS ===== */
+
+.innerBtns{
+display:flex;
+flex-direction:column;
+gap:14px;
+margin-top:22px;
 }
 
 .linkBtn{
-display:block;
-text-decoration:none;
-background:#1e293b;
 padding:18px;
-margin-top:15px;
 border-radius:18px;
-color:white;
-font-weight:bold;
 text-align:center;
+cursor:pointer;
+font-weight:bold;
+font-size:15px;
+background:
+linear-gradient(135deg,#2563eb,#7c3aed);
+transition:.3s;
 }
 
-/* ================= BACK ================= */
+.linkBtn:hover{
+transform:scale(1.02);
+}
+
+/* ===== BACK ===== */
 
 .backBtn{
 display:inline-block;
+margin-bottom:18px;
 padding:12px 18px;
 border-radius:14px;
 background:#dc2626;
-margin-bottom:20px;
 font-weight:bold;
 cursor:pointer;
 }
 
-/* ================= STATS ================= */
-
-.stats{
-display:flex;
-gap:15px;
-margin-top:25px;
-}
-
-.stat{
-flex:1;
-background:#111827;
-padding:18px;
-border-radius:20px;
-text-align:center;
-}
-
-.stat h2{
-font-size:28px;
-color:#00d4ff;
-}
-
-/* ================= BARABAN ================= */
+/* ===== BARABAN ===== */
 
 #wheelBox{
 position:relative;
-width:320px;
-height:320px;
-margin:30px auto;
+width:340px;
+height:340px;
+margin:25px auto;
 }
 
 #pointer{
@@ -232,91 +244,141 @@ left:50%;
 transform:translateX(-50%);
 width:0;
 height:0;
-border-left:18px solid transparent;
-border-right:18px solid transparent;
-border-top:35px solid white;
-z-index:50;
+border-left:22px solid transparent;
+border-right:22px solid transparent;
+border-top:42px solid #facc15;
+z-index:20;
+filter:drop-shadow(0 0 10px rgba(255,255,255,.7));
 }
 
 #wheel{
-width:320px;
-height:320px;
+width:340px;
+height:340px;
 border-radius:50%;
-border:10px solid white;
 position:relative;
 overflow:hidden;
-transition:6s cubic-bezier(.17,.67,.22,1);
+border:10px solid #111827;
+transition:6s cubic-bezier(.17,.67,.18,1);
+box-shadow:
+0 0 30px rgba(0,0,0,.7),
+0 0 25px rgba(255,255,255,.15);
 
-background:conic-gradient(
-#7c3aed 0deg 18deg,
-#2563eb 18deg 36deg,
-#06b6d4 36deg 54deg,
-#10b981 54deg 72deg,
-#f59e0b 72deg 90deg,
+background:
+conic-gradient(
+#ef4444 0deg 18deg,
+#22c55e 18deg 36deg,
+#3b82f6 36deg 54deg,
+#f59e0b 54deg 72deg,
+#8b5cf6 72deg 90deg,
 #ef4444 90deg 108deg,
-#7c3aed 108deg 126deg,
-#2563eb 126deg 144deg,
-#06b6d4 144deg 162deg,
-#10b981 162deg 180deg,
-#f59e0b 180deg 198deg,
-#ef4444 198deg 216deg,
-#7c3aed 216deg 234deg,
-#2563eb 234deg 252deg,
-#06b6d4 252deg 270deg,
-#10b981 270deg 288deg,
-#f59e0b 288deg 306deg,
-#ef4444 306deg 324deg,
-#7c3aed 324deg 342deg,
-#2563eb 342deg 360deg
+#22c55e 108deg 126deg,
+#3b82f6 126deg 144deg,
+#f59e0b 144deg 162deg,
+#8b5cf6 162deg 180deg,
+#ef4444 180deg 198deg,
+#22c55e 198deg 216deg,
+#3b82f6 216deg 234deg,
+#f59e0b 234deg 252deg,
+#8b5cf6 252deg 270deg,
+#ef4444 270deg 288deg,
+#22c55e 288deg 306deg,
+#3b82f6 306deg 324deg,
+#f59e0b 324deg 342deg,
+#8b5cf6 342deg 360deg
 );
+}
+
+.centerCircle{
+position:absolute;
+width:70px;
+height:70px;
+background:#111827;
+border:7px solid #facc15;
+border-radius:50%;
+top:50%;
+left:50%;
+transform:translate(-50%,-50%);
+z-index:10;
+box-shadow:0 0 15px rgba(255,255,255,.4);
 }
 
 .label{
 position:absolute;
-width:40px;
-height:40px;
-display:flex;
-align-items:center;
-justify-content:center;
+left:50%;
+top:50%;
+transform-origin:0 0;
 font-size:13px;
 font-weight:bold;
 color:white;
-transform-origin:center;
+width:50px;
+text-align:center;
+text-shadow:0 2px 5px black;
 }
 
 .spinBtn{
-margin-top:25px;
+margin-top:20px;
 padding:18px;
-border:none;
 border-radius:20px;
-width:100%;
-font-size:20px;
+text-align:center;
+font-size:18px;
 font-weight:bold;
+background:
+linear-gradient(135deg,#f59e0b,#ef4444);
 cursor:pointer;
-background:linear-gradient(45deg,#00d4ff,#7c3aed);
-color:white;
 }
 
 .result{
-margin-top:25px;
-text-align:center;
-font-size:28px;
+margin-top:20px;
+font-size:24px;
 font-weight:bold;
-color:#00ffae;
+text-align:center;
+color:#facc15;
 }
 
-/* ================= MOBILE ================= */
+/* ===== STATS ===== */
 
-@media(max-width:480px){
+.stats{
+display:flex;
+gap:12px;
+margin-top:25px;
+}
+
+.stat{
+flex:1;
+padding:18px;
+background:rgba(255,255,255,.05);
+border-radius:22px;
+text-align:center;
+border:1px solid rgba(255,255,255,.08);
+}
+
+.stat h2{
+font-size:28px;
+margin-bottom:8px;
+color:#60a5fa;
+}
+
+/* ===== MOBILE ===== */
+
+@media(max-width:500px){
 
 #wheelBox{
-width:290px;
-height:290px;
+width:300px;
+height:300px;
 }
 
 #wheel{
-width:290px;
-height:290px;
+width:300px;
+height:300px;
+}
+
+.menu{
+grid-template-columns:1fr 1fr;
+}
+
+.homeBtn{
+font-size:14px;
+padding:20px 12px;
 }
 
 }
@@ -326,34 +388,37 @@ height:290px;
 
 <body>
 
-<!-- ================= WELCOME ================= -->
+<!-- ===== WELCOME ===== -->
 
-<section id="welcome">
+<section id="welcome" class="active page">
 
 <img src="logo.png" class="logo">
 
-<h1 id="welcomeTitle">
-Добро пожаловать
-</h1>
+<div class="welcomeTitle" id="welcomeText">
+Добро пожаловать<br>
+Наш офис Omad Tour
+</div>
 
-<p id="welcomeText">
-Мы очень рады видеть вас в Omad Tour
-</p>
+<div class="langBox" style="margin-bottom:20px;">
+<button class="langBtn" onclick="setLang('uz')">UZ</button>
+<button class="langBtn" onclick="setLang('ru')">RU</button>
+</div>
 
-<button class="startBtn" onclick="openHome()" id="startBtn">
+<button class="startBtn" id="startBtn" onclick="startApp()">
 🚀 Начать
 </button>
 
 </section>
 
-<!-- ================= HOME ================= -->
+<!-- ===== HOME ===== -->
 
 <section id="home" class="page">
 
 <div class="header">
 
-<div class="headerTitle">
-Omad Tour Premium
+<div class="logoBox">
+<img src="logo.png" class="smallLogo">
+<div class="title">Omad Tour</div>
 </div>
 
 <div class="langBox">
@@ -365,24 +430,28 @@ Omad Tour Premium
 
 <div class="menu">
 
-<div class="menuBtn" onclick="openPage('avia')" id="menu1">
+<div class="homeBtn" onclick="openPage('avia')" id="m1">
 ✈️ Avia Bilet
 </div>
 
-<div class="menuBtn" onclick="openPage('visa')" id="menu2">
-🛂 Viza Tekshirish
+<div class="homeBtn" onclick="openPage('visa')" id="m2">
+🛂 Viza
 </div>
 
-<div class="menuBtn" onclick="openPage('groups')" id="menu3">
-👥 Guruhlarimiz
+<div class="homeBtn" onclick="openPage('groups')" id="m3">
+👥 Guruhlar
 </div>
 
-<div class="menuBtn" onclick="openPage('office')" id="menu4">
-🏢 Ofisimiz Uslugyalari
+<div class="homeBtn" onclick="openPage('office')" id="m4">
+🏢 Xizmatlar
 </div>
 
-<div class="menuBtn" onclick="openPage('support')" id="menu5">
-📞 Tezkor Bog‘lanish
+<div class="homeBtn" onclick="openPage('wheelPage')" id="m5">
+🎡 Bonus
+</div>
+
+<div class="homeBtn" onclick="openPage('contact')" id="m6">
+📞 Aloqa
 </div>
 
 </div>
@@ -391,19 +460,19 @@ Omad Tour Premium
 
 <div class="stat">
 <h2 id="onlineCount">0</h2>
-<p id="onlineText">Kirganlar</p>
+<p id="onlineText">Online</p>
 </div>
 
 <div class="stat">
-<h2 id="leftCount">0</h2>
-<p id="leftText">Chiqganlar</p>
+<h2 id="leaveCount">0</h2>
+<p id="leaveText">Chiqib ketgan</p>
 </div>
 
 </div>
 
 </section>
 
-<!-- ================= AVIA ================= -->
+<!-- ===== AVIA ===== -->
 
 <section id="avia" class="page">
 
@@ -412,34 +481,171 @@ Omad Tour Premium
 </div>
 
 <div class="card" id="aviaText">
-
 Siz avia bilet bo‘limidasiz.
-
 </div>
 
-<a href="https://t.me/OMAD_TOUR9094" class="linkBtn">
-Telegram akkaunt
-</a>
+<div class="innerBtns">
 
-<a href="https://wa.me/79811939094" class="linkBtn">
-WhatsApp akkaunt
-</a>
+<div class="linkBtn"
+onclick="window.open('https://t.me/OMAD_TOUR9094')">
+📩 Telegram
+</div>
 
-<a href="https://max.ru/u/f9LHodD0cOLLpEmAWC_I3iUUWcn5IO6DFYg0IVz4jEXfm6BJP6OL-L7V0jk" class="linkBtn">
-MAX akkaunt
-</a>
+<div class="linkBtn"
+onclick="window.open('https://wa.me/79811939094')">
+📞 WhatsApp
+</div>
 
-<div class="menuBtn" onclick="openPage('wheelPage')" id="bonusBtn">
-🎡 Bonus Baraban
+<div class="linkBtn"
+onclick="window.open('https://max.ru/u/f9LHodD0cOLLpEmAWC_I3iUUWcn5IO6DFYg0IVz4jEXfm6BJP6OL-L7V0jk')">
+🚀 MAX
+</div>
+
 </div>
 
 </section>
 
-<!-- ================= WHEEL ================= -->
+<!-- ===== VISA ===== -->
+
+<section id="visa" class="page">
+
+<div class="backBtn" onclick="goHome()" id="back2">
+⬅ Orqaga
+</div>
+
+<div class="card" id="visaText">
+Siz viza tekshirish bo‘limidasiz.
+</div>
+
+<div class="innerBtns">
+
+<div class="linkBtn"
+onclick="window.open('https://visa.mfa.uz/ruxsat/view')">
+🌐 Vizani Tekshirish
+</div>
+
+<div class="linkBtn"
+onclick="window.open('https://t.me/+i8I6ByH_CUVhOWQy')">
+👥 Konsullik Guruhi
+</div>
+
+</div>
+
+</section>
+
+<!-- ===== GROUPS ===== -->
+
+<section id="groups" class="page">
+
+<div class="backBtn" onclick="goHome()" id="back3">
+⬅ Orqaga
+</div>
+
+<div class="card" id="groupText">
+Siz guruhlar bo‘limidasiz.
+</div>
+
+<div class="innerBtns">
+
+<div class="linkBtn"
+onclick="window.open('https://t.me/+OW_pzYSHjIA5NmQy')">
+📢 Telegram
+</div>
+
+<div class="linkBtn"
+onclick="window.open('https://chat.whatsapp.com/KgnvfhpMYso6lSX3kbNd4l?mode=gi_t')">
+💬 WhatsApp
+</div>
+
+<div class="linkBtn"
+onclick="window.open('https://max.ru/join/M4-SsjF594_qN-XYZd8YabTAqxvGFRzd30p_N2hRh7c')">
+🚀 MAX
+</div>
+
+</div>
+
+</section>
+
+<!-- ===== OFFICE ===== -->
+
+<section id="office" class="page">
+
+<div class="backBtn" onclick="goHome()" id="back4">
+⬅ Orqaga
+</div>
+
+<div class="card">
+
+<h2 style="margin-bottom:18px;">🏢 OFIS XIZMATLARI</h2>
+
+<div style="line-height:2;">
+
+<b>📄 KSEROKOPIYA</b><br>
+Чёрно — Белый 35 ₽<br>
+Двухсторонняя 50 ₽<br>
+Цветная 50 ₽<br>
+Скан 50 ₽<br><br>
+
+<b>📸 FOTO</b><br>
+3×4 — 400 ₽<br>
+Elektron — 250 ₽<br>
+2×3 — 400 ₽<br><br>
+
+<b>📝 ANKETA</b><br>
+Загранпаспорт — 1000 ₽<br>
+Возвращение — 500 ₽<br>
+Консульский учёт — 500 ₽<br>
+Транзитная виза — 1000 ₽
+
+</div>
+
+</div>
+
+<div class="innerBtns">
+
+<div class="linkBtn"
+onclick="window.open('https://t.me/AVIAKASSA9094')">
+📩 Buyurtma Berish
+</div>
+
+</div>
+
+</section>
+
+<!-- ===== CONTACT ===== -->
+
+<section id="contact" class="page">
+
+<div class="backBtn" onclick="goHome()" id="back5">
+⬅ Orqaga
+</div>
+
+<div class="innerBtns">
+
+<div class="linkBtn"
+onclick="window.open('tel:+79811939094')">
+📞 +7 981 193 90 94
+</div>
+
+<div class="linkBtn"
+onclick="window.open('tel:+79379499094')">
+📞 +7 937 949 90 94
+</div>
+
+<div class="linkBtn"
+onclick="window.open('tel:+79214027489')">
+📞 +7 921 402 74 89
+</div>
+
+</div>
+
+</section>
+
+<!-- ===== BARABAN ===== -->
 
 <section id="wheelPage" class="page">
 
-<div class="backBtn" onclick="openPage('avia')" id="back2">
+<div class="backBtn" onclick="openPage('avia')" id="back6">
 ⬅ Orqaga
 </div>
 
@@ -449,138 +655,19 @@ MAX akkaunt
 
 <div id="wheel"></div>
 
+<div class="centerCircle"></div>
+
 </div>
 
-<button class="spinBtn" onclick="spinWheel()" id="spinText">
+<div class="spinBtn" id="spinBtn" onclick="spinWheel()">
 🎯 Aylantirish
-</button>
+</div>
 
 <div class="result" id="result"></div>
 
 </section>
 
-<!-- ================= VISA ================= -->
-
-<section id="visa" class="page">
-
-<div class="backBtn" onclick="goHome()" id="back3">
-⬅ Orqaga
-</div>
-
-<div class="card" id="visaText">
-
-Siz viza tekshirish bo‘limidasiz.
-
-</div>
-
-<a href="https://visa.mfa.uz/ruxsat/view" class="linkBtn">
-🌐 Vizani Tekshirish
-</a>
-
-<a href="https://t.me/+i8I6ByH_CUVhOWQy" class="linkBtn">
-👥 Konsullik Guruhi
-</a>
-
-</section>
-
-<!-- ================= GROUPS ================= -->
-
-<section id="groups" class="page">
-
-<div class="backBtn" onclick="goHome()" id="back4">
-⬅ Orqaga
-</div>
-
-<div class="card" id="groupText">
-
-Siz aviabilet guruhlari bo‘limidasiz.
-
-</div>
-
-<a href="https://t.me/+OW_pzYSHjIA5NmQy" class="linkBtn">
-Telegram Guruh
-</a>
-
-<a href="https://chat.whatsapp.com/KgnvfhpMYso6lSX3kbNd4l?mode=gi_t" class="linkBtn">
-WhatsApp Guruh
-</a>
-
-<a href="https://max.ru/join/M4-SsjF594_qN-XYZd8YabTAqxvGFRzd30p_N2hRh7c" class="linkBtn">
-MAX Guruh
-</a>
-
-</section>
-
-<!-- ================= OFFICE ================= -->
-
-<section id="office" class="page">
-
-<div class="backBtn" onclick="goHome()" id="back5">
-⬅ Orqaga
-</div>
-
-<div class="card">
-
-<h2>📄 КСЕРОКОПИЯ</h2>
-
-<br>
-
-Чёрно — Белый 35 ₽<br>
-Двухсторонняя 50 ₽<br><br>
-
-Цветная 50 ₽<br>
-Двухсторонняя 100 ₽<br><br>
-
-Скан Документов 50 ₽<br><br>
-
-<h2>📸 ФОТО</h2>
-
-<br>
-
-Фото 3×4 — 400 ₽<br>
-Фото Электронная — 250 ₽<br>
-Фото 2×3 — 400 ₽<br><br>
-
-<h2>📝 АНКЕТА</h2>
-
-<br>
-
-Загранпаспортная анкета — 1000 ₽<br>
-Возвращение на родину — 500 ₽<br>
-Консульский учёт — 500 ₽<br>
-Транзитная виза — 1000 ₽
-
-</div>
-
-<a href="https://t.me/AVIAKASSA9094" class="linkBtn">
-📩 Buyurtma Berish
-</a>
-
-</section>
-
-<!-- ================= SUPPORT ================= -->
-
-<section id="support" class="page">
-
-<div class="backBtn" onclick="goHome()" id="back6">
-⬅ Orqaga
-</div>
-
-<a href="tel:+79811939094" class="linkBtn">
-📞 +7 981 193 90 94
-</a>
-
-<a href="tel:+79379499094" class="linkBtn">
-📞 +7 937 949 90 94
-</a>
-
-<a href="tel:+79214027489" class="linkBtn">
-📞 +7 921 402 74 89
-</a>
-
-</section>
-
-<!-- ================= FIREBASE ================= -->
+<!-- ===== FIREBASE ===== -->
 
 <script type="module">
 
@@ -621,7 +708,7 @@ const db = getFirestore(app);
 
 const statsRef = doc(db,"stats","users");
 
-async function initStats(){
+async function loadStats(){
 
 let snap = await getDoc(statsRef);
 
@@ -632,22 +719,24 @@ online:0,
 left:0
 });
 
+snap = await getDoc(statsRef);
+
 }
+
+const data = snap.data();
+
+onlineCount.innerText = data.online;
+leaveCount.innerText = data.left;
+
+}
+
+loadStats();
 
 await updateDoc(statsRef,{
 online:increment(1)
 });
 
-const updated = await getDoc(statsRef);
-
-onlineCount.innerText = updated.data().online;
-leftCount.innerText = updated.data().left;
-
-}
-
-initStats();
-
-window.addEventListener("beforeunload", async ()=>{
+window.addEventListener("beforeunload",async()=>{
 
 await updateDoc(statsRef,{
 left:increment(1)
@@ -657,15 +746,17 @@ left:increment(1)
 
 </script>
 
-<!-- ================= MAIN SCRIPT ================= -->
+<!-- ===== SCRIPT ===== -->
 
 <script>
 
-function openHome(){
+/* ===== PAGE ===== */
 
-welcome.style.display="none";
+function startApp(){
 
-home.classList.add("active");
+document.getElementById("welcome").classList.remove("active");
+
+document.getElementById("home").classList.add("active");
 
 }
 
@@ -683,76 +774,80 @@ window.scrollTo(0,0);
 
 function goHome(){
 
-document.querySelectorAll(".page").forEach(p=>{
-p.classList.remove("active");
-});
-
-home.classList.add("active");
+openPage("home");
 
 }
 
-/* ================= LANGUAGE ================= */
+/* ===== LANGUAGE ===== */
 
 function setLang(lang){
 
 if(lang==="ru"){
 
-welcomeTitle.innerHTML="Добро пожаловать";
-
 welcomeText.innerHTML=
-"Мы очень рады видеть вас в Omad Tour";
+"Добро пожаловать<br>Наш офис Omad Tour";
 
 startBtn.innerHTML="🚀 Начать";
 
-menu1.innerHTML="✈️ Авиабилеты";
-menu2.innerHTML="🛂 Проверка визы";
-menu3.innerHTML="👥 Наши группы";
-menu4.innerHTML="🏢 Услуги офиса";
-menu5.innerHTML="📞 Быстрая связь";
+m1.innerHTML="✈️ Авиабилеты";
+m2.innerHTML="🛂 Виза";
+m3.innerHTML="👥 Группы";
+m4.innerHTML="🏢 Услуги";
+m5.innerHTML="🎡 Бонус";
+m6.innerHTML="📞 Контакты";
 
-onlineText.innerHTML="Вошли";
-leftText.innerHTML="Вышли";
+onlineText.innerHTML="Онлайн";
+leaveText.innerHTML="Вышли";
 
-bonusBtn.innerHTML="🎡 Бонус барабан";
+back1.innerHTML="⬅ Назад";
+back2.innerHTML="⬅ Назад";
+back3.innerHTML="⬅ Назад";
+back4.innerHTML="⬅ Назад";
+back5.innerHTML="⬅ Назад";
+back6.innerHTML="⬅ Назад";
 
-spinText.innerHTML="🎯 Крутить";
+spinBtn.innerHTML="🎯 Крутить";
 
 aviaText.innerHTML=
-"Вы находитесь в разделе авиабилетов.";
+"Вы находитесь в разделе авиабилетов. Здесь вы можете узнать цены и забронировать билет.";
 
 visaText.innerHTML=
-"Вы находитесь в разделе проверки визы.";
+"Вы находитесь в визовом разделе. Здесь можно проверить статус визы и обратиться в консульскую группу.";
 
 groupText.innerHTML=
-"Вы находитесь в разделе групп.";
+"Здесь вы можете вступить в наши официальные группы.";
 
 }else{
 
-welcomeTitle.innerHTML="Xush Kelibsiz";
-
 welcomeText.innerHTML=
-"Biz sizni Omad Tour’da ko‘rganimizdan xursandmiz";
+"Xush kelibsiz<br>Omad Tour Premium";
 
 startBtn.innerHTML="🚀 Boshlash";
 
-menu1.innerHTML="✈️ Avia Bilet";
-menu2.innerHTML="🛂 Viza Tekshirish";
-menu3.innerHTML="👥 Guruhlarimiz";
-menu4.innerHTML="🏢 Ofis Uslugyalari";
-menu5.innerHTML="📞 Tezkor Aloqa";
+m1.innerHTML="✈️ Avia Bilet";
+m2.innerHTML="🛂 Viza";
+m3.innerHTML="👥 Guruhlar";
+m4.innerHTML="🏢 Xizmatlar";
+m5.innerHTML="🎡 Bonus";
+m6.innerHTML="📞 Aloqa";
 
-onlineText.innerHTML="Kirganlar";
-leftText.innerHTML="Chiqganlar";
+onlineText.innerHTML="Online";
+leaveText.innerHTML="Chiqib ketgan";
 
-bonusBtn.innerHTML="🎡 Bonus Baraban";
+back1.innerHTML="⬅ Orqaga";
+back2.innerHTML="⬅ Orqaga";
+back3.innerHTML="⬅ Orqaga";
+back4.innerHTML="⬅ Orqaga";
+back5.innerHTML="⬅ Orqaga";
+back6.innerHTML="⬅ Orqaga";
 
-spinText.innerHTML="🎯 Aylantirish";
+spinBtn.innerHTML="🎯 Aylantirish";
 
 aviaText.innerHTML=
-"Siz avia bilet bo‘limidasiz.";
+"Siz avia bilet bo‘limidasiz. Bu yerda bilet narxlari va bron qilish imkoniyati mavjud.";
 
 visaText.innerHTML=
-"Siz viza tekshirish bo‘limidasiz.";
+"Siz viza bo‘limidasiz. Bu yerda vizangizni tekshirishingiz mumkin.";
 
 groupText.innerHTML=
 "Siz guruhlar bo‘limidasiz.";
@@ -761,39 +856,34 @@ groupText.innerHTML=
 
 }
 
-/* ================= BARABAN ================= */
+/* ===== BARABAN ===== */
 
-let wheel=document.getElementById("wheel");
+const wheel = document.getElementById("wheel");
 
-for(let i=0;i<=20;i++){
+for(let i=1;i<=20;i++){
 
-let div=document.createElement("div");
+let label=document.createElement("div");
 
-div.className="label";
+label.className="label";
 
-let angle=i*(360/21);
+let angle=(360/20)*i-9;
 
-let radius=118;
+label.style.transform=
+`rotate(${angle}deg) translate(0,-132px) rotate(90deg)`;
 
-let x=160+radius*Math.cos((angle-90)*Math.PI/180);
+label.innerHTML=i+"%";
 
-let y=160+radius*Math.sin((angle-90)*Math.PI/180);
-
-div.style.left=(x-20)+"px";
-div.style.top=(y-20)+"px";
-
-div.innerHTML=i+"%";
-
-wheel.appendChild(div);
+wheel.appendChild(label);
 
 }
+
+let currentDeg=0;
 
 function spinWheel(){
 
 if(localStorage.getItem("wheelPlayed")){
 
-result.innerHTML="❌ Siz allaqachon aylantirgansiz";
-
+result.innerHTML="❌ Siz faqat 1 marta aylantira olasiz";
 return;
 
 }
@@ -804,13 +894,13 @@ let prizes=[0,1,2,4,5];
 
 let prize=prizes[Math.floor(Math.random()*prizes.length)];
 
-let segment=360/21;
+let segment=360/20;
 
-let target=prize*segment+segment/2;
+let target=(prize*segment)+(segment/2);
 
-let rotate=360*8-target;
+currentDeg=3600-target;
 
-wheel.style.transform=`rotate(${rotate}deg)`;
+wheel.style.transform=`rotate(${currentDeg}deg)`;
 
 setTimeout(()=>{
 

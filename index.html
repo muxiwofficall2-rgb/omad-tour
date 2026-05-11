@@ -776,57 +776,431 @@ spinText.innerHTML="🎯 Aylantirish";
 
 /* ===== BARABAN ===== */
 
-const wheel=document.getElementById("wheel");
+[11.05.2026 19:16] Omad tour muxiw: <!-- ================= BONUS PAGE ================= -->
 
-for(let i=1;i<=20;i++){
+<section id="bonusPage" class="page">
 
-let label=document.createElement("div");
+<div class="pageHeader">
 
-label.className="label";
+<button class="backBtn"
+onclick="openPage('aviaPage')"
+id="bonusBack">
+⬅ Orqaga
+</button>
 
-let angle=(360/20)*i;
+<div class="langBox">
 
-label.style.transform=
-`rotate(${angle}deg) translate(0,-128px) rotate(-${angle}deg)`;
+<button onclick="setLang('uz')">UZ</button>
+<button onclick="setLang('ru')">RU</button>
 
-label.innerHTML=i+"%";
+</div>
 
-wheel.appendChild(label);
+</div>
+
+<h2 class="bonusTitle" id="bonusTitle">
+🎁 Bonus Baraban
+</h2>
+
+<div id="wheelContainer">
+
+<div id="pointer"></div>
+
+<div id="wheel">
+
+<!-- 1 -->
+<div class="sector"
+style="transform:rotate(0deg) translateY(-120px);">
+1%
+</div>
+
+<!-- 2 -->
+<div class="sector"
+style="transform:rotate(18deg) translateY(-120px);">
+2%
+</div>
+
+<!-- 3 -->
+<div class="sector"
+style="transform:rotate(36deg) translateY(-120px);">
+3%
+</div>
+
+<!-- 4 -->
+<div class="sector"
+style="transform:rotate(54deg) translateY(-120px);">
+4%
+</div>
+
+<!-- 5 -->
+<div class="sector"
+style="transform:rotate(72deg) translateY(-120px);">
+5%
+</div>
+
+<!-- 6 -->
+<div class="sector"
+style="transform:rotate(90deg) translateY(-120px);">
+6%
+</div>
+
+<!-- 7 -->
+<div class="sector"
+style="transform:rotate(108deg) translateY(-120px);">
+7%
+</div>
+
+<!-- 8 -->
+<div class="sector"
+style="transform:rotate(126deg) translateY(-120px);">
+8%
+</div>
+
+<!-- 9 -->
+<div class="sector"
+style="transform:rotate(144deg) translateY(-120px);">
+9%
+</div>
+
+<!-- 10 -->
+<div class="sector"
+style="transform:rotate(162deg) translateY(-120px);">
+10%
+</div>
+
+<!-- 11 -->
+<div class="sector"
+style="transform:rotate(180deg) translateY(-120px);">
+11%
+</div>
+
+<!-- 12 -->
+<div class="sector"
+style="transform:rotate(198deg) translateY(-120px);">
+12%
+</div>
+
+<!-- 13 -->
+<div class="sector"
+style="transform:rotate(216deg) translateY(-120px);">
+13%
+</div>
+
+<!-- 14 -->
+<div class="sector"
+style="transform:rotate(234deg) translateY(-120px);">
+14%
+</div>
+
+<!-- 15 -->
+<div class="sector"
+style="transform:rotate(252deg) translateY(-120px);">
+15%
+</div>
+
+<!-- 16 -->
+<div class="sector"
+style="transform:rotate(270deg) translateY(-120px);">
+16%
+</div>
+
+<!-- 17 -->
+<div class="sector"
+style="transform:rotate(288deg) translateY(-120px);">
+17%
+</div>
+
+<!-- 18 -->
+<div class="sector"
+style="transform:rotate(306deg) translateY(-120px);">
+18%
+</div>
+
+<!-- 19 -->
+<div class="sector"
+style="transform:rotate(324deg) translateY(-120px);">
+19%
+</div>
+
+<!-- 20 -->
+<div class="sector"
+style="transform:rotate(342deg) translateY(-120px);">
+20%
+</div>
+
+</div>
+
+</div>
+
+<button class="spinBtn"
+onclick="spinWheel()"
+id="spinBtn">
+🎯 Aylantirish
+</button>
+
+<div id="result"></div>
+
+</section>
+
+<style>
+
+/* ================= BONUS STYLE ================= */
+
+#bonusPage{
+display:none;
+min-height:100vh;
+padding:20px;
+background:
+linear-gradient(180deg,#07111f,#0f172a);
+color:white;
+}
+
+.pageHeader{
+display:flex;
+justify-content:space-between;
+align-items:center;
+margin-bottom:25px;
+}
+
+.backBtn{
+padding:12px 18px;
+border:none;
+border-radius:15px;
+background:#ef4444;
+color:white;
+font-size:15px;
+font-weight:bold;
+cursor:pointer;
+}
+
+.langBox{
+display:flex;
+gap:8px;
+}
+
+.langBox button{
+padding:10px 14px;
+border:none;
+border-radius:12px;
+background:#2563eb;
+color:white;
+font-weight:bold;
+cursor:pointer;
+}
+
+.bonusTitle{
+text-align:center;
+font-size:28px;
+margin-bottom:25px;
+font-weight:bold;
+}
+
+#wheelContainer{
+position:relative;
+width:320px;
+height:320px;
+margin:0 auto;
+}
+
+#pointer{
+position:absolute;
+top:-12px;
+left:50%;
+transform:translateX(-50%);
+width:0;
+height:0;
+border-left:18px solid transparent;
+border-right:18px solid transparent;
+border-top:35px solid #fff;
+z-index:20;
+}
+
+#wheel{
+width:320px;
+height:320px;
+border-radius:50%;
+border:10px solid white;
+position:relative;
+transition:6s cubic-bezier(.17,.67,.22,1);
+overflow:hidden;
+
+background:
+conic-gradient(
+#7c3aed 0deg 18deg,
+#2563eb 18deg 36deg,
+#059669 36deg 54deg,
+#ea580c 54deg 72deg,
+#dc2626 72deg 90deg,
+#7c3aed 90deg 108deg,
+#2563eb 108deg 126deg,
+#059669 126deg 144deg,
+#ea580c 144deg 162deg,
+#dc2626 162deg 180deg,
+#7c3aed 180deg 198deg,
+#2563eb 198deg 216deg,
+#059669 216deg 234deg,
+#ea580c 234deg 252deg,
+#dc2626 252deg 270deg,
+#7c3aed 270deg 288deg,
+[11.05.2026 19:16] Omad tour muxiw: #2563eb 288deg 306deg,
+#059669 306deg 324deg,
+#ea580c 324deg 342deg,
+#dc2626 342deg 360deg
+);
+}
+
+.sector{
+position:absolute;
+top:50%;
+left:50%;
+width:50px;
+height:50px;
+margin-left:-25px;
+margin-top:-25px;
+
+display:flex;
+align-items:center;
+justify-content:center;
+
+font-size:13px;
+font-weight:bold;
+color:white;
+
+transform-origin:center 120px;
+}
+
+.spinBtn{
+display:block;
+margin:35px auto;
+padding:16px 40px;
+border:none;
+border-radius:18px;
+background:
+linear-gradient(135deg,#7c3aed,#2563eb);
+color:white;
+font-size:18px;
+font-weight:bold;
+cursor:pointer;
+box-shadow:0 0 20px rgba(124,58,237,.4);
+}
+
+#result{
+text-align:center;
+font-size:24px;
+font-weight:bold;
+margin-top:15px;
+}
+
+/* ================= MOBILE ================= */
+
+@media(max-width:500px){
+
+#wheelContainer{
+width:280px;
+height:280px;
+}
+
+#wheel{
+width:280px;
+height:280px;
+}
+
+.sector{
+transform-origin:center 100px;
+font-size:12px;
+}
 
 }
 
-let spinning=false;
+</style>
+
+<script>
+
+/* ================= LANGUAGE ================= */
+
+let currentLang="uz";
+
+function setLang(lang){
+
+currentLang=lang;
+
+/* BONUS */
+
+if(lang==="ru"){
+
+document.getElementById("bonusTitle").innerHTML=
+"🎁 Бонус барабан";
+
+document.getElementById("spinBtn").innerHTML=
+"🎯 Крутить";
+
+document.getElementById("bonusBack").innerHTML=
+"⬅ Назад";
+
+}else{
+
+document.getElementById("bonusTitle").innerHTML=
+"🎁 Bonus Baraban";
+
+document.getElementById("spinBtn").innerHTML=
+"🎯 Aylantirish";
+
+document.getElementById("bonusBack").innerHTML=
+"⬅ Orqaga";
+
+}
+
+}
+
+/* ================= BARABAN ================= */
+
+let wheel=document.getElementById("wheel");
 
 function spinWheel(){
 
-if(localStorage.getItem("wheelPlayed")){
+/* 1 MARTA */
 
-result.innerHTML="❌ Siz faqat 1 marta aylantira olasiz";
+if(localStorage.getItem("wheelPlayed")==="true"){
+
+document.getElementById("result").innerHTML=
+currentLang==="ru"
+? "❌ Вы уже крутили барабан"
+: "❌ Siz allaqachon aylantirgansiz";
+
 return;
 
 }
 
-if(spinning) return;
-
-spinning=true;
+/* SAQLASH */
 
 localStorage.setItem("wheelPlayed","true");
 
+/* FAQAT SHULAR */
+
 let prizes=[0,1,2,4,5];
 
-let prize=prizes[Math.floor(Math.random()*prizes.length)];
+let prize=
+prizes[Math.floor(Math.random()*prizes.length)];
+
+/* AYLANTIRISH */
 
 let segment=360/20;
 
-let target=(prize*segment)+(segment/2);
+let rotate=
+(360*8)-
+(prize*segment)-
+(segment/2);
 
-let deg=360*8-target;
+wheel.style.transform=
+rotate(${rotate}deg);
 
-wheel.style.transform=`rotate(${deg}deg)`;
+/* RESULT */
 
 setTimeout(()=>{
 
-result.innerHTML="🎉 Siz yutdingiz: "+prize+"%";
+document.getElementById("result").innerHTML=
+currentLang==="ru"
+? 🎉 Вам выпало ${prize}%
+: 🎉 Sizga ${prize}% tushdi;
 
 },6000);
 

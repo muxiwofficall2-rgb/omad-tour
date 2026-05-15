@@ -2,11 +2,12 @@
 <!DOCTYPE html>
 <html lang="uz">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>OMAD TOUR</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700;900&display=swap" rel="stylesheet">
 
 <style>
 
@@ -18,18 +19,139 @@ font-family:'Montserrat',sans-serif;
 }
 
 body{
-background:linear-gradient(135deg,#050816,#0b132b,#121c3b);
-min-height:100vh;
-overflow-x:hidden;
+background:
+radial-gradient(circle at top,#10204d,#050816 70%);
 color:white;
+overflow-x:hidden;
+min-height:100vh;
 }
 
 .hidden{
-display:none;
+display:none !important;
 }
 
+/ START /
+
+.start-screen{
+height:100vh;
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+padding:20px;
+text-align:center;
+position:relative;
+overflow:hidden;
+}
+
+.blur1,
+.blur2{
+position:absolute;
+border-radius:50%;
+filter:blur(80px);
+z-index:0;
+}
+
+.blur1{
+width:300px;
+height:300px;
+background:#00e5ff;
+top:-100px;
+left:-100px;
+opacity:.4;
+}
+
+.blur2{
+width:300px;
+height:300px;
+background:#00ffb3;
+right:-100px;
+bottom:-100px;
+opacity:.3;
+}
+
+.logo{
+position:relative;
+z-index:1;
+width:150px;
+height:150px;
+border-radius:40px;
+background:linear-gradient(135deg,#00e5ff,#00ffb3);
+display:flex;
+justify-content:center;
+align-items:center;
+font-size:45px;
+font-weight:900;
+color:#00111f;
+box-shadow:0 0 45px #00e5ff;
+animation:pulse 2s infinite;
+}
+
+@keyframes pulse{
+0%{
+transform:scale(1);
+}
+50%{
+transform:scale(1.05);
+}
+100%{
+transform:scale(1);
+}
+}
+
+.title{
+margin-top:30px;
+font-size:30px;
+font-weight:800;
+max-width:600px;
+line-height:1.5;
+z-index:1;
+}
+
+.start-btn{
+margin-top:40px;
+padding:18px 45px;
+border:none;
+border-radius:18px;
+font-size:18px;
+font-weight:700;
+cursor:pointer;
+background:linear-gradient(135deg,#00e5ff,#00ffb3);
+color:#00111f;
+box-shadow:0 0 30px rgba(0,229,255,.5);
+transition:.3s;
+z-index:1;
+}
+
+.start-btn:hover{
+transform:translateY(-5px);
+}
+
+.lang-switch{
+margin-top:25px;
+display:flex;
+gap:15px;
+z-index:1;
+}
+
+.lang-btn{
+padding:12px 18px;
+border-radius:14px;
+cursor:pointer;
+background:rgba(255,255,255,.08);
+border:1px solid rgba(255,255,255,.1);
+backdrop-filter:blur(10px);
+transition:.3s;
+}
+
+.lang-btn:hover{
+background:#00e5ff;
+color:black;
+}
+
+/ HOME /
+
 .page{
-min-height:100vh;
 padding:20px;
 animation:fade .4s ease;
 }
@@ -37,7 +159,7 @@ animation:fade .4s ease;
 @keyframes fade{
 from{
 opacity:0;
-transform:translateY(15px);
+transform:translateY(20px);
 }
 to{
 opacity:1;
@@ -45,85 +167,7 @@ transform:translateY(0);
 }
 }
 
-.center{
-display:flex;
-flex-direction:column;
-justify-content:center;
-align-items:center;
-text-align:center;
-min-height:100vh;
-}
-
-.logo{
-width:130px;
-height:130px;
-border-radius:50%;
-background:linear-gradient(135deg,#00e5ff,#00ffae);
-display:flex;
-align-items:center;
-justify-content:center;
-font-size:38px;
-font-weight:700;
-color:#000;
-box-shadow:0 0 30px #00e5ff;
-margin-bottom:25px;
-animation:pulse 2s infinite;
-}
-
-@keyframes pulse{
-0%{
-box-shadow:0 0 15px #00e5ff;
-}
-50%{
-box-shadow:0 0 45px #00e5ff;
-}
-100%{
-box-shadow:0 0 15px #00e5ff;
-}
-}
-
-.welcome{
-font-size:24px;
-font-weight:700;
-max-width:500px;
-line-height:1.5;
-margin-bottom:35px;
-}
-
-.btn{
-background:linear-gradient(135deg,#00e5ff,#00ffae);
-border:none;
-padding:15px 25px;
-border-radius:18px;
-font-size:16px;
-font-weight:700;
-cursor:pointer;
-margin:8px;
-transition:.3s;
-color:#000;
-box-shadow:0 0 20px rgba(0,229,255,.5);
-}
-
-.btn:hover{
-transform:scale(1.05);
-}
-
-.langs{
-margin-top:25px;
-display:flex;
-gap:15px;
-}
-
-.lang-btn{
-background:rgba(255,255,255,.1);
-backdrop-filter:blur(10px);
-padding:10px 18px;
-border-radius:14px;
-cursor:pointer;
-border:1px solid rgba(255,255,255,.2);
-}
-
-.header{
+.topbar{
 display:flex;
 justify-content:space-between;
 align-items:center;
@@ -133,100 +177,127 @@ margin-bottom:30px;
 .brand{
 display:flex;
 align-items:center;
-gap:10px;
-font-size:24px;
-font-weight:700;
+gap:15px;
 }
 
-.brand-logo{
-width:50px;
-height:50px;
-border-radius:50%;
-background:linear-gradient(135deg,#00e5ff,#00ffae);
+.small-logo{
+width:60px;
+height:60px;
+border-radius:20px;
+background:linear-gradient(135deg,#00e5ff,#00ffb3);
 display:flex;
-align-items:center;
 justify-content:center;
-color:black;
-font-weight:700;
+align-items:center;
+font-weight:900;
+font-size:22px;
+color:#00111f;
 }
 
-.card{
-background:rgba(255,255,255,.08);
-border:1px solid rgba(255,255,255,.15);
-backdrop-filter:blur(15px);
-padding:20px;
+.brand-name{
+font-size:24px;
+font-weight:800;
+}
+
+.menu{
+display:flex;
+flex-direction:column;
+gap:18px;
+}
+
+.card-btn{
+padding:22px;
 border-radius:24px;
-margin-bottom:20px;
+border:none;
+cursor:pointer;
+font-size:18px;
+font-weight:700;
+color:white;
+background:rgba(255,255,255,.07);
+backdrop-filter:blur(14px);
+border:1px solid rgba(255,255,255,.1);
+transition:.3s;
 box-shadow:0 0 20px rgba(0,0,0,.3);
 }
 
-.menu-btn{
-width:100%;
-padding:18px;
-margin-bottom:15px;
-font-size:17px;
-border:none;
-border-radius:18px;
-background:linear-gradient(135deg,#16213e,#0f3460);
-color:white;
-cursor:pointer;
-transition:.3s;
-border:1px solid rgba(255,255,255,.1);
+.card-btn:hover{
+transform:translateY(-4px);
+box-shadow:0 0 30px rgba(0,229,255,.4);
 }
 
-.menu-btn:hover{
-transform:translateY(-3px);
-box-shadow:0 0 20px rgba(0,229,255,.4);
+.section{
+max-width:900px;
+margin:auto;
 }
 
-.text{
-line-height:1.8;
-font-size:16px;
+.glass{
+background:rgba(255,255,255,.06);
+padding:25px;
+border-radius:28px;
+backdrop-filter:blur(15px);
+border:1px solid rgba(255,255,255,.08);
+box-shadow:0 0 25px rgba(0,0,0,.35);
+}
+
+.section-title{
+font-size:30px;
+font-weight:800;
 margin-bottom:20px;
 }
 
+.section-text{
+line-height:1.9;
+font-size:17px;
+opacity:.95;
+}
+
 .links{
+margin-top:25px;
 display:flex;
 flex-direction:column;
 gap:15px;
-margin-top:20px;
 }
 
-.link{
+.link-btn{
+padding:18px;
+border-radius:18px;
 text-decoration:none;
 color:white;
 background:rgba(255,255,255,.08);
-padding:15px;
-border-radius:14px;
 transition:.3s;
-border:1px solid rgba(255,255,255,.1);
+font-weight:600;
 }
 
-.link:hover{
+.link-btn:hover{
 background:#00e5ff;
 color:black;
 }
 
-.phones{
+.phone-wrap{
 display:flex;
 gap:15px;
+margin-top:25px;
 flex-wrap:wrap;
-margin-top:20px;
 }
 
 .phone{
 flex:1;
 text-align:center;
-padding:14px;
-background:#00e5ff;
-color:black;
-border-radius:14px;
-font-weight:700;
+padding:16px;
+border-radius:18px;
+background:linear-gradient(135deg,#00e5ff,#00ffb3);
 text-decoration:none;
+color:#00111f;
+font-weight:800;
 }
 
-.back{
-margin-top:25px;
+.back-btn{
+margin-top:30px;
+padding:16px 30px;
+border:none;
+border-radius:18px;
+cursor:pointer;
+font-size:16px;
+font-weight:700;
 background:#ff4d6d;
 color:white;
 }
@@ -234,25 +305,32 @@ color:white;
 .rating{
 display:flex;
 justify-content:center;
-gap:15px;
-margin-top:20px;
+gap:20px;
+margin-top:25px;
 flex-wrap:wrap;
 }
 
-.rate-btn{
-font-size:28px;
-padding:15px 20px;
+.rate{
+font-size:34px;
+padding:16px 20px;
 border:none;
-border-radius:18px;
+border-radius:20px;
 cursor:pointer;
 background:rgba(255,255,255,.08);
 color:white;
+transition:.3s;
 }
 
-.counter{
-margin-top:10px;
-font-size:18px;
+.rate:hover{
+transform:scale(1.1);
+}
+
+.stats{
+margin-top:20px;
+text-align:center;
+font-size:20px;
 font-weight:700;
+line-height:2;
 }
 
 .modal{
@@ -261,106 +339,153 @@ top:0;
 left:0;
 width:100%;
 height:100%;
-background:rgba(0,0,0,.7);
+background:rgba(0,0,0,.75);
 display:flex;
-align-items:center;
 justify-content:center;
+align-items:center;
 padding:20px;
 z-index:999;
 }
 
 .modal-box{
-background:#111827;
-padding:25px;
-border-radius:24px;
 width:100%;
-max-width:420px;
+max-width:450px;
+background:#091322;
+padding:30px;
+border-radius:30px;
 }
 
 .input{
 width:100%;
-padding:15px;
-margin-top:15px;
+padding:16px;
 border:none;
-border-radius:14px;
-background:#1f2937;
+margin-top:15px;
+border-radius:18px;
+background:#111d33;
 color:white;
+font-size:15px;
 }
 
 .submit{
 width:100%;
 margin-top:20px;
+padding:16px;
+border:none;
+border-radius:18px;
+background:linear-gradient(135deg,#00e5ff,#00ffb3);
+font-weight:800;
+font-size:17px;
+cursor:pointer;
+color:#00111f;
 }
 
-.address{
-line-height:2;
-font-size:17px;
+@media(max-width:700px){
+
+.title{
+font-size:24px;
+}
+
+.section-title{
+font-size:25px;
+}
+
 }
 
 </style>
 </head>
 <body>
 
-<!-- START PAGE -->
+<!-- START -->
 
-<div id="startPage" class="page center">
+<div id="start" class="start-screen">
+
+<div class="blur1"></div>
+<div class="blur2"></div>
 
 <div class="logo">OT</div>
 
-<div class="welcome" id="welcomeText">
+<div class="title" id="welcomeText">
 Omad Tour’da ko‘rganingizdan bag‘oyatda xursandmiz
 </div>
 
-<button class="btn" onclick="openHome()" id="startBtn">
-Начать
+<button class="start-btn" onclick="openHome()" id="startBtn">
+Boshlash
 </button>
 
-<div class="langs">
-<div class="lang-btn" onclick="setLang('uz')">🇺🇿 UZ</div>
-<div class="lang-btn" onclick="setLang('ru')">🇷🇺 RU</div>
+<div class="lang-switch">
+
+<div class="lang-btn" onclick="setLang('uz')">
+🇺🇿 UZ
+</div>
+
+<div class="lang-btn" onclick="setLang('ru')">
+🇷🇺 RU
+</div>
+
 </div>
 
 </div>
 
 <!-- HOME -->
 
-<div id="homePage" class="page hidden">
+<div id="home" class="page hidden">
 
-<div class="header">
+<div class="topbar">
 
 <div class="brand">
-<div class="brand-logo">OT</div>
-<div>OMAD TOUR</div>
+
+<div class="small-logo">
+OT
+</div>
+
+<div class="brand-name">
+OMAD TOUR
+</div>
+
 </div>
 
 <div>
-<button class="btn" onclick="setLang('uz')">UZ</button>
-<button class="btn" onclick="setLang('ru')">RU</button>
-</div>
+
+<button class="lang-btn" onclick="setLang('uz')">
+UZ
+</button>
+
+<button class="lang-btn" onclick="setLang('ru')">
+RU
+</button>
 
 </div>
 
-<button class="menu-btn" onclick="openSection('avia')">
+</div>
+
+<div class="menu">
+
+<button class="card-btn" onclick="showPage('avia')">
 ✈️ Aviakassa
 </button>
 
-<button class="menu-btn" onclick="openSection('visa')">
+<button class="card-btn" onclick="showPage('visa')">
 🛂 Viza bo‘limi
 </button>
 
-<button class="menu-btn" onclick="openSection('groups')">
+<button class="card-btn" onclick="showPage('groups')">
 👥 Guruhlarimiz
 </button>
 
-<button class="menu-btn" onclick="openSection('office')">
+<button class="card-btn" onclick="showPage('office')">
 🏢 Ofis xizmatlari
 </button>
 
-<div class="card">
+</div>
 
-<h2 style="margin-bottom:15px;">☎️ Tezkor aloqa</h2>
+<div class="glass" style="margin-top:30px;">
 
-<div class="phones">
+<h2 style="margin-bottom:15px;">
+☎️ Tezkor aloqa
+</h2>
+
+<div class="phone-wrap">
+
 <a href="tel:+79811939094" class="phone">
 +79811939094
 </a>
@@ -368,47 +493,50 @@ Omad Tour’da ko‘rganingizdan bag‘oyatda xursandmiz
 <a href="tel:+79379499094" class="phone">
 +79379499094
 </a>
-</div>
 
 </div>
 
-<div class="card">
+</div>
 
-<h2 style="margin-bottom:15px;">📍 Adresimiz</h2>
+<div class="glass" style="margin-top:30px;">
 
-<div class="address">
-Санкт-петербург<br>
+<h2 style="margin-bottom:15px;">
+📍 Adresimiz
+</h2>
+
+<div class="section-text">
+Санкт-Петербург<br>
 4-я Красноармейская улица, дом 3<br>
 домофон 22в
 </div>
 
 </div>
 
-<div class="card">
+<div class="glass" style="margin-top:30px;">
 
-<h2>❤️‍🔥 Оценка</h2>
+<h2>
+❤️‍🔥 Oценка
+</h2>
 
 <div class="rating">
 
-<button class="rate-btn" onclick="vote('love')">
+<button class="rate" onclick="vote('love')">
 ❤️‍🔥
 </button>
 
-<button class="rate-btn" onclick="vote('like')">
+<button class="rate" onclick="vote('like')">
 👍
 </button>
 
-<button class="rate-btn" onclick="vote('bad')">
+<button class="rate" onclick="vote('bad')">
 👎
 </button>
 
 </div>
 
-<div class="counter">
-❤️‍🔥 <span id="loveCount">0</span>
-  
-👍 <span id="likeCount">0</span>
-  
+<div class="stats">
+❤️‍🔥 <span id="loveCount">0</span><br>
+👍 <span id="likeCount">0</span><br>
 👎 <span id="badCount">0</span>
 </div>
 
@@ -420,31 +548,35 @@ Omad Tour’da ko‘rganingizdan bag‘oyatda xursandmiz
 
 <div id="avia" class="page hidden">
 
-<div class="card">
+<div class="section">
 
-<h1>✈️ Aviakassa</h1>
+<div class="glass">
 
-<div class="text">
-Siz aviakassa bo‘limidasiz bu yerda siz biz bilan bog‘lanib qulay aviabilet narxlari bilan tanishib borishingiz va bron qilish imkoniyatiga egasiz.
+<div class="section-title">
+✈️ Aviakassa
+</div>
+
+<div class="section-text">
+Siz aviakassa bo‘limidasiz. Bu yerda siz biz bilan bog‘lanib qulay aviabilet narxlari bilan tanishishingiz va bron qilish imkoniyatiga egasiz.
 </div>
 
 <div class="links">
 
-<a class="link" href="https://t.me/OMAD_TOUR9094" target="_blank">
+<a href="https://t.me/OMAD_TOUR9094" target="_blank" class="link-btn">
 Aviakassa Telegram
 </a>
 
-<a class="link" href="https://wa.me/79811939094" target="_blank">
+<a href="https://wa.me/79811939094" target="_blank" class="link-btn">
 Aviakassa WhatsApp
 </a>
 
-<a class="link" href="https://max.ru/u/f9LHodD0cOLLpEmAWC_I3iUUWcn5IO6DFYg0IVz4jEXfm6BJP6OL-L7V0jk" target="_blank">
+<a href="https://max.ru/u/f9LHodD0cOLLpEmAWC_I3iUUWcn5IO6DFYg0IVz4jEXfm6BJP6OL-L7V0jk" target="_blank" class="link-btn">
 Aviakassa Max
 </a>
 
 </div>
 
-<div class="phones">
+<div class="phone-wrap">
 
 <a href="tel:+79811939094" class="phone">
 +79811939094
@@ -456,9 +588,11 @@ Aviakassa Max
 
 </div>
 
-<button class="btn back" onclick="backHome()">
+<button class="back-btn" onclick="backHome()">
 ⬅️ Orqaga
 </button>
+
+</div>
 
 </div>
 
@@ -468,29 +602,35 @@ Aviakassa Max
 
 <div id="visa" class="page hidden">
 
-<div class="card">
+<div class="section">
 
-<h1>🛂 Viza bo‘limi</h1>
+<div class="glass">
 
-<div class="text">
-Siz viza bo‘limidasiz siz bu yerda viza javoblarini bilishingiz va savollar bo‘lsa konsullik bo‘limiga murojaat qilishingiz mumkin.
+<div class="section-title">
+🛂 Viza bo‘limi
+</div>
+
+<div class="section-text">
+Siz viza bo‘limidasiz. Bu yerda siz viza javoblarini bilishingiz va savollar bo‘lsa konsullik bo‘limiga murojaat qilishingiz mumkin.
 </div>
 
 <div class="links">
 
-<a class="link" href="https://visa.mfa.uz/ruxsat/view" target="_blank">
+<a href="https://visa.mfa.uz/ruxsat/view" target="_blank" class="link-btn">
 Viza javoblari
 </a>
 
-<a class="link" href="https://t.me/+i8I6ByH_CUVhOWQy" target="_blank">
-Uzb Sankt-Peterburg bosh konsulxona
+<a href="https://t.me/+i8I6ByH_CUVhOWQy" target="_blank" class="link-btn">
+Bosh konsulxona
 </a>
 
 </div>
 
-<button class="btn back" onclick="backHome()">
+<button class="back-btn" onclick="backHome()">
 ⬅️ Orqaga
 </button>
+
+</div>
 
 </div>
 
@@ -500,33 +640,39 @@ Uzb Sankt-Peterburg bosh konsulxona
 
 <div id="groups" class="page hidden">
 
-<div class="card">
+<div class="section">
 
-<h1>👥 Guruhlarimiz</h1>
+<div class="glass">
 
-<div class="text">
+<div class="section-title">
+👥 Guruhlarimiz
+</div>
+
+<div class="section-text">
 Siz guruhlarimiz bo‘limidasiz va bu yerda siz biletlar narxini qaysi kunda qancha turganini bilib borishingiz mumkin.
 </div>
 
 <div class="links">
 
-<a class="link" href="https://t.me/+OW_pzYSHjIA5NmQy" target="_blank">
+<a href="https://t.me/+OW_pzYSHjIA5NmQy" target="_blank" class="link-btn">
 Telegram guruh
 </a>
 
-<a class="link" href="https://chat.whatsapp.com/KgnvfhpMYso6lSX3kbNd4l?mode=gi_t" target="_blank">
-WhatsApp guruhimiz
+<a href="https://chat.whatsapp.com/KgnvfhpMYso6lSX3kbNd4l?mode=gi_t" target="_blank" class="link-btn">
+WhatsApp guruh
 </a>
 
-<a class="link" href="https://max.ru/join/M4-SsjF594_qN-XYZd8YabTAqxvGFRzd30p_N2hRh7c" target="_blank">
-Max guruhimiz
+<a href="https://max.ru/join/M4-SsjF594_qN-XYZd8YabTAqxvGFRzd30p_N2hRh7c" target="_blank" class="link-btn">
+Max guruh
 </a>
 
 </div>
 
-<button class="btn back" onclick="backHome()">
+<button class="back-btn" onclick="backHome()">
 ⬅️ Orqaga
 </button>
+
+</div>
 
 </div>
 
@@ -536,40 +682,55 @@ Max guruhimiz
 
 <div id="office" class="page hidden">
 
-<div class="card">
+<div class="section">
 
-<h1>🏢 Ofis xizmatlari</h1>
+<div class="glass">
 
-<div class="text">
+<div class="section-title">
+🏢 Ofis xizmatlari
+</div>
 
-Чёрно — Белый 35 ₽<br>
-Двухсторонняя 50 ₽<br>
-Цветная 50 ₽<br>
+<div class="section-text">
+
+Чёрно — Белый 35 ₽<br><br>
+
+Двухсторонняя 50 ₽<br><br>
+
+Цветная 50 ₽<br><br>
+
 Скан 50 ₽<br><br>
 
-Цветная копия — 50 ₽<br>
+Цветная копия — 50 ₽<br><br>
+
 Двухсторонняя — 100 ₽<br><br>
 
 Скан документов — 50 ₽<br><br>
 
-Фото 3×4 — 400 ₽<br>
-Фото электронная — 250 ₽<br>
+Фото 3×4 — 400 ₽<br><br>
+
+Фото электронная — 250 ₽<br><br>
+
 Фото 2×3 — 400 ₽<br><br>
 
-Загранпаспорт — 1000 ₽<br>
-Возвращение — 500 ₽<br>
-Консульский учёт — 500 ₽<br>
+Загранпаспорт — 1000 ₽<br><br>
+
+Возвращение — 500 ₽<br><br>
+
+Консульский учёт — 500 ₽<br><br>
+
 Транзитная виза — 1000 ₽
 
 </div>
 
-<button class="btn" onclick="openModal()">
-📨 Buyurtma
+<button class="submit" onclick="openModal()">
+📨 Buyurtma berish
 </button>
 
-<button class="btn back" onclick="backHome()">
+<button class="back-btn" onclick="backHome()">
 ⬅️ Orqaga
 </button>
+
+</div>
 
 </div>
 
@@ -581,20 +742,22 @@ Max guruhimiz
 
 <div class="modal-box">
 
-<h2>Buyurtma</h2>
+<h2 style="margin-bottom:20px;">
+Buyurtma
+</h2>
 
-<input type="text" id="name" class="input" placeholder="Ismingiz *">
+<input type="text" class="input" id="name" placeholder="Ismingiz *">
 
-<input type="tel" id="phone" class="input" placeholder="Tel raqamingiz *">
+<input type="tel" class="input" id="phone" placeholder="Tel raqamingiz *">
 
-<textarea id="message" class="input" placeholder="Savol"></textarea>
+<textarea class="input" id="message" placeholder="Savol"></textarea>
 
-<button class="btn submit" onclick="sendOrder()">
+<button class="submit" onclick="sendOrder()">
 Yuborish
 </button>
 
-<button class="btn back submit" onclick="closeModal()">
-Orqaga
+<button class="back-btn" onclick="closeModal()" style="width:100%;">
+⬅️ Orqaga
 </button>
 
 </div>
@@ -603,21 +766,17 @@ Orqaga
 
 <script>
 
-let currentLang='uz';
-
 function openHome(){
-document.getElementById('startPage').classList.add('hidden');
-document.getElementById('homePage').classList.remove('hidden');
+
+document.getElementById('start').classList.add('hidden');
+
+document.getElementById('home').classList.remove('hidden');
+
 }
 
-function openSection(id){
+function showPage(id){
 
-document.getElementById('homePage').classList.add('hidden');
-
-document.getElementById('avia').classList.add('hidden');
-document.getElementById('visa').classList.add('hidden');
-document.getElementById('groups').classList.add('hidden');
-document.getElementById('office').classList.add('hidden');
+hideAll();
 
 document.getElementById(id).classList.remove('hidden');
 
@@ -625,21 +784,32 @@ document.getElementById(id).classList.remove('hidden');
 
 function backHome(){
 
+hideAll();
+
+document.getElementById('home').classList.remove('hidden');
+
+}
+
+function hideAll(){
+
+document.getElementById('home').classList.add('hidden');
 document.getElementById('avia').classList.add('hidden');
 document.getElementById('visa').classList.add('hidden');
 document.getElementById('groups').classList.add('hidden');
 document.getElementById('office').classList.add('hidden');
 
-document.getElementById('homePage').classList.remove('hidden');
-
 }
 
 function openModal(){
+
 document.getElementById('modal').classList.remove('hidden');
+
 }
 
 function closeModal(){
+
 document.getElementById('modal').classList.add('hidden');
+
 }
 
 function sendOrder(){
@@ -649,35 +819,39 @@ let phone=document.getElementById('phone').value;
 let message=document.getElementById('message').value;
 
 if(name==='' || phone===''){
+
 alert('Majburiy maydonlarni to‘ldiring');
+
 return;
+
 }
 
 alert(
-'Buyurtma yuborildi!\n\n' +
-'Ism: '+name+'\n' +
-'Telefon: '+phone+'\n' +
-'Savol: '+message
+'Buyurtma yuborildi!'
 );
 
 /
 
-TELEGRAM BOT API ULASH:
+TELEGRAM BOT API
 
-const token='BOT_TOKEN';
-const chatId='YOUR_ID';
+const BOT_TOKEN="TOKEN";
+const CHAT_ID="ID";
 
-fetch(https://api.telegram.org/bot${token}/sendMessage,{
-method:'POST',
+fetch(https://api.telegram.org/bot${BOT_TOKEN}/sendMessage,{
+method:"POST",
 headers:{
-'Content-Type':'application/json'
+"Content-Type":"application/json"
 },
 body:JSON.stringify({
-chat_id:chatId,
+chat_id:CHAT_ID,
 text:
-`Yangi buyurtma\n\nIsm: ${name}\nTelefon: ${phone}\nSavol: ${message}`
+`Yangi buyurtma
+
+Ism: ${name}
+Telefon: ${phone}
+Savol: ${message}`
 })
-})
+});
 
 */
 
@@ -685,68 +859,70 @@ closeModal();
 
 }
 
-let votes={
-love:0,
-like:0,
-bad:0
-};
-
-let userVote=null;
+let voted=null;
 let changed=false;
+
+let love=0;
+let like=0;
+let bad=0;
 
 function vote(type){
 
-if(userVote===null){
+if(voted===null){
 
-votes[type]++;
-
-userVote=type;
+voted=type;
 
 }
-else if(!changed){
+else if(changed===false){
 
-votes[userVote]--;
+if(voted==="love") love--;
+if(voted==="like") like--;
+if(voted==="bad") bad--;
 
-votes[type]++;
+voted=type;
 
 changed=true;
 
-userVote=type;
-
 }
 else{
-alert('Siz ovozni allaqachon o‘zgartirgansiz');
+
+alert("Siz ovozni o‘zgartirib bo‘lgansiz");
+
 return;
-}
-
-document.getElementById('loveCount').innerText=votes.love;
-document.getElementById('likeCount').innerText=votes.like;
-document.getElementById('badCount').innerText=votes.bad;
 
 }
+
+if(type==="love") love++;
+if(type==="like") like++;
+if(type==="bad") bad++;
+
+document.getElementById("loveCount").innerText=love;
+document.getElementById("likeCount").innerText=like;
+document.getElementById("badCount").innerText=bad;
+
+}
+
+const translations={
+
+uz:{
+welcome:"Omad Tour’da ko‘rganingizdan bag‘oyatda xursandmiz",
+start:"Boshlash"
+},
+
+ru:{
+welcome:"Мы очень рады видеть вас в Omad Tour",
+start:"Начать"
+}
+
+};
 
 function setLang(lang){
 
-currentLang=lang;
+document.getElementById("welcomeText").innerText=
+translations[lang].welcome;
 
-if(lang==='ru'){
-
-document.getElementById('welcomeText').innerText=
-'Мы очень рады видеть вас в Omad Tour';
-
-document.getElementById('startBtn').innerText=
-'Начать';
-
-}
-else{
-
-document.getElementById('welcomeText').innerText=
-'Omad Tour’da ko‘rganingizdan bag‘oyatda xursandmiz';
-
-document.getElementById('startBtn').innerText=
-'Boshlash';
-
-}
+document.getElementById("startBtn").innerText=
+translations[lang].start;
 
 }
 

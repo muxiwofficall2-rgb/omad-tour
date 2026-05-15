@@ -717,8 +717,6 @@ Yuborish
         </button>
     </a>
 
-<script>
-
 </div>
     
 <script>
@@ -754,6 +752,13 @@ document.querySelectorAll(".page")
 
 document.getElementById("home").style.display="block";
 
+}
+ unction openPage(pageId){
+
+    document.getElementById("home").style.display = "none";
+    document.getElementById("call").style.display = "none";
+
+    document.getElementById(pageId).style.display = "block";
 }
 
 <!-- LANGUAGE -->

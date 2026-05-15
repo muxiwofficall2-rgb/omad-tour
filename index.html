@@ -696,31 +696,34 @@ Yuborish
 
 <!-- ===== SUPPORT ===== -->
 
-<div style="display:flex; flex-direction:column; gap:10px; width:200px;">
+<div id="call" style="display:none;">
 
     <!-- Orqaga -->
-    <button onclick="goHome()" class="back-btn">
-        Orqaga
+    <button class="main-btn"
+    onclick="openPage('home')">
+    ⬅️ Orqaga
     </button>
+
+    <br><br>
 
     <!-- 1-raqam -->
     <a href="tel:+79811939094">
-        <button class="main-btn" onclick="openpage('call')" id="callbtn">
-            Qo‘ng‘iroq 1
+        <button class="main-btn">
+        📞 +79811939094
         </button>
     </a>
-    
+
     <br><br>
 
     <!-- 2-raqam -->
     <a href="tel:+79379499094">
-        <button class="call-btn" onclick="openpage('call')" id="callbtn2">
-            Qo‘ng‘iroq 2
+        <button class="main-btn">
+        📞 +79379499094
         </button>
     </a>
 
 </div>
-
+    
 <script>
 
 /* BOT */

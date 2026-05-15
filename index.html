@@ -718,17 +718,25 @@ document.getElementById("home").style.display="block";
 
 }
 
-/* LANGUAGE */
+<!-- LANGUAGE -->
+
+<script>
 
 function setLang(lang){
 
+/* ====================== RUS ====================== */
+
 if(lang==="ru"){
+
+/* SPLASH */
 
 document.getElementById("welcome").innerText=
 "Мы очень рады видеть вас в Omad Tour";
 
 document.getElementById("startBtn").innerText=
 "Начать";
+
+/* HOME */
 
 document.getElementById("aviaBtn").innerText=
 "✈️ Авиакасса";
@@ -751,20 +759,30 @@ document.getElementById("ratingTitle").innerText=
 document.getElementById("addressText").innerText=
 "📍 Санкт-Петербург, 4-я Красноармейская улица, дом 3";
 
+/* BACK */
+
+document.getElementById("backText1").innerText=
+"Назад";
+
+document.getElementById("backText2").innerText=
+"Назад";
+
+document.getElementById("backText3").innerText=
+"Назад";
+
+document.getElementById("backText4").innerText=
+"Назад";
+
+document.getElementById("backText5").innerText=
+"Назад";
+
+/* AVIA */
+
+document.getElementById("aviaTitle").innerText=
+"✈️ Авиакасса";
+
 document.getElementById("aviaText").innerText=
-"Вы находитесь в разделе авиакассы";
-
-document.getElementById("visaText").innerText=
-"Здесь вы можете узнать ответы по визе";
-
-document.getElementById("groupsText").innerText=
-"Здесь вы можете следить за ценами билетов";
-
-document.getElementById("orderBtn").innerText=
-"Заказать";
-
-document.getElementById("sendBtn").innerText=
-"Отправить";
+"Вы находитесь в разделе авиакассы. Здесь можно узнать цены на авиабилеты и сделать бронь.";
 
 document.getElementById("discountTitle").innerText=
 "🎁 Выиграй скидку";
@@ -775,13 +793,86 @@ document.getElementById("spinBtn").innerText=
 document.getElementById("spinSmall").innerText=
 "Только 1 раз";
 
-}else{
+/* VISA */
+
+document.getElementById("visaTitle").innerText=
+"📄 Виза";
+
+document.getElementById("visaText").innerText=
+"Здесь вы можете узнать ответы по визе и связаться с консульством.";
+
+document.getElementById("visaAnswerBtn").innerText=
+"Ответ визы";
+
+document.getElementById("consulBtn").innerText=
+"Консульская группа";
+
+/* GROUPS */
+
+document.getElementById("groupsTitle").innerText=
+"👥 Наши группы";
+
+document.getElementById("groupsText").innerText=
+"Здесь вы можете следить за ценами билетов.";
+
+document.querySelectorAll("#groups .link-btn")[0].innerText=
+"Telegram группа";
+
+document.querySelectorAll("#groups .link-btn")[1].innerText=
+"WhatsApp группа";
+
+document.querySelectorAll("#groups .link-btn")[2].innerText=
+"MAX группа";
+
+/* OFFICE */
+
+document.getElementById("officeTitle").innerText=
+"🏢 Офис услуги";
+
+document.getElementById("officeText").innerHTML=
+`
+Чёрно — Белый 35 ₽<br><br>
+Двухсторонняя 50 ₽<br><br>
+Цветная 50 ₽<br><br>
+Скан 50 ₽<br><br>
+Фото 3×4 — 400 ₽
+`;
+
+document.getElementById("orderBtn").innerText=
+"Заказать";
+
+/* CONTACT */
+
+document.getElementById("contactTitle").innerText=
+"📞 Быстрая связь";
+
+document.getElementById("name").placeholder=
+"Ваше имя *";
+
+document.getElementById("phone").placeholder=
+"Ваш номер";
+
+document.getElementById("message").placeholder=
+"Ваш вопрос";
+
+document.getElementById("sendBtn").innerText=
+"Отправить";
+
+}
+
+/* ====================== UZ ====================== */
+
+else{
+
+/* SPLASH */
 
 document.getElementById("welcome").innerText=
 "Omad Tour’da ko‘rganingizdan bag‘oyatda xursandmiz";
 
 document.getElementById("startBtn").innerText=
 "Boshlash";
+
+/* HOME */
 
 document.getElementById("aviaBtn").innerText=
 "✈️ Aviakassa";
@@ -804,20 +895,30 @@ document.getElementById("ratingTitle").innerText=
 document.getElementById("addressText").innerText=
 "📍 Санкт-петербург 4-я Красноармейская улица, дом 3 домафон 22в";
 
+/* BACK */
+
+document.getElementById("backText1").innerText=
+"Orqaga";
+
+document.getElementById("backText2").innerText=
+"Orqaga";
+
+document.getElementById("backText3").innerText=
+"Orqaga";
+
+document.getElementById("backText4").innerText=
+"Orqaga";
+
+document.getElementById("backText5").innerText=
+"Orqaga";
+
+/* AVIA */
+
+document.getElementById("aviaTitle").innerText=
+"✈️ Aviakassa";
+
 document.getElementById("aviaText").innerText=
-"Siz aviakassa bo‘limidasiz";
-
-document.getElementById("visaText").innerText=
-"Bu yerda viza javoblarini bilishingiz mumkin";
-
-document.getElementById("groupsText").innerText=
-"Bu yerda bilet narxlarini kuzatishingiz mumkin";
-
-document.getElementById("orderBtn").innerText=
-"Buyurtma";
-
-document.getElementById("sendBtn").innerText=
-"Yuborish";
+"Siz aviakassa bo‘limidasiz. Bu yerda qulay aviabilet narxlari bilan tanishishingiz va bron qilishingiz mumkin.";
 
 document.getElementById("discountTitle").innerText=
 "🎁 Chegirma yuting";
@@ -828,9 +929,75 @@ document.getElementById("spinBtn").innerText=
 document.getElementById("spinSmall").innerText=
 "Faqat 1 marta";
 
+/* VISA */
+
+document.getElementById("visaTitle").innerText=
+"📄 Viza";
+
+document.getElementById("visaText").innerText=
+"Siz bu yerda viza javoblarini bilishingiz va konsullik bilan bog‘lanishingiz mumkin.";
+
+document.getElementById("visaAnswerBtn").innerText=
+"Viza javoblari";
+
+document.getElementById("consulBtn").innerText=
+"Konsul guruhi";
+
+/* GROUPS */
+
+document.getElementById("groupsTitle").innerText=
+"👥 Guruhlarimiz";
+
+document.getElementById("groupsText").innerText=
+"Bu yerda siz bilet narxlarini kuzatishingiz mumkin.";
+
+document.querySelectorAll("#groups .link-btn")[0].innerText=
+"Telegram guruh";
+
+document.querySelectorAll("#groups .link-btn")[1].innerText=
+"WhatsApp guruh";
+
+document.querySelectorAll("#groups .link-btn")[2].innerText=
+"MAX guruh";
+
+/* OFFICE */
+
+document.getElementById("officeTitle").innerText=
+"🏢 Ofis xizmatlari";
+
+document.getElementById("officeText").innerHTML=
+`
+Qora oq — 35 ₽<br><br>
+Ikki tomonlama — 50 ₽<br><br>
+Rangli — 50 ₽<br><br>
+Skan — 50 ₽<br><br>
+3×4 rasm — 400 ₽
+`;
+
+document.getElementById("orderBtn").innerText=
+"Buyurtma";
+
+/* CONTACT */
+
+document.getElementById("contactTitle").innerText=
+"📞 Tezkor aloqa";
+
+document.getElementById("name").placeholder=
+"Ismingiz *";
+
+document.getElementById("phone").placeholder=
+"Telefon raqamingiz";
+
+document.getElementById("message").placeholder=
+"Savol";
+
+document.getElementById("sendBtn").innerText=
+"Yuborish";
+
 }
 
 }
+
 
 /* SEND */
 

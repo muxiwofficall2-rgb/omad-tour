@@ -1,201 +1,37 @@
+```html
 <!DOCTYPE html>
 <html lang="uz">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Omad Tour Premium</title>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>OMAD TOUR</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap" rel="stylesheet">
 
 <style>
 
-*{
+{
 margin:0;
 padding:0;
 box-sizing:border-box;
-font-family:Arial,sans-serif;
+font-family:'Montserrat',sans-serif;
 }
 
 body{
-background:#081120;
-color:white;
-overflow-x:hidden;
-}
-
-/* ===== START WINDOW ===== */
-
-#welcome{
-position:fixed;
-inset:0;
-background:linear-gradient(160deg,#07101d,#0d1b2d,#162b46);
-display:flex;
-justify-content:center;
-align-items:center;
-z-index:9999;
-}
-
-.startCard{
-width:92%;
-max-width:420px;
-background:rgba(255,255,255,.05);
-backdrop-filter:blur(18px);
-border:1px solid rgba(255,255,255,.1);
-border-radius:30px;
-padding:35px 25px;
-text-align:center;
-animation:show .5s ease;
-}
-
-@keyframes show{
-from{
-opacity:0;
-transform:translateY(30px);
-}
-to{
-opacity:1;
-transform:translateY(0);
-}
-}
-
-.logo{
-width:110px;
-height:110px;
-border-radius:50%;
-object-fit:cover;
-border:4px solid #60a5fa;
-box-shadow:0 0 30px #60a5fa;
-margin-bottom:25px;
-}
-
-.welcomeText{
-font-size:24px;
-font-weight:bold;
-line-height:1.5;
-margin-bottom:25px;
-}
-
-.langBox{
-display:flex;
-justify-content:center;
-gap:10px;
-margin-bottom:25px;
-}
-
-.langBtn{
-border:none;
-padding:12px 20px;
-border-radius:14px;
-background:#2563eb;
-color:white;
-font-weight:bold;
-cursor:pointer;
-}
-
-.startBtn{
-width:100%;
-padding:18px;
-border:none;
-border-radius:18px;
-background:linear-gradient(135deg,#2563eb,#7c3aed);
-color:white;
-font-size:20px;
-font-weight:bold;
-cursor:pointer;
-animation:pulse 2s infinite;
-}
-
-@keyframes pulse{
-0%{transform:scale(1);}
-50%{transform:scale(1.04);}
-100%{transform:scale(1);}
-}
-
-/* ===== APP ===== */
-
-#app{
-display:none;
+background:linear-gradient(135deg,#050816,#0b132b,#121c3b);
 min-height:100vh;
-padding-bottom:40px;
+overflow-x:hidden;
+color:white;
 }
 
-.header{
-position:sticky;
-top:0;
-z-index:99;
-padding:15px;
-background:#0b1627;
-display:flex;
-justify-content:space-between;
-align-items:center;
-border-bottom:1px solid rgba(255,255,255,.08);
+.hidden{
+display:none;
 }
-
-.headerLeft{
-display:flex;
-align-items:center;
-gap:10px;
-}
-
-.logoMini{
-width:52px;
-height:52px;
-border-radius:50%;
-object-fit:cover;
-border:2px solid #60a5fa;
-}
-
-.title{
-font-size:20px;
-font-weight:bold;
-}
-
-.container{
-padding:18px;
-}
-
-/* ===== MENU ===== */
-
-.menu{
-display:grid;
-grid-template-columns:1fr 1fr;
-gap:15px;
-margin-top:15px;
-}
-
-.cardBtn{
-background:linear-gradient(160deg,#13233a,#1b3252);
-border-radius:24px;
-padding:22px 14px;
-text-align:center;
-cursor:pointer;
-transition:.25s;
-border:1px solid rgba(255,255,255,.08);
-box-shadow:0 8px 20px rgba(0,0,0,.25);
-}
-
-.cardBtn:hover{
-transform:translateY(-3px);
-}
-
-.icon{
-font-size:34px;
-margin-bottom:10px;
-}
-
-.cardBtn span{
-font-size:15px;
-font-weight:bold;
-line-height:1.4;
-display:block;
-}
-
-/* ===== PAGES ===== */
 
 .page{
-display:none;
-animation:fade .35s ease;
-}
-
-.active{
-display:block;
+min-height:100vh;
+padding:20px;
+animation:fade .4s ease;
 }
 
 @keyframes fade{
@@ -209,345 +45,503 @@ transform:translateY(0);
 }
 }
 
-.backBtn{
-display:inline-block;
-margin-bottom:18px;
-padding:12px 18px;
-background:#dc2626;
-border-radius:14px;
-font-weight:bold;
-cursor:pointer;
-}
-
-.infoBox{
-background:rgba(255,255,255,.05);
-border:1px solid rgba(255,255,255,.08);
-padding:22px;
-border-radius:24px;
-line-height:1.8;
-margin-bottom:18px;
-}
-
-.linkBtn{
-display:block;
-width:100%;
-padding:18px;
-margin-top:14px;
-border-radius:18px;
-background:#14243d;
+.center{
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
 text-align:center;
-font-weight:bold;
-color:white;
-text-decoration:none;
-border:1px solid rgba(255,255,255,.08);
+min-height:100vh;
 }
 
-/* ===== WHEEL ===== */
-
-#wheelBox{
-position:relative;
-width:330px;
-height:330px;
-margin:25px auto;
-}
-
-#pointer{
-position:absolute;
-top:-12px;
-left:50%;
-transform:translateX(-50%);
-width:0;
-height:0;
-border-left:18px solid transparent;
-border-right:18px solid transparent;
-border-top:35px solid white;
-z-index:10;
-}
-
-#wheel{
-width:330px;
-height:330px;
+.logo{
+width:130px;
+height:130px;
 border-radius:50%;
-border:10px solid white;
-position:relative;
-overflow:hidden;
-transition:6s cubic-bezier(.17,.67,.22,1);
-
-background:
-conic-gradient(
-#2563eb 0deg 18deg,
-#7c3aed 18deg 36deg,
-#059669 36deg 54deg,
-#ea580c 54deg 72deg,
-#dc2626 72deg 90deg,
-#2563eb 90deg 108deg,
-#7c3aed 108deg 126deg,
-#059669 126deg 144deg,
-#ea580c 144deg 162deg,
-#dc2626 162deg 180deg,
-#2563eb 180deg 198deg,
-#7c3aed 198deg 216deg,
-#059669 216deg 234deg,
-#ea580c 234deg 252deg,
-#dc2626 252deg 270deg,
-#2563eb 270deg 288deg,
-#7c3aed 288deg 306deg,
-#059669 306deg 324deg,
-#ea580c 324deg 342deg,
-#dc2626 342deg 360deg
-);
+background:linear-gradient(135deg,#00e5ff,#00ffae);
+display:flex;
+align-items:center;
+justify-content:center;
+font-size:38px;
+font-weight:700;
+color:#000;
+box-shadow:0 0 30px #00e5ff;
+margin-bottom:25px;
+animation:pulse 2s infinite;
 }
 
-.label{
-position:absolute;
-left:50%;
-top:50%;
-transform-origin:center;
-font-size:13px;
-font-weight:bold;
-color:white;
-text-shadow:0 0 5px black;
+@keyframes pulse{
+0%{
+box-shadow:0 0 15px #00e5ff;
+}
+50%{
+box-shadow:0 0 45px #00e5ff;
+}
+100%{
+box-shadow:0 0 15px #00e5ff;
+}
 }
 
-.spinBtn{
+.welcome{
+font-size:24px;
+font-weight:700;
+max-width:500px;
+line-height:1.5;
+margin-bottom:35px;
+}
+
+.btn{
+background:linear-gradient(135deg,#00e5ff,#00ffae);
+border:none;
+padding:15px 25px;
+border-radius:18px;
+font-size:16px;
+font-weight:700;
+cursor:pointer;
+margin:8px;
+transition:.3s;
+color:#000;
+box-shadow:0 0 20px rgba(0,229,255,.5);
+}
+
+.btn:hover{
+transform:scale(1.05);
+}
+
+.langs{
+margin-top:25px;
+display:flex;
+gap:15px;
+}
+
+.lang-btn{
+background:rgba(255,255,255,.1);
+backdrop-filter:blur(10px);
+padding:10px 18px;
+border-radius:14px;
+cursor:pointer;
+border:1px solid rgba(255,255,255,.2);
+}
+
+.header{
+display:flex;
+justify-content:space-between;
+align-items:center;
+margin-bottom:30px;
+}
+
+.brand{
+display:flex;
+align-items:center;
+gap:10px;
+font-size:24px;
+font-weight:700;
+}
+
+.brand-logo{
+width:50px;
+height:50px;
+border-radius:50%;
+background:linear-gradient(135deg,#00e5ff,#00ffae);
+display:flex;
+align-items:center;
+justify-content:center;
+color:black;
+font-weight:700;
+}
+
+.card{
+background:rgba(255,255,255,.08);
+border:1px solid rgba(255,255,255,.15);
+backdrop-filter:blur(15px);
+padding:20px;
+border-radius:24px;
+margin-bottom:20px;
+box-shadow:0 0 20px rgba(0,0,0,.3);
+}
+
+.menu-btn{
 width:100%;
 padding:18px;
+margin-bottom:15px;
+font-size:17px;
 border:none;
-border-radius:20px;
-background:linear-gradient(135deg,#2563eb,#7c3aed);
+border-radius:18px;
+background:linear-gradient(135deg,#16213e,#0f3460);
 color:white;
-font-size:18px;
-font-weight:bold;
 cursor:pointer;
-margin-top:15px;
+transition:.3s;
+border:1px solid rgba(255,255,255,.1);
 }
 
-.result{
-margin-top:20px;
-font-size:24px;
-font-weight:bold;
-text-align:center;
+.menu-btn:hover{
+transform:translateY(-3px);
+box-shadow:0 0 20px rgba(0,229,255,.4);
 }
 
-/* ===== STATS ===== */
+.text{
+line-height:1.8;
+font-size:16px;
+margin-bottom:20px;
+}
 
-.stats{
-display:grid;
-grid-template-columns:1fr 1fr;
+.links{
+display:flex;
+flex-direction:column;
 gap:15px;
 margin-top:20px;
 }
 
-.stat{
-background:#13233a;
-padding:18px;
-border-radius:20px;
-text-align:center;
+.link{
+text-decoration:none;
+color:white;
+background:rgba(255,255,255,.08);
+padding:15px;
+border-radius:14px;
+transition:.3s;
+border:1px solid rgba(255,255,255,.1);
 }
 
-.stat h2{
+.link:hover{
+background:#00e5ff;
+color:black;
+}
+
+.phones{
+display:flex;
+gap:15px;
+flex-wrap:wrap;
+margin-top:20px;
+}
+
+.phone{
+flex:1;
+text-align:center;
+padding:14px;
+background:#00e5ff;
+color:black;
+border-radius:14px;
+font-weight:700;
+text-decoration:none;
+}
+
+.back{
+margin-top:25px;
+background:#ff4d6d;
+color:white;
+}
+
+.rating{
+display:flex;
+justify-content:center;
+gap:15px;
+margin-top:20px;
+flex-wrap:wrap;
+}
+
+.rate-btn{
 font-size:28px;
-color:#60a5fa;
-margin-bottom:5px;
+padding:15px 20px;
+border:none;
+border-radius:18px;
+cursor:pointer;
+background:rgba(255,255,255,.08);
+color:white;
+}
+
+.counter{
+margin-top:10px;
+font-size:18px;
+font-weight:700;
+}
+
+.modal{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:rgba(0,0,0,.7);
+display:flex;
+align-items:center;
+justify-content:center;
+padding:20px;
+z-index:999;
+}
+
+.modal-box{
+background:#111827;
+padding:25px;
+border-radius:24px;
+width:100%;
+max-width:420px;
+}
+
+.input{
+width:100%;
+padding:15px;
+margin-top:15px;
+border:none;
+border-radius:14px;
+background:#1f2937;
+color:white;
+}
+
+.submit{
+width:100%;
+margin-top:20px;
+}
+
+.address{
+line-height:2;
+font-size:17px;
 }
 
 </style>
 </head>
-
 <body>
 
-<!-- ===== START ===== -->
+<!-- START PAGE -->
 
-<div id="welcome">
+<div id="startPage" class="page center">
 
-<div class="startCard">
+<div class="logo">OT</div>
 
-<img src="sss png.png" class="logo">
-
-<div class="welcomeText" id="welcomeText">
-Добро пожаловать<br>
-Наш офис Omad Tour
+<div class="welcome" id="welcomeText">
+Omad Tour’da ko‘rganingizdan bag‘oyatda xursandmiz
 </div>
 
-<div class="langBox">
-<button class="langBtn" onclick="setLang('uz')">UZ</button>
-<button class="langBtn" onclick="setLang('ru')">RU</button>
-</div>
-
-<button class="startBtn" id="startBtn" onclick="startApp()">
-🚀 Начать
+<button class="btn" onclick="openHome()" id="startBtn">
+Начать
 </button>
 
+<div class="langs">
+<div class="lang-btn" onclick="setLang('uz')">🇺🇿 UZ</div>
+<div class="lang-btn" onclick="setLang('ru')">🇷🇺 RU</div>
 </div>
 
 </div>
 
-<!-- ===== APP ===== -->
+<!-- HOME -->
 
-<div id="app">
+<div id="homePage" class="page hidden">
 
 <div class="header">
 
-<div class="headerLeft">
-<img src="sss png.png" class="logoMini">
-<div class="title">Omad Tour</div>
+<div class="brand">
+<div class="brand-logo">OT</div>
+<div>OMAD TOUR</div>
 </div>
 
-<div class="langBox" style="margin:0;">
-<button class="langBtn" onclick="setLang('uz')">UZ</button>
-<button class="langBtn" onclick="setLang('ru')">RU</button>
-</div>
-
-</div>
-
-<div class="container">
-
-<!-- ===== HOME ===== -->
-
-<div id="home" class="page active">
-
-<div class="menu">
-
-<div class="cardBtn" onclick="openPage('avia')">
-<div class="icon">✈️</div>
-<span id="m1">Avia Bilet</span>
-</div>
-
-<div class="cardBtn" onclick="openPage('visa')">
-<div class="icon">🛂</div>
-<span id="m2">Viza</span>
-</div>
-
-<div class="cardBtn" onclick="openPage('groups')">
-<div class="icon">👥</div>
-<span id="m3">Guruhlarimiz</span>
-</div>
-
-<div class="cardBtn" onclick="openPage('services')">
-<div class="icon">🏢</div>
-<span id="m4">Ofis xizmatlari</span>
-</div>
-
-<div class="cardBtn" onclick="openPage('support')">
-<div class="icon">📞</div>
-<span id="m5">Tezkor aloqa</span>
+<div>
+<button class="btn" onclick="setLang('uz')">UZ</button>
+<button class="btn" onclick="setLang('ru')">RU</button>
 </div>
 
 </div>
 
-<div class="stats">
+<button class="menu-btn" onclick="openSection('avia')">
+✈️ Aviakassa
+</button>
 
-<div class="stat">
-<h2 id="onlineCount">8</h2>
-<p id="onlineText">Kirganlar</p>
+<button class="menu-btn" onclick="openSection('visa')">
+🛂 Viza bo‘limi
+</button>
+
+<button class="menu-btn" onclick="openSection('groups')">
+👥 Guruhlarimiz
+</button>
+
+<button class="menu-btn" onclick="openSection('office')">
+🏢 Ofis xizmatlari
+</button>
+
+<div class="card">
+
+<h2 style="margin-bottom:15px;">☎️ Tezkor aloqa</h2>
+
+<div class="phones">
+<a href="tel:+79811939094" class="phone">
++79811939094
+</a>
+
+<a href="tel:+79379499094" class="phone">
++79379499094
+</a>
 </div>
 
-<div class="stat">
-<h2 id="leftCount">2</h2>
-<p id="leftText">Chiqganlar</p>
+</div>
+
+<div class="card">
+
+<h2 style="margin-bottom:15px;">📍 Adresimiz</h2>
+
+<div class="address">
+Санкт-петербург<br>
+4-я Красноармейская улица, дом 3<br>
+домофон 22в
 </div>
 
 </div>
 
-</div>
+<div class="card">
 
-<!-- ===== AVIA ===== -->
+<h2>❤️‍🔥 Оценка</h2>
 
-<div id="avia" class="page">
+<div class="rating">
 
-<div class="backBtn" id="back1" onclick="goHome()">⬅ Orqaga</div>
+<button class="rate-btn" onclick="vote('love')">
+❤️‍🔥
+</button>
 
-<div class="infoBox" id="aviaText">
-Siz avia bilet bo‘limidasiz. Bu yerda bilet narxlarini bilishingiz va bron qilishingiz mumkin.
-</div>
+<button class="rate-btn" onclick="vote('like')">
+👍
+</button>
 
-<a class="linkBtn" href="https://t.me/OMAD_TOUR9094">Telegram </a>
-
-<a class="linkBtn" href="https://wa.me/79811939094">WhatsApp </a>
-
-<a class="linkBtn" href="https://max.ru/u/f9LHodD0cOLLpEmAWC_I3iUUWcn5IO6DFYg0IVz4jEXfm6BJP6OL-L7V0jk">MAX </a>
-
-<button class="spinBtn" onclick="openPage('wheelPage')" id="bonusBtn">
-🎡 Bonus Baraban
+<button class="rate-btn" onclick="vote('bad')">
+👎
 </button>
 
 </div>
 
-<!-- ===== WHEEL ===== -->
-
-<div id="wheelPage" class="page">
-
-<div class="backBtn" id="back2" onclick="openPage('avia')">⬅ Orqaga</div>
-
-<div id="wheelBox">
-
-<div id="pointer"></div>
-
-<div id="wheel"></div>
+<div class="counter">
+❤️‍🔥 <span id="loveCount">0</span>
+  
+👍 <span id="likeCount">0</span>
+  
+👎 <span id="badCount">0</span>
+</div>
 
 </div>
 
-<button class="spinBtn" onclick="spinWheel()" id="spinText">
-🎯 Aylantirish
+</div>
+
+<!-- AVIA -->
+
+<div id="avia" class="page hidden">
+
+<div class="card">
+
+<h1>✈️ Aviakassa</h1>
+
+<div class="text">
+Siz aviakassa bo‘limidasiz bu yerda siz biz bilan bog‘lanib qulay aviabilet narxlari bilan tanishib borishingiz va bron qilish imkoniyatiga egasiz.
+</div>
+
+<div class="links">
+
+<a class="link" href="https://t.me/OMAD_TOUR9094" target="_blank">
+Aviakassa Telegram
+</a>
+
+<a class="link" href="https://wa.me/79811939094" target="_blank">
+Aviakassa WhatsApp
+</a>
+
+<a class="link" href="https://max.ru/u/f9LHodD0cOLLpEmAWC_I3iUUWcn5IO6DFYg0IVz4jEXfm6BJP6OL-L7V0jk" target="_blank">
+Aviakassa Max
+</a>
+
+</div>
+
+<div class="phones">
+
+<a href="tel:+79811939094" class="phone">
++79811939094
+</a>
+
+<a href="tel:+79379499094" class="phone">
++79379499094
+</a>
+
+</div>
+
+<button class="btn back" onclick="backHome()">
+⬅️ Orqaga
 </button>
 
-<div class="result" id="result"></div>
+</div>
 
 </div>
 
-<!-- ===== VISA ===== -->
+<!-- VISA -->
 
-<div id="visa" class="page">
+<div id="visa" class="page hidden">
 
-<div class="backBtn" id="back3" onclick="goHome()">⬅ Orqaga</div>
+<div class="card">
 
-<div class="infoBox" id="visaText">
-Siz viza tekshirish bo‘limidasiz va bu yerda vizangiz statusini tekshirishingiz mumkin.
+<h1>🛂 Viza bo‘limi</h1>
+
+<div class="text">
+Siz viza bo‘limidasiz siz bu yerda viza javoblarini bilishingiz va savollar bo‘lsa konsullik bo‘limiga murojaat qilishingiz mumkin.
 </div>
 
-<a class="linkBtn" href="https://visa.mfa.uz/ruxsat/view">
-🌐 Vizani Tekshirish
+<div class="links">
+
+<a class="link" href="https://visa.mfa.uz/ruxsat/view" target="_blank">
+Viza javoblari
 </a>
 
-<a class="linkBtn" href="https://t.me/+i8I6ByH_CUVhOWQy">
-👥 Konsullik Guruhi
-</a>
-
-</div>
-
-<!-- ===== GROUPS ===== -->
-
-<div id="groups" class="page">
-
-<div class="backBtn" id="back4" onclick="goHome()">⬅ Orqaga</div>
-
-<div class="infoBox" id="groupsText">
-Siz guruhlar bo‘limidasiz.
-</div>
-
-<a class="linkBtn" href="https://t.me/+OW_pzYSHjIA5NmQy">
-Telegram Guruh
-</a>
-
-<a class="linkBtn" href="https://chat.whatsapp.com/KgnvfhpMYso6lSX3kbNd4l?mode=gi_t">
-WhatsApp Guruh
-</a>
-
-<a class="linkBtn" href="https://max.ru/join/M4-SsjF594_qN-XYZd8YabTAqxvGFRzd30p_N2hRh7c">
-MAX Guruh
+<a class="link" href="https://t.me/+i8I6ByH_CUVhOWQy" target="_blank">
+Uzb Sankt-Peterburg bosh konsulxona
 </a>
 
 </div>
 
-<!-- ===== SERVICES ===== -->
+<button class="btn back" onclick="backHome()">
+⬅️ Orqaga
+</button>
 
-<div id="services" class="page">
+</div>
 
-<div class="backBtn" id="back5" onclick="goHome()">⬅ Orqaga</div>
+</div>
 
-<div class="infoBox" id="servicesText">
+<!-- GROUPS -->
 
-КСЕРОКОПИЯ<br><br>
+<div id="groups" class="page hidden">
+
+<div class="card">
+
+<h1>👥 Guruhlarimiz</h1>
+
+<div class="text">
+Siz guruhlarimiz bo‘limidasiz va bu yerda siz biletlar narxini qaysi kunda qancha turganini bilib borishingiz mumkin.
+</div>
+
+<div class="links">
+
+<a class="link" href="https://t.me/+OW_pzYSHjIA5NmQy" target="_blank">
+Telegram guruh
+</a>
+
+<a class="link" href="https://chat.whatsapp.com/KgnvfhpMYso6lSX3kbNd4l?mode=gi_t" target="_blank">
+WhatsApp guruhimiz
+</a>
+
+<a class="link" href="https://max.ru/join/M4-SsjF594_qN-XYZd8YabTAqxvGFRzd30p_N2hRh7c" target="_blank">
+Max guruhimiz
+</a>
+
+</div>
+
+<button class="btn back" onclick="backHome()">
+⬅️ Orqaga
+</button>
+
+</div>
+
+</div>
+
+<!-- OFFICE -->
+
+<div id="office" class="page hidden">
+
+<div class="card">
+
+<h1>🏢 Ofis xizmatlari</h1>
+
+<div class="text">
+
 Чёрно — Белый 35 ₽<br>
 Двухсторонняя 50 ₽<br>
 Цветная 50 ₽<br>
@@ -567,271 +561,192 @@ MAX Guruh
 Консульский учёт — 500 ₽<br>
 Транзитная виза — 1000 ₽
 
-
 </div>
 
-<a class="linkBtn" href="https://t.me/AVIAKASSA9094" id="orderBtn">
-📩 Buyurtma berish
-</a>
+<button class="btn" onclick="openModal()">
+📨 Buyurtma
+</button>
 
-</div>
-
-<!-- ===== SUPPORT ===== -->
-
-<div id="support" class="page">
-
-<div class="backBtn" id="back6" onclick="goHome()">⬅ Orqaga</div>
-
-<a class="linkBtn" href="tel:+79811939094">
-📞 +7 981 193 90 94
-</a>
-
-<a class="linkBtn" href="tel:+79379499094">
-📞 +7 937 949 90 94
-</a>
-
-<a class="linkBtn" href="tel:+79214027489">
-📞 +7 921 402 74 89
-</a>
+<button class="btn back" onclick="backHome()">
+⬅️ Orqaga
+</button>
 
 </div>
 
 </div>
+
+<!-- MODAL -->
+
+<div id="modal" class="modal hidden">
+
+<div class="modal-box">
+
+<h2>Buyurtma</h2>
+
+<input type="text" id="name" class="input" placeholder="Ismingiz *">
+
+<input type="tel" id="phone" class="input" placeholder="Tel raqamingiz *">
+
+<textarea id="message" class="input" placeholder="Savol"></textarea>
+
+<button class="btn submit" onclick="sendOrder()">
+Yuborish
+</button>
+
+<button class="btn back submit" onclick="closeModal()">
+Orqaga
+</button>
+
 </div>
 
-<!-- ===== FIREBASE ===== -->
-
-<script type="module">
-
-import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
-
-import {
-getFirestore,
-doc,
-setDoc,
-getDoc,
-updateDoc,
-increment
-}
-from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
-
-const firebaseConfig = {
-apiKey: "AIzaSyAtfwfGdUHD13X406E-GfNrUXSHXl-pBxY",
-authDomain: "muxiw-934c4.firebaseapp.com",
-projectId: "muxiw-934c4",
-storageBucket: "muxiw-934c4.firebasestorage.app",
-messagingSenderId: "1022436901083",
-appId: "1:1022436901083:web:9de0a27cb2a886b1154cfe",
-measurementId: "G-LQG2W44H24"
-};
-
-const app = initializeApp(firebaseConfig);
-const db = getFirestore(app);
-
-const statsRef = doc(db,"stats","users");
-
-async function initStats(){
-
-let snap = await getDoc(statsRef);
-
-if(!snap.exists()){
-
-await setDoc(statsRef,{
-online:0,
-left:0
-});
-
-}
-
-await updateDoc(statsRef,{
-online:increment(1)
-});
-
-let updated = await getDoc(statsRef);
-
-onlineCount.innerText = updated.data().online;
-leftCount.innerText = updated.data().left;
-
-}
-
-initStats();
-
-window.addEventListener("beforeunload", async ()=>{
-
-await updateDoc(statsRef,{
-left:increment(1)
-});
-
-});
-
-</script>
+</div>
 
 <script>
 
-/* ===== START ===== */
+let currentLang='uz';
 
-function startApp(){
+function openHome(){
+document.getElementById('startPage').classList.add('hidden');
+document.getElementById('homePage').classList.remove('hidden');
+}
 
-document.getElementById("welcome").style.display="none";
-document.getElementById("app").style.display="block";
+function openSection(id){
+
+document.getElementById('homePage').classList.add('hidden');
+
+document.getElementById('avia').classList.add('hidden');
+document.getElementById('visa').classList.add('hidden');
+document.getElementById('groups').classList.add('hidden');
+document.getElementById('office').classList.add('hidden');
+
+document.getElementById(id).classList.remove('hidden');
 
 }
 
-/* ===== PAGES ===== */
+function backHome(){
 
-function openPage(id){
+document.getElementById('avia').classList.add('hidden');
+document.getElementById('visa').classList.add('hidden');
+document.getElementById('groups').classList.add('hidden');
+document.getElementById('office').classList.add('hidden');
 
-document.querySelectorAll(".page").forEach(p=>{
-p.classList.remove("active");
-});
-
-document.getElementById(id).classList.add("active");
-
-}
-
-function goHome(){
-
-openPage("home");
+document.getElementById('homePage').classList.remove('hidden');
 
 }
 
-/* ===== LANGUAGE ===== */
+function openModal(){
+document.getElementById('modal').classList.remove('hidden');
+}
+
+function closeModal(){
+document.getElementById('modal').classList.add('hidden');
+}
+
+function sendOrder(){
+
+let name=document.getElementById('name').value;
+let phone=document.getElementById('phone').value;
+let message=document.getElementById('message').value;
+
+if(name==='' || phone===''){
+alert('Majburiy maydonlarni to‘ldiring');
+return;
+}
+
+alert(
+'Buyurtma yuborildi!\n\n' +
+'Ism: '+name+'\n' +
+'Telefon: '+phone+'\n' +
+'Savol: '+message
+);
+
+/
+
+TELEGRAM BOT API ULASH:
+
+const token='BOT_TOKEN';
+const chatId='YOUR_ID';
+
+fetch(https://api.telegram.org/bot${token}/sendMessage,{
+method:'POST',
+headers:{
+'Content-Type':'application/json'
+},
+body:JSON.stringify({
+chat_id:chatId,
+text:
+`Yangi buyurtma\n\nIsm: ${name}\nTelefon: ${phone}\nSavol: ${message}`
+})
+})
+
+*/
+
+closeModal();
+
+}
+
+let votes={
+love:0,
+like:0,
+bad:0
+};
+
+let userVote=null;
+let changed=false;
+
+function vote(type){
+
+if(userVote===null){
+
+votes[type]++;
+
+userVote=type;
+
+}
+else if(!changed){
+
+votes[userVote]--;
+
+votes[type]++;
+
+changed=true;
+
+userVote=type;
+
+}
+else{
+alert('Siz ovozni allaqachon o‘zgartirgansiz');
+return;
+}
+
+document.getElementById('loveCount').innerText=votes.love;
+document.getElementById('likeCount').innerText=votes.like;
+document.getElementById('badCount').innerText=votes.bad;
+
+}
 
 function setLang(lang){
 
-if(lang==="ru"){
+currentLang=lang;
 
-welcomeText.innerHTML="Добро пожаловать<br>Наш офис Omad Tour";
+if(lang==='ru'){
 
-startBtn.innerHTML="🚀 Начать";
+document.getElementById('welcomeText').innerText=
+'Мы очень рады видеть вас в Omad Tour';
 
-m1.innerHTML="Авиабилеты";
-m2.innerHTML="Виза";
-m3.innerHTML="Наши группы";
-m4.innerHTML="Услуги офиса";
-m5.innerHTML="Быстрая связь";
-
-back1.innerHTML="⬅ Назад";
-back2.innerHTML="⬅ Назад";
-back3.innerHTML="⬅ Назад";
-back4.innerHTML="⬅ Назад";
-back5.innerHTML="⬅ Назад";
-back6.innerHTML="⬅ Назад";
-
-onlineText.innerHTML="Онлайн";
-leftText.innerHTML="Вышли";
-
-aviaText.innerHTML=
-"Вы находитесь в разделе авиабилетов. Здесь вы можете узнать цены на билеты и оформить бронь.";
-
-bonusBtn.innerHTML="🎡 Бонус барабан";
-
-visaText.innerHTML=
-"Вы находитесь в разделе проверки визы. Здесь можно проверить статус визы и обратиться в консульскую группу.";
-
-groupsText.innerHTML=
-"Вы находитесь в разделе групп авиабилетов.";
-
-orderBtn.innerHTML="📩 Оформить заказ";
-
-spinText.innerHTML="🎯 Крутить";
-
-}else{
-
-welcomeText.innerHTML="Sizni Omad Tour’da ko‘rganimizdan bag‘oyatda xursandmiz";
-
-startBtn.innerHTML="🚀 Boshlash";
-
-m1.innerHTML="Avia Bilet";
-m2.innerHTML="Viza";
-m3.innerHTML="Guruhlarimiz";
-m4.innerHTML="Ofis xizmatlari";
-m5.innerHTML="Tezkor aloqa";
-
-back1.innerHTML="⬅ Orqaga";
-back2.innerHTML="⬅ Orqaga";
-back3.innerHTML="⬅ Orqaga";
-back4.innerHTML="⬅ Orqaga";
-back5.innerHTML="⬅ Orqaga";
-back6.innerHTML="⬅ Orqaga";
-
-onlineText.innerHTML="Kirganlar";
-leftText.innerHTML="Chiqganlar";
-
-aviaText.innerHTML=
-"Siz avia bilet bo‘limidasiz. Bu yerda bilet narxlarini bilishingiz va bron qilishingiz mumkin.";
-
-bonusBtn.innerHTML="🎡 Bonus Baraban";
-
-visaText.innerHTML=
-"Siz viza tekshirish bo‘limidasiz va bu yerda vizangiz statusini tekshirishingiz mumkin.";
-
-groupsText.innerHTML=
-"Siz guruhlar bo‘limidasiz.";
-
-orderBtn.innerHTML="📩 Buyurtma berish";
-
-spinText.innerHTML="🎯 Aylantirish";
+document.getElementById('startBtn').innerText=
+'Начать';
 
 }
+else{
+
+document.getElementById('welcomeText').innerText=
+'Omad Tour’da ko‘rganingizdan bag‘oyatda xursandmiz';
+
+document.getElementById('startBtn').innerText=
+'Boshlash';
 
 }
-
-/* ===== BARABAN ===== */
-
-const wheel=document.getElementById("wheel");
-
-for(let i=1;i<=20;i++){
-
-let label=document.createElement("div");
-
-label.className="label";
-
-let angle=(360/20)*i;
-
-label.style.transform=
-`rotate(${angle}deg) translate(0,-128px) rotate(-${angle}deg)`;
-
-label.innerHTML=i+"%";
-
-wheel.appendChild(label);
-
-}
-
-let spinning=false;
-
-function spinWheel(){
-
-if(localStorage.getItem("wheelPlayed")){
-
-result.innerHTML="❌ Siz faqat 1 marta aylantira olasiz";
-return;
-
-}
-
-if(spinning) return;
-
-spinning=true;
-
-localStorage.setItem("wheelPlayed","true");
-
-let prizes=[0,1,2,4,5];
-
-let prize=prizes[Math.floor(Math.random()*prizes.length)];
-
-let segment=360/20;
-
-let target=(prize*segment)+(segment/2);
-
-let deg=360*8-target;
-
-wheel.style.transform=`rotate(${deg}deg)`;
-
-setTimeout(()=>{
-
-result.innerHTML="🎉 Siz yutdingiz: "+prize+"%";
-
-},6000);
 
 }
 

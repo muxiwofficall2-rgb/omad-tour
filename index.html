@@ -418,6 +418,12 @@ id="officeBtn">
 <button class="main-btn"
 onclick="openPage('contact')"
 id="contactBtn">
+t
+</button>
+
+<button class="main-btn"
+onclick="openPage('contact')"
+id="contactBtn">
 📞 online aloqa
 </button>
 
@@ -1043,15 +1049,13 @@ const message=
 document.getElementById("message").value;
 
 if(!name || !phone){
-alert("Ma'lumot kiriting");
+alert("Ma'lumotni tuliq kiriting");
 return;
 }
 
 const text=
 `📩 YANGI BUYURTMA
-
 👤 Ism: ${name}
-
 📞 Telefon:
 ${code}${phone}
 
@@ -1072,7 +1076,7 @@ text:text
 }
 );
 
-alert("Отправлено ожидайте нащего звонка!!! yuborildi iltimos qo'ngirpg'imizni kuting✅");
+alert("Отправлено ожидайте нащего звонка!!! yuborildi iltimos qo'ngirog'imizni kuting✅");
 
 }
 

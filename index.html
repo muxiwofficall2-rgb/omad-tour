@@ -416,9 +416,9 @@ id="officeBtn">
 </button>
 
 <button class="main-btn"
-onclick="openPage('contact')"
-id="contactBtn">
-t
+onclick="openPage('call')"
+id="suportbtn">
+tel raqam
 </button>
 
 <button class="main-btn"
@@ -651,6 +651,22 @@ Buyurtma
 
 </div>
 
+<!-- ===== SUPPORT ===== -->
+
+<div class="back-top"
+onclick="goHome()">
+⬅️ <span id="backText6">Orqaga</span> 
+    
+<a class="main-btn" href="tel:+79811939094">
+📞 +7 981 193 90 94
+</a>
+
+<a class="main-btn" href="tel:+79379499094">
+📞 +7 937 949 90 94
+</a>
+
+</div>
+
 <!-- CONTACT -->
 
 <div class="page" id="contact">
@@ -678,7 +694,7 @@ placeholder="Ismingiz *">
 
 <input id="phone"
 type="number"
-placeholder="901234567">
+placeholder="Telefon raqamingiz">
 
 </div>
 
@@ -1022,7 +1038,7 @@ document.getElementById("phone").placeholder=
 "Telefon raqamingiz";
 
 document.getElementById("message").placeholder=
-"Savol";
+"Savolingiz";
 
 document.getElementById("sendBtn").innerText=
 "Yuborish";
@@ -1055,6 +1071,7 @@ return;
 
 const text=
 `📩 YANGI BUYURTMA
+
 👤 Ism: ${name}
 📞 Telefon:
 ${code}${phone}

@@ -1,7 +1,7 @@
 {
   "name": "OMAD TOUR — Aviakassa",
   "short_name": "OMAD TOUR",
-  "description": "OMAD TOUR — Россия Узбекистан авиабилетлар",
+  "description": "OMAD TOUR — Rossiya Uzbekiston aviabiletlar",
   "start_url": "./index.html",
   "display": "standalone",
   "background_color": "#0a0a0f",
@@ -22,6 +22,5 @@
       "purpose": "any maskable"
     }
   ],
-  "screenshots": [],
   "categories": ["travel", "business"]
 }
